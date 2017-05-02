@@ -58,5 +58,5 @@ Board.prototype.createElement = function() {
 }
 
 var board = new Board();
-console.log(board);
-console.log(board.createElement());
+var divLevel = document.getElementById("level");
+level.appendChild(board.createElement());

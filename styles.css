@@ -1,0 +1,23 @@
+div.level {
+    width:100vw;
+    height:100vh;
+}	
+
+div.board {
+	margin: auto;
+	width: 370px;
+	cursor:pointer;
+	cursor:crosshair;
+}
+
+div.row {
+	width: 90%;
+	margin: 0 auto;
+	display: inline;
+}
+
+div.square {
+	width: 100%;
+	display: inline;
+	margin: auto;
+}
