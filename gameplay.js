@@ -38,23 +38,42 @@ function Board() {
 }
 
 Board.prototype.createElement = function() {
-    var elementBoard = document.createElement("div");
-    elementBoard.className = "board";
+    function createBoardElement() {
+        var boardElement = document.createElement("div");
+        boardElement.className = "board";
+        return boardElement;
+    }
+
+    function createRowElement() {
+        var rowElement = document.createElement("div");
+        rowElement.className = "row";
+        return rowElement;
+    }
+
+    function createSquareElement(imageIndex) {
+        function createSquareImageElement(square) {
+            var squareImageElement = document.createElement("img");
+            squareImageElement.className = "squareImage";
+            squareImageElement.src = IMAGES_FOLDER+images[imageIndex]+IMAGES_EXTENSION;    
+            return squareImageElement;        
+        }
+
+        var squareElement = document.createElement("div");
+        squareElement.className = "square";
+        squareElement.appendChild(createSquareImageElement(this.currentImage));
+        return squareElement;
+    }
+
+    var boardElement = createBoardElement();
     this.squares.forEach(function(row) {
-        var elementRow = document.createElement("div");
-        elementRow.className = "row";
-        elementBoard.appendChild(elementRow);
+        var rowElement = createRowElement();
+        boardElement.appendChild(rowElement);
         row.forEach(function(square) {
-            var elementSquare = document.createElement("div");
-            elementSquare.className = "square";
-            var elementSquareImage = document.createElement("img");
-            elementSquareImage.className = "squareImage";
-            elementSquareImage.src = IMAGES_FOLDER+images[square.currentImage]+IMAGES_EXTENSION;
-            elementSquare.appendChild(elementSquareImage);
-            elementRow.appendChild(elementSquare);
+            var squareElement = createSquareElement(square.currentImage);
+            rowElement.appendChild(squareElement);
         });
     });
-    return elementBoard;
+    return boardElement;
 }
 
 var board = new Board();
