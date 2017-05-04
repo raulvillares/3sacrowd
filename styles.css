@@ -1,3 +1,13 @@
+﻿div.logo {
+	margin: auto;
+}
+
+#logo img {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}	
+
 div.level {
     width:100vw;
     height:100vh;
