@@ -1,4 +1,4 @@
-# Threeisacrowd
+# 3sacrowd!
 
 Original idea by Eric Friedman
 
