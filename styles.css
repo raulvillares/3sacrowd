@@ -16,8 +16,23 @@ div.level {
 div.board {
 	margin: auto;
 	width: 370px;
-	cursor:pointer;
 	cursor:crosshair;
+}
+
+div.buttons {
+	margin: auto;
+	width: 370px;
+	cursor:pointer;
+}
+
+div.imageButtons {
+  width: 99%;
+  margin: 0 auto;
+}
+
+img.button {
+	padding-top: 10px;
+	padding-right: 20px;
 }
 
 div.row {

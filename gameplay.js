@@ -8,3 +8,4 @@ headerImage.src = LOGO_FULL_PATH;
 document.getElementById("headerDiv").appendChild(headerImage);
 var board = new Board();
 document.getElementById("level").appendChild(board.createElement());
+document.getElementById("level").appendChild(createButtons());
