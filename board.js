@@ -61,7 +61,7 @@ Board.prototype.clicked = function(event) {
                     clickedSquare.changeImage(imageBeingChecked);
                     validImageFound = true;
                     if (imageBeingChecked == EMPTY) --filledSquares; else ++filledSquares;
-                    if (filledSquares == squaresToFill) console.log("COMPLETED");
+                    if (filledSquares == squaresToFill) document.getElementById("headerImage").src = COMPLETED_FULL_PATH;
                 } else {
                     imageBeingChecked = nextImage(imageBeingChecked);
                 }
