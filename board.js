@@ -50,17 +50,23 @@ Board.prototype.createElement = function() {
 }
 
 Board.prototype.clicked = function(event) {
-    var squarePosition = getPosition(event.target.id);
-    clickedSquare = board.squares[squarePosition[0]][squarePosition[1]];
-    let imageBeingChecked = nextImage(clickedSquare.currentImage);
-    let validImageFound = false;
-    while(!validImageFound) {
-    	if ((imageBeingChecked == EMPTY) || (board.validImage(imageBeingChecked, squarePosition))) {
-    		clickedSquare.changeImage(imageBeingChecked);
-    		validImageFound = true;
-		} else {
-			imageBeingChecked = nextImage(imageBeingChecked);
-		}
+    if (filledSquares < squaresToFill) {
+        if (event.target.className == 'squareImage') {
+            var squarePosition = getPosition(event.target.id);
+            clickedSquare = board.squares[squarePosition[0]][squarePosition[1]];
+            let imageBeingChecked = nextImage(clickedSquare.currentImage);
+            let validImageFound = false;
+            while(!validImageFound) {
+                if ((imageBeingChecked == EMPTY) || (board.validImage(imageBeingChecked, squarePosition))) {
+                    clickedSquare.changeImage(imageBeingChecked);
+                    validImageFound = true;
+                    if (imageBeingChecked == EMPTY) --filledSquares; else ++filledSquares;
+                    if (filledSquares == squaresToFill) console.log("COMPLETED");
+                } else {
+                    imageBeingChecked = nextImage(imageBeingChecked);
+                }
+            }
+        }
     }
 }
 
