@@ -1,3 +1,12 @@
+var undo = function(event) {
+    if(movements.length > 0) {
+        var positionLastMovement = movements.pop();
+        var squareLastMovement = board.squares[positionLastMovement[0]][positionLastMovement[1]];
+        squareLastMovement.changeImage(EMPTY);
+        --filledSquares;
+    }
+}
+
 function createButtons() {
     function createButton(id, description) {
         var button = document.createElement("img");
@@ -13,7 +22,9 @@ function createButtons() {
     var imageButtonsElement = document.createElement("div");
     imageButtonsElement.className = "imageButtons";
     imageButtonsElement.appendChild(createButton("previous", "Previous level"));
-    imageButtonsElement.appendChild(createButton("undo", "Undo movement"));
+    var undoButton = createButton("undo", "Undo movement");
+    undoButton.addEventListener("click", undo);
+    imageButtonsElement.appendChild(undoButton);
     imageButtonsElement.appendChild(createButton("restart", "Restart level"));
     imageButtonsElement.appendChild(createButton("next", "next level"));
     buttonsElement.appendChild(imageButtonsElement);

@@ -1,5 +1,6 @@
 function Board() {
     this.squares = [];
+    this.movements = [];
     this.squares.push([new Square(EMPTY, 0, 0), new Square(EMPTY, 0, 1), new Square(EMPTY, 0, 2), new Square(EMPTY, 0, 3), new Square(EMPTY, 0, 4)]);
     this.squares.push([new Square(EMPTY, 1, 0), new Square(EMPTY, 1, 1), new Square(EMPTY, 1, 2), new Square(FIXED_TIC, 1, 3), new Square(EMPTY, 1, 4)]);
     this.squares.push([new Square(EMPTY, 2, 0), new Square(EMPTY, 2, 1), new Square(EMPTY, 2, 2), new Square(EMPTY, 2, 3), new Square(EMPTY,2, 4)]);
@@ -60,7 +61,12 @@ Board.prototype.clicked = function(event) {
                 if ((imageBeingChecked == EMPTY) || (board.validImage(imageBeingChecked, squarePosition))) {
                     clickedSquare.changeImage(imageBeingChecked);
                     validImageFound = true;
-                    if (imageBeingChecked == EMPTY) --filledSquares; else ++filledSquares;
+                    if (imageBeingChecked == EMPTY) {
+                        --filledSquares; 
+                    } else {
+                        ++filledSquares;
+                        movements.push(squarePosition);
+                    }
                     if (filledSquares == squaresToFill) document.getElementById("headerImage").src = COMPLETED_FULL_PATH;
                 } else {
                     imageBeingChecked = nextImage(imageBeingChecked);

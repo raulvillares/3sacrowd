@@ -1,5 +1,6 @@
 var squaresToFill = 20;
 var filledSquares = 0;
+this.movements = [];
 
 document.body.style.backgroundImage = "url('"+BACKGROUND_IMAGES_FOLDER+"colored_land.png')";
 var headerImage = document.createElement("img");
