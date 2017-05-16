@@ -2,8 +2,19 @@ var undo = function(event) {
     if(movements.length > 0) {
         var positionLastMovement = movements.pop();
         var squareLastMovement = board.squares[positionLastMovement[0]][positionLastMovement[1]];
+        if(squareLastMovement.pinned) squareLastMovement.unpin();
         squareLastMovement.changeImage(EMPTY);
         --filledSquares;
+    }
+}
+
+var pin = function(event) {
+    if(pinSelected) {
+        document.getElementById("pin").src = BUTTONS_IMAGES_FOLDER+"pin"+BUTTONS_IMAGES_EXTENSION;
+        pinSelected = false;
+    } else {
+        document.getElementById("pin").src = BUTTONS_IMAGES_FOLDER+"pin_selected"+BUTTONS_IMAGES_EXTENSION;
+        pinSelected = true;
     }
 }
 
@@ -12,6 +23,8 @@ function createButtons() {
         var button = document.createElement("img");
         button.className = "button";
         button.id = id;
+        button.width = 53;
+        button.height = 53;
         button.src = BUTTONS_IMAGES_FOLDER+id+BUTTONS_IMAGES_EXTENSION;
         button.title = description;    
         return button;        
@@ -26,6 +39,9 @@ function createButtons() {
     undoButton.addEventListener("click", undo);
     imageButtonsElement.appendChild(undoButton);
     imageButtonsElement.appendChild(createButton("restart", "Restart level"));
+    var pinButton = createButton("pin", "Pin Square");
+    pinButton.addEventListener("click", pin);
+    imageButtonsElement.appendChild(pinButton);
     imageButtonsElement.appendChild(createButton("next", "next level"));
     buttonsElement.appendChild(imageButtonsElement);
     return buttonsElement;

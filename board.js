@@ -26,7 +26,8 @@ Board.prototype.createElement = function() {
             var squareImageElement = document.createElement("img");
             squareImageElement.className = "squareImage";
             squareImageElement.id = square.generateImageId();
-            squareImageElement.src = generateImagePath(square.currentImage);    
+            squareImageElement.src = generateImagePath(square.currentImage);   
+            squareImageElement.style.border = "solid transparent"; 
             return squareImageElement;        
         }
 
@@ -53,24 +54,42 @@ Board.prototype.createElement = function() {
 Board.prototype.clicked = function(event) {
     if (filledSquares < squaresToFill) {
         if (event.target.className == 'squareImage') {
-            var squarePosition = getPosition(event.target.id);
-            clickedSquare = board.squares[squarePosition[0]][squarePosition[1]];
-            let imageBeingChecked = nextImage(clickedSquare.currentImage);
-            let validImageFound = false;
-            while(!validImageFound) {
-                if ((imageBeingChecked == EMPTY) || (board.validImage(imageBeingChecked, squarePosition))) {
-                    clickedSquare.changeImage(imageBeingChecked);
-                    validImageFound = true;
-                    if (imageBeingChecked == EMPTY) {
-                        --filledSquares; 
-                    } else {
-                        ++filledSquares;
-                        movements.push(squarePosition);
-                    }
-                    if (filledSquares == squaresToFill) document.getElementById("headerImage").src = COMPLETED_FULL_PATH;
+            if(pinSelected)
+                board.pinSquare(event.target.id);
+            else
+                board.turnImage(event.target.id);
+        }
+    }
+}
+
+Board.prototype.pinSquare = function(squareId) {
+    var squarePosition = getPosition(squareId);
+    clickedSquare = board.squares[squarePosition[0]][squarePosition[1]];
+    if(clickedSquare.pinned)
+        clickedSquare.unpin();
+    else
+        clickedSquare.pin();
+}
+
+Board.prototype.turnImage = function(squareId) {
+    var squarePosition = getPosition(squareId);
+    clickedSquare = board.squares[squarePosition[0]][squarePosition[1]];
+    if(!clickedSquare.pinned) {
+        let imageBeingChecked = nextImage(clickedSquare.currentImage);
+        let validImageFound = false;
+        while(!validImageFound) {
+            if ((imageBeingChecked == EMPTY) || (board.validImage(imageBeingChecked, squarePosition))) {
+                clickedSquare.changeImage(imageBeingChecked);
+                validImageFound = true;
+                if (imageBeingChecked == EMPTY) {
+                    --filledSquares; 
                 } else {
-                    imageBeingChecked = nextImage(imageBeingChecked);
+                    ++filledSquares;
+                    movements.push(squarePosition);
                 }
+                if (filledSquares == squaresToFill) document.getElementById("headerImage").src = COMPLETED_FULL_PATH;
+            } else {
+                imageBeingChecked = nextImage(imageBeingChecked);
             }
         }
     }

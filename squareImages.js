@@ -31,3 +31,7 @@ function getPosition(imageId){
 function nextImage(imageId) {
 	return (imageId+1) % NUMBER_CHANGEABLE_IMAGES;
 }
+
+function pinnableImage(imageId) {
+	return(imageId == TIC) || (imageId == TAC);
+}

@@ -6,6 +6,7 @@ function Square(initialImage, row, column) {
         this.changeable = true; 
     else 
         this.changeable = false;  
+    this.pinned = false;
 }
 
 Square.prototype.nextImage = function() {
@@ -18,12 +19,30 @@ Square.prototype.nextImage = function() {
 Square.prototype.changeImage = function(imageId) {
     if(this.changeable) {
         this.currentImage = imageId;
-        document.getElementById("imageRow"+this.row+"Column"+this.column).src = generateImagePath(this.currentImage); 
+        document.getElementById(this.generateImageId()).src = generateImagePath(this.currentImage); 
     }
 }
 
 Square.prototype.generateImageId = function() {
     return "imageRow"+this.row+"Column"+this.column;
+}
+
+Square.prototype.pinnable = function() {
+    return(this.currentImage == TIC) || (this.currentImage == TAC);
+}
+
+Square.prototype.pin = function() {
+    if(this.pinnable()) {
+        this.pinned = true;
+        document.getElementById(this.generateImageId()).style.border = "dotted #000000";
+    }
+}
+
+Square.prototype.unpin = function() {
+    if(this.pinnable) {
+        this.pinned = false;
+        document.getElementById(this.generateImageId()).style.border = "solid transparent";
+    }
 }
 
 Square.prototype.toString = function() {
