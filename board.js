@@ -1,4 +1,9 @@
 function Board() {
+    this.squares = [];
+}
+
+Board.prototype.totalNumberSquares = function() {
+    return this.squares.length*this.squares[0].length
 }
 
 Board.prototype.createElement = function() {

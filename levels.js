@@ -32,7 +32,7 @@ var level2 = {
   		"yellowFixed",
   		"greenFixed"
 	],
-  "squaresTypesNames": 
+  "initialSquares": 
 	    [
 	      [EMPTY, EMPTY, FIXED_TIC, EMPTY, FIXED_TIC],
 	      [FIXED_TAC, EMPTY, FIXED_EMPTY, EMPTY, EMPTY],
@@ -54,7 +54,7 @@ var level3 = {
 	    "ghostFixed",
 	    "blackandwhiteFixed"
 	  ],
-  "squaresTypesNames" :
+  "initialSquares" :
 	  [
 	      [EMPTY, FIXED_TIC, FIXED_TIC, EMPTY, EMPTY],
 	      [EMPTY, EMPTY, EMPTY, EMPTY, EMPTY],
@@ -76,7 +76,7 @@ var level4 = {
     "garnetFixed",
     "orangeFixed"
   ],
-  "squaresTypesNames" :
+  "initialSquares" :
   [
       [FIXED_TIC, EMPTY, EMPTY, EMPTY, FIXED_TAC],
       [FIXED_TIC, FIXED_EMPTY, EMPTY, EMPTY, FIXED_EMPTY],
@@ -98,7 +98,7 @@ var level5 = {
     "mintyfixed",
     "paleyellowfixed"
   ],
-  "squaresTypesNames" :
+  "initialSquares" :
   [
       [EMPTY, EMPTY, FIXED_TAC, EMPTY, FIXED_TAC],
       [EMPTY, EMPTY, EMPTY, FIXED_EMPTY, EMPTY],
@@ -120,7 +120,7 @@ var level6 = {
     "canvasBlueFixed",
     "canvasPinkFixed"
   ],
-  "squaresTypesNames" :
+  "initialSquares" :
   [
       [FIXED_TIC, EMPTY, FIXED_TAC, EMPTY, FIXED_TAC],
       [EMPTY, FIXED_EMPTY, EMPTY, EMPTY, EMPTY],
@@ -142,7 +142,7 @@ var level7 = {
     "garnetFixed",
     "orangeFixed"
   ],
-  "squaresTypesNames" :
+  "initialSquares" :
   [
       [FIXED_TAC, EMPTY, FIXED_EMPTY, EMPTY, FIXED_TAC, FIXED_TAC],
       [EMPTY, FIXED_TIC, FIXED_EMPTY, EMPTY, EMPTY, FIXED_TIC],
