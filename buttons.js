@@ -5,6 +5,7 @@ var undoMovement = function(event) {
         if(squareLastMovement.pinned) squareLastMovement.unpin();
         squareLastMovement.changeImage(EMPTY);
         --level.filledSquares;
+        play(UNDO);
     }
 }
 
@@ -27,7 +28,6 @@ var previousLevel = function(event) {
 }
 
 var nextLevel = function(event) {
-    console.log(level);
     if(level.number <= NUMBER_OF_LEVELS) level = loadLevel(level.number+1);
 }
 

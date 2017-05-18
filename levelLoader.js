@@ -1,6 +1,7 @@
 function loadLevel(levelNumber) {
     var levelConfiguration = levels[levelNumber-1];
-    clearLevel();
+    clear();
+    loadHeader();
     document.body.style.backgroundImage = "url('"+BACKGROUND_IMAGES_FOLDER+levelConfiguration.backgroundImage+BACKGROUND_IMAGES_EXTENSION+"')";
     level = new Level(levelConfiguration, generateBoard(levelConfiguration));
     document.getElementById("level").appendChild(level.board.createElement());
@@ -8,11 +9,31 @@ function loadLevel(levelNumber) {
     return level;
 }
 
-    function clearLevel() {
-        var levelElement = document.getElementById("level");
-        while (levelElement.firstChild) {
-            levelElement.removeChild(levelElement.firstChild);
-        }        
+    function clear() {
+        clearHeader();
+        clearLevel();
+    }
+
+        function clearLevel() {
+            clearElement("level");
+        }
+
+        function clearHeader() {
+            clearElement("headerDiv");
+        }    
+
+            function clearElement(elementName) {
+                var element = document.getElementById(elementName);
+                while (element.firstChild) {
+                    element.removeChild(element.firstChild);
+                }        
+            }    
+
+    function loadHeader() {
+        var headerImage = document.createElement("img");
+        headerImage.id = "headerImage";
+        headerImage.src = LOGO_FULL_PATH;
+        document.getElementById("headerDiv").appendChild(headerImage);        
     }
 
     function generateBoard(levelConfiguration) {

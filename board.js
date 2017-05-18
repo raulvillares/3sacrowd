@@ -2,8 +2,14 @@ function Board() {
     this.squares = [];
 }
 
-Board.prototype.totalNumberSquares = function() {
-    return this.squares.length*this.squares[0].length
+Board.prototype.numberChangeableSquares = function() {
+    var count = 0;
+    this.squares.forEach(function(row) {
+        row.forEach(function(square) {
+            if(square.changeable) ++count;
+        });
+    });
+    return count;
 }
 
 Board.prototype.createElement = function() {
@@ -71,21 +77,21 @@ Board.prototype.pinSquare = function(squareId) {
 
 Board.prototype.turnImage = function(squareId) {
     var squarePosition = getPosition(squareId);
-    clickedSquare = level.board.squares[squarePosition[0]][squarePosition[1]];
+    clickedSquare = this.squares[squarePosition[0]][squarePosition[1]];
+    var initialImage = clickedSquare.currentImage;
     if((!clickedSquare.pinned) && (clickedSquare.changeable)) {
         let imageBeingChecked = nextImage(clickedSquare.currentImage);
         let validImageFound = false;
         while(!validImageFound) {
-            if ((imageBeingChecked == EMPTY) || (level.board.validImage(imageBeingChecked, squarePosition))) {
+            if ((imageBeingChecked == EMPTY) || (this.validImage(imageBeingChecked, squarePosition))) {
                 clickedSquare.change(imageBeingChecked);
                 validImageFound = true;
-                if (imageBeingChecked == EMPTY) {
-                    --level.filledSquares; 
-                } else {
-                    ++level.filledSquares;
-                    level.movements.push(squarePosition);
+                if (imageBeingChecked != EMPTY) level.movements.push(squarePosition);
+                this.updateMovements(initialImage, imageBeingChecked);
+                if (level.filledSquares == level.squaresToFill) {
+                    document.getElementById("headerImage").src = COMPLETED_FULL_PATH;
+                    play(COMPLETED);
                 }
-                if (level.filledSquares == level.squaresToFill) document.getElementById("headerImage").src = COMPLETED_FULL_PATH;
             } else {
                 imageBeingChecked = nextImage(imageBeingChecked);
             }
@@ -94,6 +100,21 @@ Board.prototype.turnImage = function(squareId) {
         play(FORBIDDEN);
     }
 }
+
+Board.prototype.updateMovements = function (initialImage, finalImage) {
+    var counter = 0;
+    if((initialImage == EMPTY) && (finalImage != EMPTY)) {
+        counter = 1;
+    } else if ((initialImage != EMPTY) && (finalImage == EMPTY)) {
+        counter = -1;
+    }
+    console.log("INITIAL: "+initialImage+" | FINAL : "+finalImage);
+    console.log(counter);
+    level.filledSquares = level.filledSquares + counter;
+    console.log("FILLED : "+level.filledSquares+"/"+level.squaresToFill);
+    return counter;
+}
+
 
 Board.prototype.validImage = function(imageValue, position) {
 

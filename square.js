@@ -40,6 +40,7 @@ Square.prototype.pin = function() {
     if(this.pinnable()) {
         this.pinned = true;
         document.getElementById(this.generateImageId()).style.border = "dotted #000000";
+        play(PINNED);
     }
 }
 
@@ -47,6 +48,7 @@ Square.prototype.unpin = function() {
     if(this.pinnable) {
         this.pinned = false;
         document.getElementById(this.generateImageId()).style.border = "solid transparent";
+        play(UNPINNED);
     }
 }
 
