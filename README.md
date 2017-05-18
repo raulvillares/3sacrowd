@@ -10,5 +10,4 @@ Any contribution is more than welcome! This is a project to learn together.
 
 Art by:
 
-[Kenney] (http://www.kenney.nl)
-[Freepik](http://www.freepik.com)
+Kenney : http://www.kenney.nl & Freepik : http://www.freepik.com
