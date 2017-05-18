@@ -1,20 +1,20 @@
 var undo = function(event) {
-    if(movements.length > 0) {
-        var positionLastMovement = movements.pop();
-        var squareLastMovement = board.squares[positionLastMovement[0]][positionLastMovement[1]];
+    if(level.movements.length > 0) {
+        var positionLastMovement = level.movements.pop();
+        var squareLastMovement = level.board.squares[positionLastMovement[0]][positionLastMovement[1]];
         if(squareLastMovement.pinned) squareLastMovement.unpin();
         squareLastMovement.changeImage(EMPTY);
-        --filledSquares;
+        --level.filledSquares;
     }
 }
 
 var pin = function(event) {
-    if(pinSelected) {
+    if(level.pinSelected) {
         document.getElementById("pin").src = BUTTONS_IMAGES_FOLDER+"pin"+BUTTONS_IMAGES_EXTENSION;
-        pinSelected = false;
+        level.pinSelected = false;
     } else {
         document.getElementById("pin").src = BUTTONS_IMAGES_FOLDER+"pin_selected"+BUTTONS_IMAGES_EXTENSION;
-        pinSelected = true;
+        level.pinSelected = true;
     }
 }
 

@@ -1,4 +1,4 @@
-{
+var level1 = {
   "levelNumber" : 1,
   "backgroundImage" : "colored_land",
   "imagesFilesNames" :

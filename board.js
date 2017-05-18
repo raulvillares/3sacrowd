@@ -1,11 +1,4 @@
 function Board() {
-    this.squares = [];
-    this.movements = [];
-    this.squares.push([new Square(EMPTY, 0, 0), new Square(EMPTY, 0, 1), new Square(EMPTY, 0, 2), new Square(EMPTY, 0, 3), new Square(EMPTY, 0, 4)]);
-    this.squares.push([new Square(EMPTY, 1, 0), new Square(EMPTY, 1, 1), new Square(EMPTY, 1, 2), new Square(FIXED_TIC, 1, 3), new Square(EMPTY, 1, 4)]);
-    this.squares.push([new Square(EMPTY, 2, 0), new Square(EMPTY, 2, 1), new Square(EMPTY, 2, 2), new Square(EMPTY, 2, 3), new Square(EMPTY,2, 4)]);
-    this.squares.push([new Square(EMPTY, 3, 0), new Square(FIXED_TIC, 3, 1), new Square(FIXED_EMPTY, 3, 2), new Square(EMPTY, 3, 3), new Square(FIXED_TAC, 3, 4)]);
-    this.squares.push([new Square(EMPTY, 4, 0), new Square(EMPTY, 4, 1), new Square(EMPTY, 4, 2), new Square(EMPTY, 4, 3), new Square(FIXED_TAC, 4, 4)]);
 }
 
 Board.prototype.createElement = function() {
@@ -52,9 +45,9 @@ Board.prototype.createElement = function() {
 }
 
 Board.prototype.clicked = function(event) {
-    if (filledSquares < squaresToFill) {
+    if (level.filledSquares < level.squaresToFill) {
         if (event.target.className == 'squareImage') {
-            if(pinSelected)
+            if(level.pinSelected)
                 board.pinSquare(event.target.id);
             else
                 board.turnImage(event.target.id);
@@ -64,7 +57,7 @@ Board.prototype.clicked = function(event) {
 
 Board.prototype.pinSquare = function(squareId) {
     var squarePosition = getPosition(squareId);
-    clickedSquare = board.squares[squarePosition[0]][squarePosition[1]];
+    clickedSquare = level.board.squares[squarePosition[0]][squarePosition[1]];
     if(clickedSquare.pinned)
         clickedSquare.unpin();
     else
@@ -73,21 +66,21 @@ Board.prototype.pinSquare = function(squareId) {
 
 Board.prototype.turnImage = function(squareId) {
     var squarePosition = getPosition(squareId);
-    clickedSquare = board.squares[squarePosition[0]][squarePosition[1]];
+    clickedSquare = level.board.squares[squarePosition[0]][squarePosition[1]];
     if(!clickedSquare.pinned) {
         let imageBeingChecked = nextImage(clickedSquare.currentImage);
         let validImageFound = false;
         while(!validImageFound) {
-            if ((imageBeingChecked == EMPTY) || (board.validImage(imageBeingChecked, squarePosition))) {
+            if ((imageBeingChecked == EMPTY) || (level.board.validImage(imageBeingChecked, squarePosition))) {
                 clickedSquare.changeImage(imageBeingChecked);
                 validImageFound = true;
                 if (imageBeingChecked == EMPTY) {
-                    --filledSquares; 
+                    --level.filledSquares; 
                 } else {
-                    ++filledSquares;
-                    movements.push(squarePosition);
+                    ++level.filledSquares;
+                    level.movements.push(squarePosition);
                 }
-                if (filledSquares == squaresToFill) document.getElementById("headerImage").src = COMPLETED_FULL_PATH;
+                if (level.filledSquares == level.squaresToFill) document.getElementById("headerImage").src = COMPLETED_FULL_PATH;
             } else {
                 imageBeingChecked = nextImage(imageBeingChecked);
             }
@@ -137,15 +130,15 @@ Board.prototype.validImage = function(imageValue, position) {
     }
 
     function adjacentImageValue(checkedPosition) {
-    	return board.squares[checkedPosition[0]][checkedPosition[1]].currentImage;
+    	return level.board.squares[checkedPosition[0]][checkedPosition[1]].currentImage;
     }
 
     function validPosition(checkedPosition) {
         return (
                 (checkedPosition[0] >= 0) &&
                 (checkedPosition[1] >= 0) &&
-                (checkedPosition[0] <= board.squares.length-1) &&
-                (checkedPosition[1] <= board.squares[0].length-1)
+                (checkedPosition[0] <= level.board.squares.length-1) &&
+                (checkedPosition[1] <= level.board.squares[0].length-1)
                 );
     }
 
