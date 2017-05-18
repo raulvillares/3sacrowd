@@ -16,6 +16,11 @@ Square.prototype.nextImage = function() {
         return this.currentImage;
 }
 
+Square.prototype.change = function(imageId) {
+    this.changeImage(imageId);
+    this.playSound(imageId);
+}
+
 Square.prototype.changeImage = function(imageId) {
     if(this.changeable) {
         this.currentImage = imageId;
@@ -45,6 +50,6 @@ Square.prototype.unpin = function() {
     }
 }
 
-Square.prototype.toString = function() {
-    return images[this.currentImage];
+Square.prototype.playSound = function(imageId) {
+    play(imageId);
 }

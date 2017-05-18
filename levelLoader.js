@@ -1,12 +1,11 @@
 function loadLevel(levelNumber) {
     var levelConfiguration = levels[levelNumber-1];
-    document.body.style.backgroundImage = "url('"+BACKGROUND_IMAGES_FOLDER+levelConfiguration.backgroundImage+BACKGROUND_IMAGES_EXTENSION+"')";
-    var levelBoard = generateBoard(levelConfiguration);
-    board = levelBoard;
     clearLevel();
-    document.getElementById("level").appendChild(levelBoard.createElement());
+    document.body.style.backgroundImage = "url('"+BACKGROUND_IMAGES_FOLDER+levelConfiguration.backgroundImage+BACKGROUND_IMAGES_EXTENSION+"')";
+    level = new Level(levelConfiguration, generateBoard(levelConfiguration));
+    document.getElementById("level").appendChild(level.board.createElement());
     document.getElementById("level").appendChild(createButtons());
-    return new Level(levelNumber, levelBoard);
+    return level;
 }
 
     function clearLevel() {

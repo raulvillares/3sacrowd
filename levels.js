@@ -26,7 +26,7 @@ var level2 = {
   "imagesFilesNames" :
   	[
   		"empty",
-  		"yellow.",
+  		"yellow",
   		"green",
   		"box",
   		"yellowFixed",

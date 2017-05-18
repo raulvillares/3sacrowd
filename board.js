@@ -53,9 +53,9 @@ Board.prototype.clicked = function(event) {
     if (level.filledSquares < level.squaresToFill) {
         if (event.target.className == 'squareImage') {
             if(level.pinSelected)
-                board.pinSquare(event.target.id);
+                level.board.pinSquare(event.target.id);
             else
-                board.turnImage(event.target.id);
+                level.board.turnImage(event.target.id);
         }
     }
 }
@@ -72,12 +72,12 @@ Board.prototype.pinSquare = function(squareId) {
 Board.prototype.turnImage = function(squareId) {
     var squarePosition = getPosition(squareId);
     clickedSquare = level.board.squares[squarePosition[0]][squarePosition[1]];
-    if(!clickedSquare.pinned) {
+    if((!clickedSquare.pinned) && (clickedSquare.changeable)) {
         let imageBeingChecked = nextImage(clickedSquare.currentImage);
         let validImageFound = false;
         while(!validImageFound) {
             if ((imageBeingChecked == EMPTY) || (level.board.validImage(imageBeingChecked, squarePosition))) {
-                clickedSquare.changeImage(imageBeingChecked);
+                clickedSquare.change(imageBeingChecked);
                 validImageFound = true;
                 if (imageBeingChecked == EMPTY) {
                     --level.filledSquares; 
@@ -90,6 +90,8 @@ Board.prototype.turnImage = function(squareId) {
                 imageBeingChecked = nextImage(imageBeingChecked);
             }
         }
+    } else {
+        play(FORBIDDEN);
     }
 }
 

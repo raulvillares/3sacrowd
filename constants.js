@@ -8,6 +8,8 @@ const LOGO_FULL_PATH = "./img/logos/logo2.png";
 const COMPLETED_FULL_PATH = "./img/logos/completed.png";
 const BUTTONS_IMAGES_FOLDER = "./img/buttons/";
 const BUTTONS_IMAGES_EXTENSION = ".png";
+const SOUNDS_FOLDER = "sound/";
+const SOUNDS_EXTENSION = ".mp3";
 
 const IMAGE_ID = /^imageRow(\d+)Column(\d+)$/g
 

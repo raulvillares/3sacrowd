@@ -1,5 +1,3 @@
-const images = ["empty", "blue", "pink", "box", "blueFixed", "pinkFixed"];
-
 function imageValuesEquivalent(imageValue1, imageValue2) {
 	function imageEquivalent(imageValue) {
 		if(imageValue == FIXED_TIC) return TIC;
@@ -17,7 +15,7 @@ function imageValuesEquivalent(imageValue1, imageValue2) {
 }
 
 function generateImagePath(imageIndex) {
-    return SQUARE_IMAGES_FOLDER+images[imageIndex]+SQUARE_IMAGES_EXTENSION; 
+    return SQUARE_IMAGES_FOLDER+level.images[imageIndex]+SQUARE_IMAGES_EXTENSION; 
 }
 
 function getPosition(imageId){
