@@ -11,7 +11,7 @@ const BUTTONS_IMAGES_EXTENSION = ".png";
 const SOUNDS_FOLDER = "sound/";
 const SOUNDS_EXTENSION = ".mp3";
 
-const IMAGE_ID = /^imageRow(\d+)Column(\d+)$/g
+const IMAGE_ID = /^imageRow(\d+)Column(\d+)$/g;
 
 const EMPTY = 0;
 const TIC = 1;

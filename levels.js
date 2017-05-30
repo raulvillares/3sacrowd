@@ -24,13 +24,13 @@ var level2 = {
   "levelNumber" : 2,
   "backgroundImage" : "blue_desert",
   "imagesFilesNames" :
-  	[
-  		"empty",
+  [
+      "empty",
       "yellow",
-  		"green",
+      "green",
       "box",
-  		"yellowFixed",
-  		"greenFixed"
+      "yellowFixed",
+      "greenFixed"
 	],
   "initialSquares": 
 	    [
@@ -39,7 +39,7 @@ var level2 = {
         [EMPTY, FIXED_TAC, EMPTY, FIXED_EMPTY, EMPTY],
         [EMPTY, EMPTY, EMPTY, EMPTY, EMPTY],
         [EMPTY, EMPTY, EMPTY, FIXED_TAC, EMPTY]
-	    ]
+      ]
 };
 
 var level3 = {
@@ -53,7 +53,7 @@ var level3 = {
       "castle",
       "ghostFixed",
       "blackandwhiteFixed"
-	  ],
+    ],
   "initialSquares" :
 	  [
         [EMPTY, FIXED_TIC, FIXED_TIC, EMPTY, EMPTY],

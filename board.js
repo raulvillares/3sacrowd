@@ -6,7 +6,7 @@ Board.prototype.numberChangeableSquares = function() {
     var count = 0;
     this.squares.forEach(function(row) {
         row.forEach(function(square) {
-            if(square.changeable) ++count;
+            if(square.changeable) { ++count };
         });
     });
     return count;
@@ -57,11 +57,12 @@ Board.prototype.createElement = function() {
 
 Board.prototype.clicked = function(event) {
     if (level.filledSquares < level.squaresToFill) {
-        if (event.target.className == 'squareImage') {
-            if(level.pinSelected)
+        if (event.target.className == "squareImage") {
+            if(level.pinSelected) {
                 level.board.pinSquare(event.target.id);
-            else
+            } else {
                 level.board.turnImage(event.target.id);
+            }
         }
     }
 };
@@ -87,7 +88,7 @@ Board.prototype.turnImage = function(squareId) {
             if ((imageBeingChecked == EMPTY) || (this.validImage(imageBeingChecked, squarePosition))) {
                 clickedSquare.change(imageBeingChecked);
                 validImageFound = true;
-                if (imageBeingChecked != EMPTY) level.movements.push(squarePosition);
+                if (imageBeingChecked != EMPTY) { level.movements.push(squarePosition); }
                 this.updateMovements(initialImage, imageBeingChecked);
                 if (level.filledSquares == level.squaresToFill) {
                     document.getElementById("headerImage").src = COMPLETED_FULL_PATH;

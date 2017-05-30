@@ -19,10 +19,11 @@ function generateImagePath(imageIndex) {
 }
 
 function getPosition(imageId){
-    var match;
     var position = [];
-    while (match = IMAGE_ID.exec(imageId)) {
+	let match = IMAGE_ID.exec(imageId);
+    while (match) {
         position = [Number(match[1]), Number(match[2])];
+		match = IMAGE_ID.exec(imageId);
 	}
     return position;
 }

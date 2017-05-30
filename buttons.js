@@ -2,12 +2,12 @@ var undoMovement = function(event) {
     if(level.movements.length > 0) {
         var positionLastMovement = level.movements.pop();
         var squareLastMovement = level.board.squares[positionLastMovement[0]][positionLastMovement[1]];
-        if(squareLastMovement.pinned) squareLastMovement.unpin();
+        if(squareLastMovement.pinned) { squareLastMovement.unpin(); }
         squareLastMovement.changeImage(EMPTY);
         --level.filledSquares;
         play(UNDO);
     }
-}
+};
 
 var pinSquare = function(event) {
     if(level.pinSelected) {
@@ -17,21 +17,23 @@ var pinSquare = function(event) {
         document.getElementById("pin").src = BUTTONS_IMAGES_FOLDER+"pin_selected"+BUTTONS_IMAGES_EXTENSION;
         level.pinSelected = true;
     }
-}
+};
 
 var restartLevel = function(event) {
     level = loadLevel(level.number);
-}
+};
 
 var previousLevel = function(event) {
     if(level.number >= 1) {
         level = loadLevel(level.number-1);
     }
-}
+};
 
 var nextLevel = function(event) {
-    if(level.number <= NUMBER_OF_LEVELS) level = loadLevel(level.number+1);
-}
+    if(level.number <= NUMBER_OF_LEVELS) {
+        level = loadLevel(level.number+1);
+    }
+};
 
 function createButtons() {
     function createButton(id, description) {

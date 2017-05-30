@@ -16,27 +16,27 @@ Square.prototype.nextImage = function() {
     } else {
         return this.currentImage;
     }
-}
+};
 
 Square.prototype.change = function(imageId) {
     this.changeImage(imageId);
     this.playSound(imageId);
-}
+};
 
 Square.prototype.changeImage = function(imageId) {
     if(this.changeable) {
         this.currentImage = imageId;
         document.getElementById(this.generateImageId()).src = generateImagePath(this.currentImage); 
     }
-}
+};
 
 Square.prototype.generateImageId = function() {
     return "imageRow"+this.row+"Column"+this.column;
-}
+};
 
 Square.prototype.pinnable = function() {
     return(this.currentImage == TIC) || (this.currentImage == TAC);
-}
+};
 
 Square.prototype.pin = function() {
     if(this.pinnable()) {
@@ -44,7 +44,7 @@ Square.prototype.pin = function() {
         document.getElementById(this.generateImageId()).style.border = "dotted #000000";
         play(PINNED);
     }
-}
+};
 
 Square.prototype.unpin = function() {
     if(this.pinnable) {
@@ -52,8 +52,8 @@ Square.prototype.unpin = function() {
         document.getElementById(this.generateImageId()).style.border = "solid transparent";
         play(UNPINNED);
     }
-}
+};
 
 Square.prototype.playSound = function(imageId) {
     play(imageId);
-}
+};
