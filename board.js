@@ -10,7 +10,7 @@ Board.prototype.numberChangeableSquares = function() {
         });
     });
     return count;
-}
+};
 
 Board.prototype.createElement = function() {
     function createBoardElement() {
@@ -53,7 +53,7 @@ Board.prototype.createElement = function() {
         });
     });
     return boardElement;
-}
+};
 
 Board.prototype.clicked = function(event) {
     if (level.filledSquares < level.squaresToFill) {
@@ -64,20 +64,21 @@ Board.prototype.clicked = function(event) {
                 level.board.turnImage(event.target.id);
         }
     }
-}
+};
 
 Board.prototype.pinSquare = function(squareId) {
     var squarePosition = getPosition(squareId);
-    clickedSquare = level.board.squares[squarePosition[0]][squarePosition[1]];
-    if(clickedSquare.pinned)
+    let clickedSquare = level.board.squares[squarePosition[0]][squarePosition[1]];
+    if(clickedSquare.pinned) {
         clickedSquare.unpin();
-    else
+    } else {
         clickedSquare.pin();
-}
+    }
+};
 
 Board.prototype.turnImage = function(squareId) {
     var squarePosition = getPosition(squareId);
-    clickedSquare = this.squares[squarePosition[0]][squarePosition[1]];
+    let clickedSquare = this.squares[squarePosition[0]][squarePosition[1]];
     var initialImage = clickedSquare.currentImage;
     if((!clickedSquare.pinned) && (clickedSquare.changeable)) {
         let imageBeingChecked = nextImage(clickedSquare.currentImage);
@@ -99,7 +100,7 @@ Board.prototype.turnImage = function(squareId) {
     } else {
         play(FORBIDDEN);
     }
-}
+};
 
 Board.prototype.updateMovements = function (initialImage, finalImage) {
     var counter = 0;
@@ -108,12 +109,9 @@ Board.prototype.updateMovements = function (initialImage, finalImage) {
     } else if ((initialImage != EMPTY) && (finalImage == EMPTY)) {
         counter = -1;
     }
-    console.log("INITIAL: "+initialImage+" | FINAL : "+finalImage);
-    console.log(counter);
     level.filledSquares = level.filledSquares + counter;
-    console.log("FILLED : "+level.filledSquares+"/"+level.squaresToFill);
     return counter;
-}
+};
 
 
 Board.prototype.validImage = function(imageValue, position) {
@@ -177,4 +175,4 @@ Board.prototype.validImage = function(imageValue, position) {
                 (firstAdjacentDirection1ContainsValue && firstAdjacentDirection2ContainsValue)
                 ); 
     }    
-}
+};

@@ -24,7 +24,9 @@ var restartLevel = function(event) {
 }
 
 var previousLevel = function(event) {
-    if(level.number >= 1) level = loadLevel(level.number-1);
+    if(level.number >= 1) {
+        level = loadLevel(level.number-1);
+    }
 }
 
 var nextLevel = function(event) {

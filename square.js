@@ -2,18 +2,20 @@ function Square(initialImage, row, column) {
     this.currentImage = initialImage;
     this.row = row;
     this.column = column;
-    if(initialImage < NUMBER_CHANGEABLE_IMAGES)
+    if(initialImage < NUMBER_CHANGEABLE_IMAGES) {
         this.changeable = true; 
-    else 
+    } else {
         this.changeable = false;  
+    }
     this.pinned = false;
 }
 
 Square.prototype.nextImage = function() {
-    if(this.changeable)
+    if(this.changeable) {
         return (this.currentImage+1) % NUMBER_CHANGEABLE_IMAGES;
-    else
+    } else {
         return this.currentImage;
+    }
 }
 
 Square.prototype.change = function(imageId) {

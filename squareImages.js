@@ -1,11 +1,11 @@
 function imageValuesEquivalent(imageValue1, imageValue2) {
 	function imageEquivalent(imageValue) {
-		if(imageValue == FIXED_TIC) return TIC;
-		if(imageValue == FIXED_TAC) return TAC;
-		if(imageValue == TIC) return FIXED_TIC;
-		if(imageValue == TAC) return FIXED_TAC;
+		if(imageValue == FIXED_TIC) { return TIC; }
+		if(imageValue == FIXED_TAC) { return TAC; }
+		if(imageValue == TIC) { return FIXED_TIC; }
+		if(imageValue == TAC) { return FIXED_TAC; }
 	}
-	equivalent =
+	let equivalent =
 			(imageValue1 == imageValue2) || 
 			( 
 				(imageValue1 == imageEquivalent(imageValue2))  ||
@@ -21,8 +21,9 @@ function generateImagePath(imageIndex) {
 function getPosition(imageId){
     var match;
     var position = [];
-    while (match = IMAGE_ID.exec(imageId))
+    while (match = IMAGE_ID.exec(imageId)) {
         position = [Number(match[1]), Number(match[2])];
+	}
     return position;
 }
 
