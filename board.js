@@ -6,7 +6,7 @@ Board.prototype.numberChangeableSquares = function() {
     var count = 0;
     this.squares.forEach(function(row) {
         row.forEach(function(square) {
-            if(square.changeable) { ++count };
+            if(square.changeable) { ++count; }
         });
     });
     return count;
@@ -157,7 +157,7 @@ Board.prototype.validImage = function(imageValue, position) {
     }
 
     function adjacentImageValue(checkedPosition) {
-    	return level.board.squares[checkedPosition[0]][checkedPosition[1]].currentImage;
+        return level.board.squares[checkedPosition[0]][checkedPosition[1]].currentImage;
     }
 
     function validPosition(checkedPosition) {

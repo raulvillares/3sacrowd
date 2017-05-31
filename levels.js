@@ -33,7 +33,7 @@ var level2 = {
       "greenFixed"
 	],
   "initialSquares": 
-	    [
+      [
         [EMPTY, EMPTY, FIXED_TIC, EMPTY, FIXED_TIC],
         [FIXED_TAC, EMPTY, FIXED_EMPTY, EMPTY, EMPTY],
         [EMPTY, FIXED_TAC, EMPTY, FIXED_EMPTY, EMPTY],
@@ -61,7 +61,7 @@ var level3 = {
         [EMPTY, EMPTY, FIXED_EMPTY, EMPTY, EMPTY],
         [EMPTY, EMPTY, EMPTY, EMPTY, FIXED_EMPTY],
         [FIXED_TAC, EMPTY, FIXED_TAC, EMPTY, EMPTY]
-	  ]
+    ]
 };
 
 var level4 = {
