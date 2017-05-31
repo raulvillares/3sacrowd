@@ -1,1 +1,3 @@
-var level = loadLevel(1);
+require(['levelLoader'], function(loader) {
+    var level = loader.loadLevel(1);
+});
