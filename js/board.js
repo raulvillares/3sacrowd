@@ -61,9 +61,123 @@ define(function() {
         return boardElement;
     };
         
+    Board.prototype.clicked = function(event) {
+        if (level.filledSquares < level.squaresToFill) {
+            if (event.target.className == "squareImage") {
+                if(level.pinSelected) {
+                    level.board.pinSquare(event.target.id);
+                } else {
+                    level.board.turnImage(event.target.id);
+                }
+            }
+        }
+    };
+
+    Board.prototype.validImage = function(imageValue, position) {
+
+        return !threeEquasValuesAdjacentAnywhere();
+
+        function threeEquasValuesAdjacentAnywhere() {
+            return(
+                    threeEqualValuesAdjacentVertically(imageValue, position) ||
+                    threeEqualValuesAdjacentHorizontally(imageValue, position) ||
+                    threeEqualValuesAdjacentDiagonally1(imageValue, position) ||
+                    threeEqualValuesAdjacentDiagonally2(imageValue, position)
+                    );
+        }
+
+        function threeEqualValuesAdjacentVertically() {
+            return threeEqualValuesAdjacent([-1, 0], [1, 0]);
+        }
+
+        function threeEqualValuesAdjacentHorizontally() {
+            return threeEqualValuesAdjacent([0, -1], [0, 1]);
+        }
+
+        function threeEqualValuesAdjacentDiagonally1() {
+            return threeEqualValuesAdjacent([-1, -1], [1, 1]);
+        }
+
+        function threeEqualValuesAdjacentDiagonally2() {
+            return threeEqualValuesAdjacent([-1, 1], [1, -1]);
+        }
+
+        function threeEqualValuesAdjacent(offsetDirection1, offsetDirection2) {
+            let firstAdjacentDirection1ContainsValue = validPositionAndContainsValue([position[0]+offsetDirection1[0], position[1]+offsetDirection1[1]]);
+            let secondAdjacentDirection1ContainsValue = validPositionAndContainsValue([position[0]+(offsetDirection1[0]*2), position[1]+(offsetDirection1[1]*2)]);
+            let firstAdjacentDirection2ContainsValue = validPositionAndContainsValue([position[0]+offsetDirection2[0], position[1]+offsetDirection2[1]]);
+            let secondAdjacentDirection2ContainsValue = validPositionAndContainsValue([position[0]+(offsetDirection2[0]*2), position[1]+(offsetDirection2[1]*2)]);
+            return threeValuesAdjacent(firstAdjacentDirection1ContainsValue, secondAdjacentDirection1ContainsValue, firstAdjacentDirection2ContainsValue, secondAdjacentDirection2ContainsValue);
+        }
+
+        function validPositionAndContainsValue(checkedPosition) {
+            return validPosition(checkedPosition) && (imageValuesEquivalent(imageValue, adjacentImageValue(checkedPosition)));
+        }
+
+        function adjacentImageValue(checkedPosition) {
+            return level.board.squares[checkedPosition[0]][checkedPosition[1]].currentImage;
+        }
+
+        function validPosition(checkedPosition) {
+            return (
+                    (checkedPosition[0] >= 0) &&
+                    (checkedPosition[1] >= 0) &&
+                    (checkedPosition[0] <= level.board.squares.length-1) &&
+                    (checkedPosition[1] <= level.board.squares[0].length-1)
+                    );
+        }
+
+        function threeValuesAdjacent(firstAdjacentDirection1ContainsValue, secondAdjacentDirection1ContainsValue, firstAdjacentDirection2ContainsValue, secondAdjacentDirection2ContainsValue) {
+            return (
+                    (firstAdjacentDirection1ContainsValue && secondAdjacentDirection1ContainsValue) ||
+                    (firstAdjacentDirection2ContainsValue && secondAdjacentDirection2ContainsValue) ||
+                    (firstAdjacentDirection1ContainsValue && firstAdjacentDirection2ContainsValue)
+                    ); 
+        }    
+    };    
+
+    Board.prototype.turnImage = function(squareId) {
+        var squarePosition = getPosition(squareId);
+        let clickedSquare = this.squares[squarePosition[0]][squarePosition[1]];
+        var initialImage = clickedSquare.currentImage;
+        if((!clickedSquare.pinned) && (clickedSquare.changeable)) {
+            let imageBeingChecked = nextImage(clickedSquare.currentImage);
+            let validImageFound = false;
+            while(!validImageFound) {
+                if ((imageBeingChecked == EMPTY) || (this.validImage(imageBeingChecked, squarePosition))) {
+                    clickedSquare.change(imageBeingChecked);
+                    validImageFound = true;
+                    if (imageBeingChecked != EMPTY) { level.movements.push(squarePosition); }
+                    this.updateMovements(initialImage, imageBeingChecked);
+                    if (level.filledSquares == level.squaresToFill) {
+                        document.getElementById("headerImage").src = COMPLETED_FULL_PATH;
+                        play(COMPLETED);
+                    }
+                } else {
+                    imageBeingChecked = nextImage(imageBeingChecked);
+                }
+            }
+        } else {
+            play(FORBIDDEN);
+        }
+    };
+
+    Board.prototype.updateMovements = function (initialImage, finalImage) {
+        var counter = 0;
+        if((initialImage == EMPTY) && (finalImage != EMPTY)) {
+            counter = 1;
+        } else if ((initialImage != EMPTY) && (finalImage == EMPTY)) {
+            counter = -1;
+        }
+        level.filledSquares = level.filledSquares + counter;
+        return counter;
+    };        
+
     return {
         createEmptyBoard: function() {
             return new Board();
         }
     }
-});  
+});
+
+  
