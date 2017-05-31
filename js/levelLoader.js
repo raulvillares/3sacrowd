@@ -1,4 +1,4 @@
-define(function() {
+define(['js/board', 'js/level'], function(boardModule, levelModule) {
     return {
 
         loadLevel: function(levelNumber) {
@@ -30,14 +30,17 @@ define(function() {
             }
 
             function generateBoard(levelConfiguration) {
-                var levelBoard = new Board();
+
+                let levelBoard = boardModule.createEmptyBoard();
+
                 levelConfiguration.initialSquares.forEach(function(row, rowIndex) {
                     var rowSquares = [];
                     row.forEach(function(squareType, columnIndex) {
                         rowSquares.push(new Square(squareType, rowIndex, columnIndex));
                     });
-                    levelBoard.squares.push(rowSquares);
+                    levelBoard.addRow(rowSquares);
                 });
+
                 return levelBoard;
             }       
 
@@ -45,7 +48,7 @@ define(function() {
             clear();
             loadHeader();
             document.body.style.backgroundImage = "url('"+BACKGROUND_IMAGES_FOLDER+levelConfiguration.backgroundImage+BACKGROUND_IMAGES_EXTENSION+"')";
-            level = new Level(levelConfiguration, generateBoard(levelConfiguration));
+            level = levelModule.createLevel(levelConfiguration, generateBoard(levelConfiguration));
             document.getElementById("level").appendChild(level.board.createElement());
             document.getElementById("level").appendChild(createButtons());
             return level;
