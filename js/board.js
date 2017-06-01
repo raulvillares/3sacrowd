@@ -73,6 +73,16 @@ define(function() {
         }
     };
 
+    Board.prototype.pinSquare = function(squareId) {
+        var squarePosition = getPosition(squareId);
+        let clickedSquare = level.board.squares[squarePosition[0]][squarePosition[1]];
+        if(clickedSquare.pinned) {
+            clickedSquare.unpin();
+        } else {
+            clickedSquare.pin();
+        }
+    };
+
     Board.prototype.validImage = function(imageValue, position) {
 
         return !threeEquasValuesAdjacentAnywhere();

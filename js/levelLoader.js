@@ -1,4 +1,4 @@
-define(['js/board', 'js/level'], function(boardModule, levelModule) {
+define(['js/board', 'js/level', 'js/levels'], function(boardModule, levelModule, levelsData) {
     return {
 
         loadLevel: function(levelNumber) {
@@ -44,7 +44,7 @@ define(['js/board', 'js/level'], function(boardModule, levelModule) {
                 return levelBoard;
             }       
 
-            var levelConfiguration = levels[levelNumber-1];
+            let levelConfiguration = levelsData.getLevelData(levelNumber);
             clear();
             loadHeader();
             document.body.style.backgroundImage = "url('"+BACKGROUND_IMAGES_FOLDER+levelConfiguration.backgroundImage+BACKGROUND_IMAGES_EXTENSION+"')";
