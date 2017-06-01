@@ -1,4 +1,4 @@
-define(function() {
+define(['js/properties'], function(properties) {
 
     const level1 = {
     "levelNumber" : 1,
@@ -14,11 +14,11 @@ define(function() {
         ],
     "initialSquares": 
         [
-            [EMPTY, EMPTY, EMPTY, EMPTY, EMPTY],
-            [EMPTY, EMPTY, EMPTY, FIXED_TAC, EMPTY],
-            [EMPTY, EMPTY, EMPTY, EMPTY, EMPTY],
-            [EMPTY, FIXED_TAC, FIXED_EMPTY, EMPTY, FIXED_TIC],
-            [EMPTY, EMPTY, EMPTY, EMPTY, FIXED_TIC]
+            [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY],
+            [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_TAC, properties.EMPTY],
+            [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY],
+            [properties.EMPTY, properties.FIXED_TAC, properties.FIXED_EMPTY, properties.EMPTY, properties.FIXED_TIC],
+            [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_TIC]
         ]
     };
 
@@ -36,11 +36,11 @@ define(function() {
         ],
     "initialSquares": 
         [
-            [EMPTY, EMPTY, FIXED_TIC, EMPTY, FIXED_TIC],
-            [FIXED_TAC, EMPTY, FIXED_EMPTY, EMPTY, EMPTY],
-            [EMPTY, FIXED_TAC, EMPTY, FIXED_EMPTY, EMPTY],
-            [EMPTY, EMPTY, EMPTY, EMPTY, EMPTY],
-            [EMPTY, EMPTY, EMPTY, FIXED_TAC, EMPTY]
+            [properties.EMPTY, properties.EMPTY, properties.FIXED_TIC, properties.EMPTY, properties.FIXED_TIC],
+            [properties.FIXED_TAC, properties.EMPTY, properties.FIXED_EMPTY, properties.EMPTY, properties.EMPTY],
+            [properties.EMPTY, properties.FIXED_TAC, properties.EMPTY, properties.FIXED_EMPTY, properties.EMPTY],
+            [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY],
+            [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_TAC, properties.EMPTY]
         ]
     };
 
@@ -58,11 +58,11 @@ define(function() {
         ],
     "initialSquares" :
         [
-            [EMPTY, FIXED_TIC, FIXED_TIC, EMPTY, EMPTY],
-            [EMPTY, EMPTY, EMPTY, EMPTY, EMPTY],
-            [EMPTY, EMPTY, FIXED_EMPTY, EMPTY, EMPTY],
-            [EMPTY, EMPTY, EMPTY, EMPTY, FIXED_EMPTY],
-            [FIXED_TAC, EMPTY, FIXED_TAC, EMPTY, EMPTY]
+            [properties.EMPTY, properties.FIXED_TIC, properties.FIXED_TIC, properties.EMPTY, properties.EMPTY],
+            [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY],
+            [properties.EMPTY, properties.EMPTY, properties.FIXED_EMPTY, properties.EMPTY, properties.EMPTY],
+            [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_EMPTY],
+            [properties.FIXED_TAC, properties.EMPTY, properties.FIXED_TAC, properties.EMPTY, properties.EMPTY]
         ]
     };
 
@@ -80,11 +80,11 @@ define(function() {
     ],
     "initialSquares" :
     [
-        [FIXED_TIC, EMPTY, EMPTY, EMPTY, FIXED_TAC],
-        [FIXED_TIC, FIXED_EMPTY, EMPTY, EMPTY, FIXED_EMPTY],
-        [EMPTY, EMPTY, EMPTY, EMPTY, EMPTY],
-        [EMPTY, EMPTY, EMPTY, EMPTY, FIXED_EMPTY],
-        [FIXED_TIC, EMPTY, EMPTY, EMPTY, EMPTY]
+        [properties.FIXED_TIC, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_TAC],
+        [properties.FIXED_TIC, properties.FIXED_EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_EMPTY],
+        [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY],
+        [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_EMPTY],
+        [properties.FIXED_TIC, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY]
     ]
     };
 
@@ -102,11 +102,11 @@ define(function() {
     ],
     "initialSquares" :
     [
-        [EMPTY, EMPTY, FIXED_TAC, EMPTY, FIXED_TAC],
-        [EMPTY, EMPTY, EMPTY, FIXED_EMPTY, EMPTY],
-        [EMPTY, FIXED_EMPTY, EMPTY, EMPTY, EMPTY],
-        [FIXED_TAC, EMPTY, EMPTY, EMPTY, EMPTY],
-        [FIXED_EMPTY, FIXED_TIC, FIXED_TIC, EMPTY, FIXED_TAC]
+        [properties.EMPTY, properties.EMPTY, properties.FIXED_TAC, properties.EMPTY, properties.FIXED_TAC],
+        [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_EMPTY, properties.EMPTY],
+        [properties.EMPTY, properties.FIXED_EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY],
+        [properties.FIXED_TAC, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY],
+        [properties.FIXED_EMPTY, properties.FIXED_TIC, properties.FIXED_TIC, properties.EMPTY, properties.FIXED_TAC]
     ]
     };
 
@@ -124,11 +124,11 @@ define(function() {
     ],
     "initialSquares" :
     [
-        [FIXED_TIC, EMPTY, FIXED_TAC, EMPTY, FIXED_TAC],
-        [EMPTY, FIXED_EMPTY, EMPTY, EMPTY, EMPTY],
-        [EMPTY, EMPTY, EMPTY, EMPTY, EMPTY],
-        [FIXED_TAC, EMPTY, EMPTY, EMPTY, FIXED_TIC],
-        [EMPTY, EMPTY, EMPTY, EMPTY, EMPTY]
+        [properties.FIXED_TIC, properties.EMPTY, properties.FIXED_TAC, properties.EMPTY, properties.FIXED_TAC],
+        [properties.EMPTY, properties.FIXED_EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY],
+        [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY],
+        [properties.FIXED_TAC, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_TIC],
+        [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY]
     ]
     };
 
@@ -146,12 +146,12 @@ define(function() {
     ],
     "initialSquares" :
     [
-        [FIXED_TAC, EMPTY, FIXED_EMPTY, EMPTY, FIXED_TAC, FIXED_TAC],
-        [EMPTY, FIXED_TIC, FIXED_EMPTY, EMPTY, EMPTY, FIXED_TIC],
-        [EMPTY, FIXED_TIC, FIXED_EMPTY, EMPTY, EMPTY, FIXED_EMPTY],
-        [EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY],
-        [FIXED_TIC, EMPTY, EMPTY, EMPTY, FIXED_EMPTY, EMPTY],
-        [EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY]
+        [properties.FIXED_TAC, properties.EMPTY, properties.FIXED_EMPTY, properties.EMPTY, properties.FIXED_TAC, properties.FIXED_TAC],
+        [properties.EMPTY, properties.FIXED_TIC, properties.FIXED_EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_TIC],
+        [properties.EMPTY, properties.FIXED_TIC, properties.FIXED_EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_EMPTY],
+        [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY],
+        [properties.FIXED_TIC, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_EMPTY, properties.EMPTY],
+        [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY]
     ]
     };
 

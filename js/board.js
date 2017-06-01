@@ -1,4 +1,4 @@
-define(function() {
+define(['js/properties', 'js/sound', 'js/squareImages'], function(properties, sound, squareImages) {
 
     function Board() {
         this.squares = [];
@@ -36,7 +36,7 @@ define(function() {
                 var squareImageElement = document.createElement("img");
                 squareImageElement.className = "squareImage";
                 squareImageElement.id = square.generateImageId();
-                squareImageElement.src = generateImagePath(square.currentImage);   
+                squareImageElement.src = squareImages.generateImagePath(square.currentImage);   
                 squareImageElement.style.border = "solid transparent"; 
                 return squareImageElement;        
             }
@@ -74,7 +74,7 @@ define(function() {
     };
 
     Board.prototype.pinSquare = function(squareId) {
-        var squarePosition = getPosition(squareId);
+        var squarePosition = squareImages.getPosition(squareId);
         let clickedSquare = level.board.squares[squarePosition[0]][squarePosition[1]];
         if(clickedSquare.pinned) {
             clickedSquare.unpin();
@@ -121,7 +121,7 @@ define(function() {
         }
 
         function validPositionAndContainsValue(checkedPosition) {
-            return validPosition(checkedPosition) && (imageValuesEquivalent(imageValue, adjacentImageValue(checkedPosition)));
+            return validPosition(checkedPosition) && (squareImages.imageValuesEquivalent(imageValue, adjacentImageValue(checkedPosition)));
         }
 
         function adjacentImageValue(checkedPosition) {
@@ -147,36 +147,36 @@ define(function() {
     };    
 
     Board.prototype.turnImage = function(squareId) {
-        var squarePosition = getPosition(squareId);
+        var squarePosition = squareImages.getPosition(squareId);
         let clickedSquare = this.squares[squarePosition[0]][squarePosition[1]];
         var initialImage = clickedSquare.currentImage;
         if((!clickedSquare.pinned) && (clickedSquare.changeable)) {
-            let imageBeingChecked = nextImage(clickedSquare.currentImage);
+            let imageBeingChecked = squareImages.nextImage(clickedSquare.currentImage);
             let validImageFound = false;
             while(!validImageFound) {
-                if ((imageBeingChecked == EMPTY) || (this.validImage(imageBeingChecked, squarePosition))) {
+                if ((imageBeingChecked == properties.EMPTY) || (this.validImage(imageBeingChecked, squarePosition))) {
                     clickedSquare.change(imageBeingChecked);
                     validImageFound = true;
-                    if (imageBeingChecked != EMPTY) { level.movements.push(squarePosition); }
+                    if (imageBeingChecked != properties.EMPTY) { level.movements.push(squarePosition); }
                     this.updateMovements(initialImage, imageBeingChecked);
                     if (level.filledSquares == level.squaresToFill) {
-                        document.getElementById("headerImage").src = COMPLETED_FULL_PATH;
-                        play(COMPLETED);
+                        document.getElementById("headerImage").src = properties.COMPLETED_FULL_PATH;
+                        sound.play(sound.COMPLETED);
                     }
                 } else {
-                    imageBeingChecked = nextImage(imageBeingChecked);
+                    imageBeingChecked = squareImages.nextImage(imageBeingChecked);
                 }
             }
         } else {
-            play(FORBIDDEN);
+            sound.play(sound.FORBIDDEN);
         }
     };
 
     Board.prototype.updateMovements = function (initialImage, finalImage) {
         var counter = 0;
-        if((initialImage == EMPTY) && (finalImage != EMPTY)) {
+        if((initialImage == properties.EMPTY) && (finalImage != properties.EMPTY)) {
             counter = 1;
-        } else if ((initialImage != EMPTY) && (finalImage == EMPTY)) {
+        } else if ((initialImage != properties.EMPTY) && (finalImage == properties.EMPTY)) {
             counter = -1;
         }
         level.filledSquares = level.filledSquares + counter;

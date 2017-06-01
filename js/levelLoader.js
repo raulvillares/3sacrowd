@@ -1,4 +1,6 @@
-define(['js/board', 'js/level', 'js/levels'], function(boardModule, levelModule, levelsData) {
+define(
+        ['js/properties', 'js/board', 'js/level', 'js/levels', 'js/square', 'js/buttons'], 
+        function(properties, boardModule, levelModule, levelsData, square, buttons) {
     return {
 
         loadLevel: function(levelNumber) {
@@ -20,14 +22,14 @@ define(['js/board', 'js/level', 'js/levels'], function(boardModule, levelModule,
 
                 clearHeader();
                 clearLevel();
-            }
+            };
 
             function loadHeader() {
                 var headerImage = document.createElement("img");
                 headerImage.id = "headerImage";
-                headerImage.src = LOGO_FULL_PATH;
+                headerImage.src = properties.LOGO_FULL_PATH;
                 document.getElementById("headerDiv").appendChild(headerImage);        
-            }
+            };
 
             function generateBoard(levelConfiguration) {
 
@@ -36,21 +38,21 @@ define(['js/board', 'js/level', 'js/levels'], function(boardModule, levelModule,
                 levelConfiguration.initialSquares.forEach(function(row, rowIndex) {
                     var rowSquares = [];
                     row.forEach(function(squareType, columnIndex) {
-                        rowSquares.push(new Square(squareType, rowIndex, columnIndex));
+                        rowSquares.push(square.create(squareType, rowIndex, columnIndex));
                     });
                     levelBoard.addRow(rowSquares);
                 });
 
                 return levelBoard;
-            }       
+            };     
 
             let levelConfiguration = levelsData.getLevelData(levelNumber);
             clear();
             loadHeader();
-            document.body.style.backgroundImage = "url('"+BACKGROUND_IMAGES_FOLDER+levelConfiguration.backgroundImage+BACKGROUND_IMAGES_EXTENSION+"')";
+            document.body.style.backgroundImage = "url('"+properties.BACKGROUND_IMAGES_FOLDER+levelConfiguration.backgroundImage+properties.BACKGROUND_IMAGES_EXTENSION+"')";
             level = levelModule.createLevel(levelConfiguration, generateBoard(levelConfiguration));
             document.getElementById("level").appendChild(level.board.createElement());
-            document.getElementById("level").appendChild(createButtons());
+            document.getElementById("level").appendChild(buttons.createButtons());
             return level;
         }
     }
