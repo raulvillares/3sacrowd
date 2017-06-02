@@ -1,4 +1,4 @@
-define(['js/properties'], function(properties) {
+define(['js/properties', 'js/sound'], function(properties, sound) {
 
     let loadLevel;
 
@@ -9,7 +9,7 @@ define(['js/properties'], function(properties) {
             if(squareLastMovement.pinned) { squareLastMovement.unpin(); }
             squareLastMovement.changeImage(properties.EMPTY);
             --level.filledSquares;
-            play(sound.UNDO);
+            sound.play(sound.UNDO);
         }
     };
 
