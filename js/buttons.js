@@ -1,4 +1,6 @@
-define(['js/properties', 'js/levelLoader'], function(properties, loader) {
+define(['js/properties'], function(properties) {
+
+    let loadLevel;
 
     const undoMovement =  function(event) {
         if(level.movements.length > 0) {
@@ -22,23 +24,26 @@ define(['js/properties', 'js/levelLoader'], function(properties, loader) {
     };
 
     const restartLevel = function(event) {
-        console.log(loader);
-        level = loader.loadLevel(level.number);
+        level = loadLevel(level.number);
     };
 
     const previousLevel = function(event) {
         if(level.number >= 1) {
-            level = loader.loadLevel(level.number-1);
+            level = loadLevel(level.number-1);
         }
     };
 
     const nextLevel = function(event) {
         if(level.number <= properties.NUMBER_OF_LEVELS) {
-            level = loader.loadLevel(level.number+1);
+            level = loadLevel(level.number+1);
         }
     };
 
     return {
+
+        setLoadLevel: function setLoadLevel(loadFunction) {
+            loadLevel = loadFunction;
+        },
 
         createButtons: function createButtons() {
             const createButton = function(id, description) {

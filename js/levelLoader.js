@@ -1,9 +1,8 @@
 define(
         ['js/properties', 'js/board', 'js/level', 'js/levels', 'js/square', 'js/buttons'], 
         function(properties, boardModule, levelModule, levelsData, square, buttons) {
-    return {
 
-        loadLevel: function(levelNumber) {
+        const loadFunction = function(levelNumber) {
             function clear() {
                 function clearElement(elementName) {
                     var element = document.getElementById(elementName);
@@ -54,6 +53,12 @@ define(
             document.getElementById("level").appendChild(level.board.createElement());
             document.getElementById("level").appendChild(buttons.createButtons());
             return level;
+        };            
+
+    return {
+        loadLevel: function loadLevel(levelNumber) {
+            buttons.setLoadLevel(loadFunction);
+            loadFunction(levelNumber);
         }
     }
 });
