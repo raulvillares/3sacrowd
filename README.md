@@ -1,8 +1,10 @@
+[![](http://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square)](http://www.firsttimersonly.com/)
+
 ![enter image description here](https://raw.githubusercontent.com/raulvillares/3sacrowd/master/img/logos/logo2.png)
 
 Put an alien in every empty square till you **fill the whole board**. But be careful! You must **<font size="3" color="red">avoid 3 adjacent same colored aliens</font>** (horizontally, vertically, or diagonally).
 
-#[start to play](https://raulvillares.github.io/3sacrowd/index.html)
+[start to play](https://raulvillares.github.io/3sacrowd/index.html)
 
 Some squares are fixed and you are not allowed to put an alien there. But use those squares to your profit. You know, sometimes **creativity need constraints** ;-)
 
