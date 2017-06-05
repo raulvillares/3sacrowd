@@ -1,13 +1,15 @@
-# 3sacrowd!
+![enter image description here](https://raw.githubusercontent.com/raulvillares/3sacrowd/master/img/logos/logo2.png)
 
-Original idea by Eric Friedman
+Put an alien in every empty square till you **fill the whole board**. But be careful! You must **<font size="3" color="red">avoid 3 adjacent same colored aliens</font>** (horizontally, vertically, or diagonally).
 
-http://www2.stetson.edu/~efriedma/puzzle/tic/
+#[start to play](https://raulvillares.github.io/3sacrowd/index.html)
 
-Put an alien in every empty square to avoid 3 adjacent same colored aliens (horizontally, vertically, or diagonally). Each puzzle has a unique solution. All puzzles copyright Erich Friedman, 2010.
+Some squares are fixed and you are not allowed to put an alien there. But use those squares to your profit. You know, sometimes **creativity need constraints** ;-)
 
-Any contribution is more than welcome! This is a project to learn together.
+![enter image description here](https://raw.githubusercontent.com/raulvillares/3sacrowd/master/img/demo.png)
 
-Art by:
+The game is entirely developed with [Vanilla JS](http://vanilla-js.com/). [RequireJs](http://requirejs.org/) is used for modularization. The porpuse is to **learn** so **anybody is welcome**. Are you looking for some easy javascript project to make your first [contribution](https://akrabat.com/the-beginners-guide-to-contributing-to-a-github-project/) at Github? **This may be the one!**
 
-Kenney : http://www.kenney.nl & Freepik : http://www.freepik.com
+[Original idea](http://www2.stetson.edu/~efriedma/puzzle/tic/) by Erich Friedman. Each puzzle has a unique solution. All puzzles © Erich Friedman, 2010.
+
+Art by [Kenney](https://kenney.nl/) and [Freepik](http://www.freepik.com/).
