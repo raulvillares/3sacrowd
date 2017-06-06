@@ -18,6 +18,16 @@ define(['js/properties', 'js/sound', 'js/squareImages'], function(properties, so
         return count;
     };
 
+    Board.prototype.numberFilledSquares = function() {
+        var count = 0;
+        this.squares.forEach(function(row) {
+            row.forEach(function(square) {
+                if((square.changeable) && (square.currentImage != properties.EMPTY)) { ++count; }
+            });
+        });
+        return count;
+    };
+
     Board.prototype.createElement = function() {
         function createBoardElement() {
             var boardElement = document.createElement("div");
@@ -62,7 +72,7 @@ define(['js/properties', 'js/sound', 'js/squareImages'], function(properties, so
     };
         
     Board.prototype.clicked = function(event) {
-        if (level.filledSquares < level.squaresToFill) {
+        if (level.filledSquares() < level.squaresToFill) {
             if (event.target.className == "squareImage") {
                 if(level.pinSelected) {
                     level.board.pinSquare(event.target.id);
@@ -158,8 +168,7 @@ define(['js/properties', 'js/sound', 'js/squareImages'], function(properties, so
                     clickedSquare.change(imageBeingChecked);
                     validImageFound = true;
                     if (imageBeingChecked != properties.EMPTY) { level.movements.push(squarePosition); }
-                    this.updateMovements(initialImage, imageBeingChecked);
-                    if (level.filledSquares == level.squaresToFill) {
+                    if (level.filledSquares() == level.squaresToFill) {
                         document.getElementById("headerImage").src = properties.COMPLETED_FULL_PATH;
                         sound.play(sound.COMPLETED);
                     }
@@ -171,17 +180,6 @@ define(['js/properties', 'js/sound', 'js/squareImages'], function(properties, so
             sound.play(sound.FORBIDDEN);
         }
     };
-
-    Board.prototype.updateMovements = function (initialImage, finalImage) {
-        var counter = 0;
-        if((initialImage == properties.EMPTY) && (finalImage != properties.EMPTY)) {
-            counter = 1;
-        } else if ((initialImage != properties.EMPTY) && (finalImage == properties.EMPTY)) {
-            counter = -1;
-        }
-        level.filledSquares = level.filledSquares + counter;
-        return counter;
-    };        
 
     return {
         createEmptyBoard: function() {

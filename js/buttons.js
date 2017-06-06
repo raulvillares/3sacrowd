@@ -8,7 +8,6 @@ define(['js/properties', 'js/sound'], function(properties, sound) {
             var squareLastMovement = level.board.squares[positionLastMovement[0]][positionLastMovement[1]];
             if(squareLastMovement.pinned) { squareLastMovement.unpin(); }
             squareLastMovement.changeImage(properties.EMPTY);
-            --level.filledSquares;
             sound.play(sound.UNDO);
         }
     };
