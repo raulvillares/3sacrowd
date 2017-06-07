@@ -1,6 +1,6 @@
 define(function() {
 
-    const NUMBER_OF_LEVELS = 7;
+    const NUMBER_OF_LEVELS = 18;
     const NUMBER_CHANGEABLE_IMAGES = 3;
     const SQUARE_IMAGES_FOLDER = "./img/squares/";
     const SQUARE_IMAGES_EXTENSION = ".png";
