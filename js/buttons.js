@@ -27,7 +27,9 @@ define(['js/properties', 'js/sound'], function(properties, sound) {
     };
 
     const previousLevel = function(event) {
-        if(level.number >= 1) {
+        if (level.number === 1) {
+            document.getElementById("previous").diabled = true;
+        } else {
             level = loadLevel(level.number-1);
         }
     };
@@ -52,8 +54,8 @@ define(['js/properties', 'js/sound'], function(properties, sound) {
                 button.width = 53;
                 button.height = 53;
                 button.src = properties.BUTTONS_IMAGES_FOLDER+id+properties.BUTTONS_IMAGES_EXTENSION;
-                button.title = description;    
-                return button;        
+                button.title = description;
+                return button;
             }
 
             var buttonsElement = document.createElement("div");
