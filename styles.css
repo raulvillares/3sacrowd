@@ -15,6 +15,11 @@ div.logo {
 	display: block;
 }
 
+#start {
+  margin:0 auto;
+  display:table;
+}
+
 .demo img {
 	margin-left: auto;
 	margin-right: auto;
