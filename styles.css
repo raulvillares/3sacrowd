@@ -1,4 +1,9 @@
-﻿p {
+﻿body {
+	background-size: cover;
+	background-position: center center;
+}
+
+p {
     font-family: "Lucida Console", Monaco, monospace;
 	width: 90%;
 	margin: 0 auto;
