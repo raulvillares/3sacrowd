@@ -59,3 +59,7 @@ div.square {
 	display: inline;
 	margin: auto;
 }
+
+.game-description {
+	margin-top: 100px;
+}
