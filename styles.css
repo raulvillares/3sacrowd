@@ -1,66 +1,74 @@
-﻿body {
-	background-size: cover;
-	background-position: center center;
+﻿#index {
+    background: url(./img/backgrounds/colored_land.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+body {
+    background-size: cover;
+    background-position: center center;
 }
 
 p {
     font-family: "Lucida Console", Monaco, monospace;
-	width: 90%;
-	margin: 0 auto;
-	align: justify;
+    width: 90%;
+    margin: 0 auto;
+    align: justify;
 }
 
 div.logo {
-	margin: auto;
+    margin: auto;
 }
 
 #headerDiv img {
-	margin-left: auto;
-	margin-right: auto;
-	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 .demo img {
-	margin-left: auto;
-	margin-right: auto;
-	display: block;
-}	
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
 
 div.level {
-    width:100vw;
-    height:100vh;
-}	
+    width: 100vw;
+    height: 100vh;
+}
 
 div.board {
-	margin: auto;
-	width: 400px;
-	cursor:crosshair;
+    margin: auto;
+    width: 400px;
+    cursor: crosshair;
 }
 
 div.buttons {
-	margin: auto;
-	width: 370px;
-	cursor:pointer;
+    margin: auto;
+    width: 370px;
+    cursor: pointer;
 }
 
 div.imageButtons {
-  width: 99%;
-  margin: 0 auto;
+    width: 99%;
+    margin: 0 auto;
 }
 
 img.button {
-	padding-top: 10px;
-	padding-right: 20px;
+    padding-top: 10px;
+    padding-right: 20px;
 }
 
 div.row {
-	width: 90%;
-	margin: 0 auto;
-	display: inline;
+    width: 90%;
+    margin: 0 auto;
+    display: inline;
 }
 
 div.square {
-	width: 100%;
-	display: inline;
-	margin: auto;
+    width: 100%;
+    display: inline;
+    margin: auto;
 }
