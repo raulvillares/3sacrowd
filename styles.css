@@ -1,4 +1,4 @@
-﻿#index {
+#index {
     background: url(./img/backgrounds/colored_land.png) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -15,7 +15,7 @@ p {
     font-family: "Lucida Console", Monaco, monospace;
     width: 90%;
     margin: 0 auto;
-    align: justify;
+    text-align: justify;
 }
 
 div.logo {
@@ -26,6 +26,11 @@ div.logo {
     margin-left: auto;
     margin-right: auto;
     display: block;
+}
+
+#start {
+  margin:0 auto;
+  display:table;
 }
 
 .demo img {
@@ -68,7 +73,11 @@ div.row {
 }
 
 div.square {
-    width: 100%;
-    display: inline;
-    margin: auto;
+	width: 100%;
+	display: inline;
+	margin: auto;
+}
+
+.game-description {
+	margin-top: 100px;
 }
