@@ -5,9 +5,9 @@ define(['js/properties', 'js/squareImages', 'js/sound'], function(properties, sq
         this.row = row;
         this.column = column;
         if(initialImage < properties.NUMBER_CHANGEABLE_IMAGES) {
-            this.changeable = true; 
+            this.changeable = true;
         } else {
-            this.changeable = false;  
+            this.changeable = false;
         }
         this.pinned = false;
     }
@@ -28,7 +28,7 @@ define(['js/properties', 'js/squareImages', 'js/sound'], function(properties, sq
     Square.prototype.changeImage = function(imageId) {
         if(this.changeable) {
             this.currentImage = imageId;
-            document.getElementById(this.generateImageId()).src = squareImages.generateImagePath(this.currentImage); 
+            document.getElementById(this.generateImageId()).src = squareImages.generateImagePath(this.currentImage);
         }
     };
 
@@ -43,7 +43,9 @@ define(['js/properties', 'js/squareImages', 'js/sound'], function(properties, sq
     Square.prototype.pin = function() {
         if(this.pinnable()) {
             this.pinned = true;
-            document.getElementById(this.generateImageId()).style.border = "dotted #000000";
+            var style = document.getElementById(this.generateImageId()).style;
+            style.border = "groove #cc0000";
+            style.borderRadius = "13px";
             sound.play(sound.PINNED);
         }
     };
@@ -51,7 +53,9 @@ define(['js/properties', 'js/squareImages', 'js/sound'], function(properties, sq
     Square.prototype.unpin = function() {
         if(this.pinnable) {
             this.pinned = false;
-            document.getElementById(this.generateImageId()).style.border = "solid transparent";
+            var style = document.getElementById(this.generateImageId()).style;
+            style.border = "solid transparent";
+            style.borderRadius = "0px";
             sound.play(sound.UNPINNED);
         }
     };
