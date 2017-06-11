@@ -81,13 +81,13 @@ div.square {
 img.squareImage.unpinned {
     border: solid transparent;
     border-radius: 0px;
-    border-width: 1px;
+    border-width: 2px;
 }
 
 img.squareImage.pinned {
     border: groove #cc0000;
     border-radius: 13px;
-    border-width: 1px;
+    border-width: 2px;
 }
 
 .game-description {
