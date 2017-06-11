@@ -44,10 +44,9 @@ define(['js/properties', 'js/sound', 'js/squareImages'], function(properties, so
         function createSquareElement(square) {
             function createSquareImageElement(square) {
                 var squareImageElement = document.createElement("img");
-                squareImageElement.className = "squareImage";
+                squareImageElement.className = "squareImage unpinned";
                 squareImageElement.id = square.generateImageId();
                 squareImageElement.src = squareImages.generateImagePath(square.currentImage);   
-                squareImageElement.style.border = "solid transparent"; 
                 return squareImageElement;        
             }
 
@@ -73,7 +72,7 @@ define(['js/properties', 'js/sound', 'js/squareImages'], function(properties, so
         
     Board.prototype.clicked = function(event) {
         if (level.filledSquares() < level.squaresToFill) {
-            if (event.target.className == "squareImage") {
+            if (event.target.className.startsWith('squareImage')) {
                 if(level.pinSelected) {
                     level.board.pinSquare(event.target.id);
                 } else {

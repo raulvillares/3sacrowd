@@ -43,9 +43,8 @@ define(['js/properties', 'js/squareImages', 'js/sound'], function(properties, sq
     Square.prototype.pin = function() {
         if(this.pinnable()) {
             this.pinned = true;
-            var style = document.getElementById(this.generateImageId()).style;
-            style.border = "groove #cc0000";
-            style.borderRadius = "13px";
+            let element = document.getElementById(this.generateImageId());
+            element.className='squareImage pinned';
             sound.play(sound.PINNED);
         }
     };
@@ -53,9 +52,8 @@ define(['js/properties', 'js/squareImages', 'js/sound'], function(properties, sq
     Square.prototype.unpin = function() {
         if(this.pinnable) {
             this.pinned = false;
-            var style = document.getElementById(this.generateImageId()).style;
-            style.border = "solid transparent";
-            style.borderRadius = "0px";
+            let element = document.getElementById(this.generateImageId());
+            element.className='squareImage unpinned';
             sound.play(sound.UNPINNED);
         }
     };

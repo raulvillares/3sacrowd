@@ -9,6 +9,8 @@
 body {
     background-size: cover;
     background-position: center center;
+    display: block;
+    margin: 8px;
 }
 
 p {
@@ -67,15 +69,25 @@ img.button {
 }
 
 div.row {
-    width: 90%;
     margin: 0 auto;
     display: inline;
 }
 
 div.square {
-	width: 100%;
 	display: inline;
 	margin: auto;
+}
+
+img.squareImage.unpinned {
+    border: solid transparent;
+    border-radius: 0px;
+    border-width: 1px;
+}
+
+img.squareImage.pinned {
+    border: groove #cc0000;
+    border-radius: 13px;
+    border-width: 1px;
 }
 
 .game-description {
