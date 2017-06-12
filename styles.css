@@ -48,7 +48,6 @@ div.level {
 
 div.board {
     margin: 5px;
-    cursor: crosshair;
 }
 
 div.buttons {
@@ -79,6 +78,7 @@ div.row {
 }
 
 div.square {
+    cursor: crosshair;
     display: flex;
     margin: 5px;
 }
