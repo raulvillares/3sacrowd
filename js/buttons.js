@@ -2,22 +2,30 @@ define(['js/properties', 'js/sound'], function(properties, sound) {
 
     let loadLevel;
 
-    const undoMovement =  function(event) {
-        if(level.movements.length > 0) {
+    const undoMovement = function(event) {
+        if (level.movements.length > 0) {
             var positionLastMovement = level.movements.pop();
             var squareLastMovement = level.board.squares[positionLastMovement[0]][positionLastMovement[1]];
-            if(squareLastMovement.pinned) { squareLastMovement.unpin(); }
+            if (squareLastMovement.pinned) { squareLastMovement.unpin(); }
             squareLastMovement.changeImage(properties.EMPTY);
             sound.play(sound.UNDO);
         }
     };
 
     const pinSquare = function(event) {
-        if(level.pinSelected) {
-            document.getElementById("pin").src = properties.BUTTONS_IMAGES_FOLDER+"pin"+properties.BUTTONS_IMAGES_EXTENSION;
+        if (level.pinSelected) {
+            squares = Array.prototype.slice.call(document.getElementsByClassName('square'));
+            squares.forEach(function(squareElement) {
+                squareElement.className = 'square';
+            });
+            document.getElementById('pin').src = properties.BUTTONS_IMAGES_FOLDER + 'pin' + properties.BUTTONS_IMAGES_EXTENSION;
             level.pinSelected = false;
         } else {
-            document.getElementById("pin").src = properties.BUTTONS_IMAGES_FOLDER+"pin_selected"+properties.BUTTONS_IMAGES_EXTENSION;
+            squares = Array.prototype.slice.call(document.getElementsByClassName('square'));
+            squares.forEach(function(squareElement) {
+                squareElement.className = 'square pin';
+            });
+            document.getElementById('pin').src = properties.BUTTONS_IMAGES_FOLDER + 'pin_selected' + properties.BUTTONS_IMAGES_EXTENSION;
             level.pinSelected = true;
         }
     };
@@ -30,15 +38,15 @@ define(['js/properties', 'js/sound'], function(properties, sound) {
         if (level.number === 1) {
             document.getElementById("previous").disabled = true;
         } else {
-            level = loadLevel(level.number-1);
+            level = loadLevel(level.number - 1);
         }
     };
 
     const nextLevel = function(event) {
-        if(level.number === properties.NUMBER_OF_LEVELS) {
+        if (level.number === properties.NUMBER_OF_LEVELS) {
             document.getElementById("next").disabled = true;
         } else {
-            level = loadLevel(level.number+1);
+            level = loadLevel(level.number + 1);
         }
     };
 
@@ -55,7 +63,7 @@ define(['js/properties', 'js/sound'], function(properties, sound) {
                 button.id = id;
                 button.width = 53;
                 button.height = 53;
-                button.src = properties.BUTTONS_IMAGES_FOLDER+id+properties.BUTTONS_IMAGES_EXTENSION;
+                button.src = properties.BUTTONS_IMAGES_FOLDER + id + properties.BUTTONS_IMAGES_EXTENSION;
                 button.title = description;
                 return button;
             }

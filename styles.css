@@ -83,6 +83,12 @@ div.square {
     margin: 5px;
 }
 
+div.square.pin {
+    cursor: url(img/cursors/pin.png) 1 28, pointer;
+    display: flex;
+    margin: 5px;
+}
+
 img.squareImage.unpinned {
     border: solid transparent;
     border-radius: 0px;
