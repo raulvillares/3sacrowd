@@ -3,11 +3,12 @@ define([], function() {
     const separator = ' · ';
     let intervalId;
     let levelNumber;
+    let movements = 0;
     let totalSeconds = 0;
-    let minutes = document.getElementById("minutes");
-    let seconds = document.getElementById("seconds");
+    let minutes = 0;
+    let seconds = 0;
 
-    const regenerate = function() {
+    const getInfo = function() {
         const getTime = function() {
             const pad = function(val) {
                 var valString = val + "";
@@ -18,23 +19,34 @@ define([], function() {
                 }
             };
 
-            ++totalSeconds;
             return pad(parseInt(totalSeconds / 60)) + ":" + pad(totalSeconds % 60);
         };
 
-        document.getElementsByClassName('info')[0].innerHTML = levelNumber + separator + getTime();
+        const getMovements = function() {
+            return movements == 1 ? '1 move' : movements + ' moves';
+        };
 
-    }
+        return levelNumber + separator + getTime() + separator + getMovements();
+    };
+
+    const regenerate = function() {
+        ++totalSeconds;
+        document.getElementsByClassName('info')[0].innerHTML = getInfo();
+    };
 
     return {
         generateInfo: function generateInfo(currentLevel, numberOfLevels) {
             levelNumber = 'Level ' + currentLevel + '/' + numberOfLevels;
+            movements = 0;
             totalSeconds = 0;
-            let infoElement = document.createElement("div");
-            infoElement.className = "info";
-            infoElement.innerHTML = levelNumber + separator + '00:00';
+            let Element = document.createElement("div");
+            Element.className = "info";
+            Element.innerHTML = getInfo();
             intervalId = setInterval(regenerate, 1000);
-            return infoElement;
+            return Element;
+        },
+        addMovement: function addMovement() {
+            ++movements;
         },
         stop: function stop() {
             window.clearInterval(intervalId);

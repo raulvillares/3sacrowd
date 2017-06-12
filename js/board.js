@@ -164,6 +164,7 @@ define(['js/properties', 'js/sound', 'js/squareImages', 'js/info'], function(pro
             let validImageFound = false;
             while (!validImageFound) {
                 if ((imageBeingChecked == properties.EMPTY) || (this.validImage(imageBeingChecked, squarePosition))) {
+                    info.addMovement();
                     clickedSquare.change(imageBeingChecked);
                     validImageFound = true;
                     if (imageBeingChecked != properties.EMPTY) { level.movements.push(squarePosition); }
