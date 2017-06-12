@@ -98,55 +98,58 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
 
     Board.prototype.validImage = function(imageValue, position) {
 
-        function validPosition(checkedPosition) {
-            return ((checkedPosition[0] >= 0) &&
-                (checkedPosition[1] >= 0) &&
-                (checkedPosition[0] <= level.board.squares.length - 1) &&
-                (checkedPosition[1] <= level.board.squares[0].length - 1)
-            );
-        }
-
-        function validPositionAndContainsValue(checkedPosition) {
-            return validPosition(checkedPosition) && (squareImages.imageValuesEquivalent(imageValue, adjacentImageValue(checkedPosition)));
-        }
-
-        function adjacentImageValue(checkedPosition) {
-            return level.board.squares[checkedPosition[0]][checkedPosition[1]].currentImage;
-        }
-
-        function threeValuesAdjacent(firstAdjacentDirection1ContainsValue, secondAdjacentDirection1ContainsValue, firstAdjacentDirection2ContainsValue, secondAdjacentDirection2ContainsValue) {
-            return (
-                (firstAdjacentDirection1ContainsValue && secondAdjacentDirection1ContainsValue) ||
-                (firstAdjacentDirection2ContainsValue && secondAdjacentDirection2ContainsValue) ||
-                (firstAdjacentDirection1ContainsValue && firstAdjacentDirection2ContainsValue)
-            );
-        }
-
-        function threeEqualValuesAdjacent(offsetDirection1, offsetDirection2) {
-            let firstAdjacentDirection1ContainsValue = validPositionAndContainsValue([position[0] + offsetDirection1[0], position[1] + offsetDirection1[1]]);
-            let secondAdjacentDirection1ContainsValue = validPositionAndContainsValue([position[0] + (offsetDirection1[0] * 2), position[1] + (offsetDirection1[1] * 2)]);
-            let firstAdjacentDirection2ContainsValue = validPositionAndContainsValue([position[0] + offsetDirection2[0], position[1] + offsetDirection2[1]]);
-            let secondAdjacentDirection2ContainsValue = validPositionAndContainsValue([position[0] + (offsetDirection2[0] * 2), position[1] + (offsetDirection2[1] * 2)]);
-            return threeValuesAdjacent(firstAdjacentDirection1ContainsValue, secondAdjacentDirection1ContainsValue, firstAdjacentDirection2ContainsValue, secondAdjacentDirection2ContainsValue);
-        }
-
-        function threeEqualValuesAdjacentVertically() {
-            return threeEqualValuesAdjacent([-1, 0], [1, 0]);
-        }
-
-        function threeEqualValuesAdjacentHorizontally() {
-            return threeEqualValuesAdjacent([0, -1], [0, 1]);
-        }
-
-        function threeEqualValuesAdjacentDiagonally1() {
-            return threeEqualValuesAdjacent([-1, -1], [1, 1]);
-        }
-
-        function threeEqualValuesAdjacentDiagonally2() {
-            return threeEqualValuesAdjacent([-1, 1], [1, -1]);
-        }
-
         function threeEquasValuesAdjacentAnywhere() {
+
+            function threeEqualValuesAdjacent(offsetDirection1, offsetDirection2) {
+
+                function validPositionAndContainsValue(checkedPosition) {
+
+                    function validPosition(checkedPosition) {
+                        return ((checkedPosition[0] >= 0) &&
+                            (checkedPosition[1] >= 0) &&
+                            (checkedPosition[0] <= level.board.squares.length - 1) &&
+                            (checkedPosition[1] <= level.board.squares[0].length - 1)
+                        );
+                    };
+
+                    function adjacentImageValue(checkedPosition) {
+                        return level.board.squares[checkedPosition[0]][checkedPosition[1]].currentImage;
+                    };
+
+                    return validPosition(checkedPosition) && (squareImages.imageValuesEquivalent(imageValue, adjacentImageValue(checkedPosition)));
+                };
+
+                function threeValuesAdjacent(firstAdjacentDirection1ContainsValue, secondAdjacentDirection1ContainsValue, firstAdjacentDirection2ContainsValue, secondAdjacentDirection2ContainsValue) {
+                    return (
+                        (firstAdjacentDirection1ContainsValue && secondAdjacentDirection1ContainsValue) ||
+                        (firstAdjacentDirection2ContainsValue && secondAdjacentDirection2ContainsValue) ||
+                        (firstAdjacentDirection1ContainsValue && firstAdjacentDirection2ContainsValue)
+                    );
+                };
+
+                let firstAdjacentDirection1ContainsValue = validPositionAndContainsValue([position[0] + offsetDirection1[0], position[1] + offsetDirection1[1]]);
+                let secondAdjacentDirection1ContainsValue = validPositionAndContainsValue([position[0] + (offsetDirection1[0] * 2), position[1] + (offsetDirection1[1] * 2)]);
+                let firstAdjacentDirection2ContainsValue = validPositionAndContainsValue([position[0] + offsetDirection2[0], position[1] + offsetDirection2[1]]);
+                let secondAdjacentDirection2ContainsValue = validPositionAndContainsValue([position[0] + (offsetDirection2[0] * 2), position[1] + (offsetDirection2[1] * 2)]);
+                return threeValuesAdjacent(firstAdjacentDirection1ContainsValue, secondAdjacentDirection1ContainsValue, firstAdjacentDirection2ContainsValue, secondAdjacentDirection2ContainsValue);
+            };
+
+            function threeEqualValuesAdjacentVertically() {
+                return threeEqualValuesAdjacent([-1, 0], [1, 0]);
+            };
+
+            function threeEqualValuesAdjacentHorizontally() {
+                return threeEqualValuesAdjacent([0, -1], [0, 1]);
+            };
+
+            function threeEqualValuesAdjacentDiagonally1() {
+                return threeEqualValuesAdjacent([-1, -1], [1, 1]);
+            };
+
+            function threeEqualValuesAdjacentDiagonally2() {
+                return threeEqualValuesAdjacent([-1, 1], [1, -1]);
+            };
+
             return threeEqualValuesAdjacentVertically(imageValue, position) ||
                 threeEqualValuesAdjacentHorizontally(imageValue, position) ||
                 threeEqualValuesAdjacentDiagonally1(imageValue, position) ||
