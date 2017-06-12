@@ -47,18 +47,19 @@ div.level {
 }
 
 div.board {
-    margin: auto;
-    width: 400px;
+    margin: 5px;
     cursor: crosshair;
 }
 
 div.buttons {
-    margin: auto;
-    width: 370px;
+    display: flex;
+    margin: 5px;
+    width: 100%;
     cursor: pointer;
 }
 
 div.imageButtons {
+    display: flex;
     width: 99%;
     margin: 0 auto;
 }
@@ -69,13 +70,17 @@ img.button {
 }
 
 div.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-width: 50%;
     margin: 0 auto;
-    display: inline;
+
 }
 
 div.square {
-	display: inline;
-	margin: auto;
+    display: flex;
+	margin: 5px;
 }
 
 img.squareImage.unpinned {
@@ -92,4 +97,8 @@ img.squareImage.pinned {
 
 .game-description {
 	margin-top: 100px;
+}
+
+.hide {
+    display: none;
 }
