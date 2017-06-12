@@ -168,7 +168,7 @@ define(["js/properties"], function(properties) {
         "imagesFilesNames": [
             "empty",
             "red",
-            "paleyellow",
+            "paleYellow",
             "stone",
             "redFixed",
             "paleyellowFixed"
