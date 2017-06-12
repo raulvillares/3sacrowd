@@ -1,4 +1,4 @@
-define(['js/properties', 'js/sound', 'js/squareImages'], function(properties, sound, squareImages) {
+define(['js/properties', 'js/sound', 'js/squareImages', 'js/info'], function(properties, sound, squareImages, info) {
 
     function Board() {
         this.squares = [];
@@ -169,6 +169,7 @@ define(['js/properties', 'js/sound', 'js/squareImages'], function(properties, so
                     if (imageBeingChecked != properties.EMPTY) { level.movements.push(squarePosition); }
                     if (level.filledSquares() == level.squaresToFill) {
                         document.getElementById("headerImage").src = properties.COMPLETED_FULL_PATH;
+                        info.stop();
                         sound.play(sound.COMPLETED);
                     }
                 } else {

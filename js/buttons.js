@@ -1,4 +1,4 @@
-define(['js/properties', 'js/sound'], function(properties, sound) {
+define(['js/properties', 'js/sound', 'js/info'], function(properties, sound, info) {
 
     let loadLevel;
 
@@ -31,6 +31,7 @@ define(['js/properties', 'js/sound'], function(properties, sound) {
     };
 
     const restartLevel = function(event) {
+        info.stop();
         level = loadLevel(level.number);
     };
 
@@ -38,6 +39,7 @@ define(['js/properties', 'js/sound'], function(properties, sound) {
         if (level.number === 1) {
             document.getElementById("previous").disabled = true;
         } else {
+            info.stop();
             level = loadLevel(level.number - 1);
         }
     };
@@ -46,6 +48,7 @@ define(['js/properties', 'js/sound'], function(properties, sound) {
         if (level.number === properties.NUMBER_OF_LEVELS) {
             document.getElementById("next").disabled = true;
         } else {
+            info.stop();
             level = loadLevel(level.number + 1);
         }
     };
