@@ -34,7 +34,7 @@ define(function() {
         SOUNDS_FOLDER,
         SOUNDS_EXTENSION,
         IMAGE_ID,
-        EEMPTY,
+        EMPTY,
         TIC,
         TAC,
         FIXED_EMPTY,
