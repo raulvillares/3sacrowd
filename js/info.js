@@ -23,7 +23,7 @@ define([], function() {
         };
 
         const getMovements = function() {
-            return movements == 1 ? "1 move" : movements + " moves";
+            return movements === 1 ? "1 move" : movements + " moves";
         };
 
         return levelNumber + separator + getTime() + separator + getMovements();

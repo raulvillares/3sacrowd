@@ -73,7 +73,7 @@ define(["js/properties", "js/sound", "js/info"], function(properties, sound, inf
                 button.src = properties.BUTTONS_IMAGES_FOLDER + id + properties.BUTTONS_IMAGES_EXTENSION;
                 button.title = description;
                 return button;
-            }
+            };
 
             var buttonsElement = document.createElement("div");
             buttonsElement.className = "buttons";

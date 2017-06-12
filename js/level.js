@@ -13,7 +13,7 @@ define(function() {
     }
 
     return {
-        createLevel: function(levelConfiguration, board) {
+        createLevel(levelConfiguration, board) {
             return new Level(levelConfiguration, board);
         }
     }
