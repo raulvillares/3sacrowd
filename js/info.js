@@ -1,6 +1,6 @@
 define([], function() {
 
-    const separator = ' · ';
+    const separator = " · ";
     let intervalId;
     let levelNumber;
     let movements = 0;
@@ -23,7 +23,7 @@ define([], function() {
         };
 
         const getMovements = function() {
-            return movements == 1 ? '1 move' : movements + ' moves';
+            return movements == 1 ? "1 move" : movements + " moves";
         };
 
         return levelNumber + separator + getTime() + separator + getMovements();
@@ -31,12 +31,12 @@ define([], function() {
 
     const regenerate = function() {
         ++totalSeconds;
-        document.getElementsByClassName('info')[0].innerHTML = getInfo();
+        document.getElementsByClassName("info")[0].innerHTML = getInfo();
     };
 
     return {
         generateInfo: function generateInfo(currentLevel, numberOfLevels) {
-            levelNumber = 'Level ' + currentLevel + '/' + numberOfLevels;
+            levelNumber = "Level " + currentLevel + "/" + numberOfLevels;
             movements = 0;
             totalSeconds = 0;
             let Element = document.createElement("div");
@@ -51,5 +51,5 @@ define([], function() {
         stop: function stop() {
             window.clearInterval(intervalId);
         }
-    }
+    };
 });

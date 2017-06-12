@@ -1,4 +1,4 @@
-define(['js/properties'], function(properties) {
+define(["js/properties"], function(properties) {
 
     const SOUNDS = ["empty", "tic", "tac", "forbidden", "pinned", "unpinned", "undo", "completed"];
     const FORBIDDEN = 3;
@@ -9,19 +9,18 @@ define(['js/properties'], function(properties) {
 
     return {
 
-        SOUNDS: SOUNDS,
-        FORBIDDEN : FORBIDDEN,
-        PINNED : PINNED,
-        UNPINNED : UNPINNED,
-        UNDO : UNDO,
-        COMPLETED : COMPLETED,
+        SOUNDS,
+        FORBIDDEN,
+        PINNED,
+        UNPINNED,
+        UNDO,
+        COMPLETED,
 
-        play: function(id) {
-            let audio = new Audio(properties.SOUNDS_FOLDER+SOUNDS[id]+properties.SOUNDS_EXTENSION);
-            audio.play();    
+        play(id) {
+            let audio = new Audio(properties.SOUNDS_FOLDER + SOUNDS[id] + properties.SOUNDS_EXTENSION);
+            audio.play();
         }
 
-    }
+    };
 
 });
-

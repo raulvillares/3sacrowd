@@ -1,5 +1,5 @@
 define(
-    ['js/properties', 'js/board', 'js/level', 'js/levels', 'js/square', 'js/buttons', 'js/info'],
+    ["js/properties", "js/board", "js/level", "js/levels", "js/square", "js/buttons", "js/info"],
     function(properties, boardModule, levelModule, levelsData, square, buttons, info) {
 
         const loadFunction = function(levelNumber) {
@@ -9,15 +9,15 @@ define(
                     while (element.firstChild) {
                         element.removeChild(element.firstChild);
                     }
-                }
+                };
 
                 function clearLevel() {
                     clearElement("level");
-                }
+                };
 
                 function clearHeader() {
                     clearElement("headerDiv");
-                }
+                };
 
                 clearHeader();
                 clearLevel();
@@ -57,9 +57,9 @@ define(
         };
 
         return {
-            loadLevel: function loadLevel(levelNumber) {
+            loadLevel(levelNumber) {
                 buttons.setLoadLevel(loadFunction);
                 loadFunction(levelNumber);
             }
-        }
+        };
     });

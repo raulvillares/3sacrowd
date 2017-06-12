@@ -1,4 +1,8 @@
-define(['js/properties', 'js/sound', 'js/info'], function(properties, sound, info) {
+/*global
+level
+*/
+
+define(["js/properties", "js/sound", "js/info"], function(properties, sound, info) {
 
     let loadLevel;
 
@@ -14,18 +18,18 @@ define(['js/properties', 'js/sound', 'js/info'], function(properties, sound, inf
 
     const pinSquare = function(event) {
         if (level.pinSelected) {
-            squares = Array.prototype.slice.call(document.getElementsByClassName('square'));
+            let squares = Array.prototype.slice.call(document.getElementsByClassName("square"));
             squares.forEach(function(squareElement) {
-                squareElement.className = 'square';
+                squareElement.className = "square";
             });
-            document.getElementById('pin').src = properties.BUTTONS_IMAGES_FOLDER + 'pin' + properties.BUTTONS_IMAGES_EXTENSION;
+            document.getElementById("pin").src = properties.BUTTONS_IMAGES_FOLDER + "pin" + properties.BUTTONS_IMAGES_EXTENSION;
             level.pinSelected = false;
         } else {
-            squares = Array.prototype.slice.call(document.getElementsByClassName('square'));
+            let squares = Array.prototype.slice.call(document.getElementsByClassName("square"));
             squares.forEach(function(squareElement) {
-                squareElement.className = 'square pin';
+                squareElement.className = "square pin";
             });
-            document.getElementById('pin').src = properties.BUTTONS_IMAGES_FOLDER + 'pin_selected' + properties.BUTTONS_IMAGES_EXTENSION;
+            document.getElementById("pin").src = properties.BUTTONS_IMAGES_FOLDER + "pin_selected" + properties.BUTTONS_IMAGES_EXTENSION;
             level.pinSelected = true;
         }
     };
@@ -55,11 +59,11 @@ define(['js/properties', 'js/sound', 'js/info'], function(properties, sound, inf
 
     return {
 
-        setLoadLevel: function setLoadLevel(loadFunction) {
+        setLoadLevel(loadFunction) {
             loadLevel = loadFunction;
         },
 
-        createButtons: function createButtons() {
+        createButtons() {
             const createButton = function(id, description) {
                 var button = document.createElement("img");
                 button.className = "button";
@@ -94,6 +98,6 @@ define(['js/properties', 'js/sound', 'js/info'], function(properties, sound, inf
             return buttonsElement;
         }
 
-    }
+    };
 
 });
