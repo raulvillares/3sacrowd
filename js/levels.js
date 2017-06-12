@@ -95,7 +95,7 @@ define(['js/properties'], function(properties) {
     [
         "empty",
         "minty",
-        "paleyellow",
+        "paleYellow",
         "brick",
         "mintyFixed",
         "paleyellowFixed"
