@@ -52,7 +52,7 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
                 squareImageElement.id = square.generateImageId();
                 squareImageElement.src = squareImages.generateImagePath(square.currentImage);
                 return squareImageElement;
-            };
+            }
 
             var squareElement = document.createElement("div");
             squareElement.className = "square";
@@ -99,8 +99,7 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
     Board.prototype.validImage = function(imageValue, position) {
 
         function validPosition(checkedPosition) {
-            return (
-                (checkedPosition[0] >= 0) &&
+            return ((checkedPosition[0] >= 0) &&
                 (checkedPosition[1] >= 0) &&
                 (checkedPosition[0] <= level.board.squares.length - 1) &&
                 (checkedPosition[1] <= level.board.squares[0].length - 1)
