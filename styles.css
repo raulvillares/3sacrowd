@@ -50,6 +50,18 @@ div.board {
     margin: 5px;
 }
 
+div.info {
+    justify-content: center;
+    display: flex;
+    width: 99%;
+    margin: 0 auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 21px;
+    font-weight: bold;
+    color: yellow;
+    text-shadow: -1px 0 blue, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
 div.buttons {
     display: flex;
     margin: 5px;

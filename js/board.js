@@ -12,7 +12,7 @@ define(['js/properties', 'js/sound', 'js/squareImages'], function(properties, so
         var count = 0;
         this.squares.forEach(function(row) {
             row.forEach(function(square) {
-                if(square.changeable) { ++count; }
+                if (square.changeable) {++count; }
             });
         });
         return count;
@@ -22,7 +22,7 @@ define(['js/properties', 'js/sound', 'js/squareImages'], function(properties, so
         var count = 0;
         this.squares.forEach(function(row) {
             row.forEach(function(square) {
-                if((square.changeable) && (square.currentImage != properties.EMPTY)) { ++count; }
+                if ((square.changeable) && (square.currentImage != properties.EMPTY)) {++count; }
             });
         });
         return count;
@@ -46,8 +46,8 @@ define(['js/properties', 'js/sound', 'js/squareImages'], function(properties, so
                 var squareImageElement = document.createElement("img");
                 squareImageElement.className = "squareImage unpinned";
                 squareImageElement.id = square.generateImageId();
-                squareImageElement.src = squareImages.generateImagePath(square.currentImage);   
-                return squareImageElement;        
+                squareImageElement.src = squareImages.generateImagePath(square.currentImage);
+                return squareImageElement;
             }
 
             var squareElement = document.createElement("div");
@@ -69,11 +69,11 @@ define(['js/properties', 'js/sound', 'js/squareImages'], function(properties, so
         });
         return boardElement;
     };
-        
+
     Board.prototype.clicked = function(event) {
         if (level.filledSquares() < level.squaresToFill) {
             if (event.target.className.startsWith('squareImage')) {
-                if(level.pinSelected) {
+                if (level.pinSelected) {
                     level.board.pinSquare(event.target.id);
                 } else {
                     level.board.turnImage(event.target.id);
@@ -85,7 +85,7 @@ define(['js/properties', 'js/sound', 'js/squareImages'], function(properties, so
     Board.prototype.pinSquare = function(squareId) {
         var squarePosition = squareImages.getPosition(squareId);
         let clickedSquare = level.board.squares[squarePosition[0]][squarePosition[1]];
-        if(clickedSquare.pinned) {
+        if (clickedSquare.pinned) {
             clickedSquare.unpin();
         } else {
             clickedSquare.pin();
@@ -97,12 +97,12 @@ define(['js/properties', 'js/sound', 'js/squareImages'], function(properties, so
         return !threeEquasValuesAdjacentAnywhere();
 
         function threeEquasValuesAdjacentAnywhere() {
-            return(
-                    threeEqualValuesAdjacentVertically(imageValue, position) ||
-                    threeEqualValuesAdjacentHorizontally(imageValue, position) ||
-                    threeEqualValuesAdjacentDiagonally1(imageValue, position) ||
-                    threeEqualValuesAdjacentDiagonally2(imageValue, position)
-                    );
+            return (
+                threeEqualValuesAdjacentVertically(imageValue, position) ||
+                threeEqualValuesAdjacentHorizontally(imageValue, position) ||
+                threeEqualValuesAdjacentDiagonally1(imageValue, position) ||
+                threeEqualValuesAdjacentDiagonally2(imageValue, position)
+            );
         }
 
         function threeEqualValuesAdjacentVertically() {
@@ -122,10 +122,10 @@ define(['js/properties', 'js/sound', 'js/squareImages'], function(properties, so
         }
 
         function threeEqualValuesAdjacent(offsetDirection1, offsetDirection2) {
-            let firstAdjacentDirection1ContainsValue = validPositionAndContainsValue([position[0]+offsetDirection1[0], position[1]+offsetDirection1[1]]);
-            let secondAdjacentDirection1ContainsValue = validPositionAndContainsValue([position[0]+(offsetDirection1[0]*2), position[1]+(offsetDirection1[1]*2)]);
-            let firstAdjacentDirection2ContainsValue = validPositionAndContainsValue([position[0]+offsetDirection2[0], position[1]+offsetDirection2[1]]);
-            let secondAdjacentDirection2ContainsValue = validPositionAndContainsValue([position[0]+(offsetDirection2[0]*2), position[1]+(offsetDirection2[1]*2)]);
+            let firstAdjacentDirection1ContainsValue = validPositionAndContainsValue([position[0] + offsetDirection1[0], position[1] + offsetDirection1[1]]);
+            let secondAdjacentDirection1ContainsValue = validPositionAndContainsValue([position[0] + (offsetDirection1[0] * 2), position[1] + (offsetDirection1[1] * 2)]);
+            let firstAdjacentDirection2ContainsValue = validPositionAndContainsValue([position[0] + offsetDirection2[0], position[1] + offsetDirection2[1]]);
+            let secondAdjacentDirection2ContainsValue = validPositionAndContainsValue([position[0] + (offsetDirection2[0] * 2), position[1] + (offsetDirection2[1] * 2)]);
             return threeValuesAdjacent(firstAdjacentDirection1ContainsValue, secondAdjacentDirection1ContainsValue, firstAdjacentDirection2ContainsValue, secondAdjacentDirection2ContainsValue);
         }
 
@@ -139,30 +139,30 @@ define(['js/properties', 'js/sound', 'js/squareImages'], function(properties, so
 
         function validPosition(checkedPosition) {
             return (
-                    (checkedPosition[0] >= 0) &&
-                    (checkedPosition[1] >= 0) &&
-                    (checkedPosition[0] <= level.board.squares.length-1) &&
-                    (checkedPosition[1] <= level.board.squares[0].length-1)
-                    );
+                (checkedPosition[0] >= 0) &&
+                (checkedPosition[1] >= 0) &&
+                (checkedPosition[0] <= level.board.squares.length - 1) &&
+                (checkedPosition[1] <= level.board.squares[0].length - 1)
+            );
         }
 
         function threeValuesAdjacent(firstAdjacentDirection1ContainsValue, secondAdjacentDirection1ContainsValue, firstAdjacentDirection2ContainsValue, secondAdjacentDirection2ContainsValue) {
             return (
-                    (firstAdjacentDirection1ContainsValue && secondAdjacentDirection1ContainsValue) ||
-                    (firstAdjacentDirection2ContainsValue && secondAdjacentDirection2ContainsValue) ||
-                    (firstAdjacentDirection1ContainsValue && firstAdjacentDirection2ContainsValue)
-                    ); 
-        }    
-    };    
+                (firstAdjacentDirection1ContainsValue && secondAdjacentDirection1ContainsValue) ||
+                (firstAdjacentDirection2ContainsValue && secondAdjacentDirection2ContainsValue) ||
+                (firstAdjacentDirection1ContainsValue && firstAdjacentDirection2ContainsValue)
+            );
+        }
+    };
 
     Board.prototype.turnImage = function(squareId) {
         var squarePosition = squareImages.getPosition(squareId);
         let clickedSquare = this.squares[squarePosition[0]][squarePosition[1]];
         var initialImage = clickedSquare.currentImage;
-        if((!clickedSquare.pinned) && (clickedSquare.changeable)) {
+        if ((!clickedSquare.pinned) && (clickedSquare.changeable)) {
             let imageBeingChecked = squareImages.nextImage(clickedSquare.currentImage);
             let validImageFound = false;
-            while(!validImageFound) {
+            while (!validImageFound) {
                 if ((imageBeingChecked == properties.EMPTY) || (this.validImage(imageBeingChecked, squarePosition))) {
                     clickedSquare.change(imageBeingChecked);
                     validImageFound = true;
@@ -186,5 +186,3 @@ define(['js/properties', 'js/sound', 'js/squareImages'], function(properties, so
         }
     }
 });
-
-  

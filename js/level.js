@@ -17,4 +17,4 @@ define(function() {
             return new Level(levelConfiguration, board);
         }
     }
-});  
+});
