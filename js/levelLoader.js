@@ -25,14 +25,14 @@ define(
 
                 clearHeader();
                 clearLevel();
-            };
+            }
 
             function loadHeader() {
                 var headerImage = document.createElement("img");
                 headerImage.id = "headerImage";
                 headerImage.src = properties.LOGO_FULL_PATH;
                 document.getElementById("headerDiv").appendChild(headerImage);
-            };
+            }
 
             function generateBoard(levelConfiguration) {
 
@@ -47,7 +47,7 @@ define(
                 });
 
                 return levelBoard;
-            };
+            }
 
             let levelConfiguration = levelsData.getLevelData(levelNumber);
             clear();

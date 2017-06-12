@@ -16,5 +16,5 @@ define(function() {
         createLevel(levelConfiguration, board) {
             return new Level(levelConfiguration, board);
         }
-    }
+    };
 });

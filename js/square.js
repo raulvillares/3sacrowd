@@ -10,7 +10,7 @@ define(["js/properties", "js/squareImages", "js/sound"], function(properties, sq
             this.changeable = false;
         }
         this.pinned = false;
-    };
+    }
 
     Square.prototype.nextImage = function() {
         if (this.changeable) {
@@ -37,7 +37,7 @@ define(["js/properties", "js/squareImages", "js/sound"], function(properties, sq
     };
 
     Square.prototype.pinnable = function() {
-        return (this.currentImage == properties.TIC) || (this.currentImage == properties.TAC);
+        return (this.currentImage === properties.TIC) || (this.currentImage === properties.TAC);
     };
 
     Square.prototype.pin = function() {

@@ -8,16 +8,16 @@ define(["js/properties"], function(properties) {
 
         imageValuesEquivalent(imageValue1, imageValue2) {
             const imageEquivalent = function imageEquivalent(imageValue) {
-                if (imageValue == properties.FIXED_TIC) { return properties.TIC; }
-                if (imageValue == properties.FIXED_TAC) { return properties.TAC; }
-                if (imageValue == properties.TIC) { return properties.FIXED_TIC; }
-                if (imageValue == properties.TAC) { return properties.FIXED_TAC; }
+                if (imageValue === properties.FIXED_TIC) { return properties.TIC; }
+                if (imageValue === properties.FIXED_TAC) { return properties.TAC; }
+                if (imageValue === properties.TIC) { return properties.FIXED_TIC; }
+                if (imageValue === properties.TAC) { return properties.FIXED_TAC; }
             };
             let equivalent =
-                (imageValue1 == imageValue2) ||
+                (imageValue1 === imageValue2) ||
                 (
-                    (imageValue1 == imageEquivalent(imageValue2)) ||
-                    (imageValue2 == imageEquivalent(imageValue1))
+                    (imageValue1 === imageEquivalent(imageValue2)) ||
+                    (imageValue2 === imageEquivalent(imageValue1))
                 );
             return equivalent;
         },
@@ -41,7 +41,7 @@ define(["js/properties"], function(properties) {
         },
 
         pinnableImage(imageId) {
-            return (imageId == properties.TIC) || (imageId == properties.TAC);
+            return (imageId === properties.TIC) || (imageId === properties.TAC);
         }
 
     };
