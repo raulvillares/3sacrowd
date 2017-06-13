@@ -13,7 +13,7 @@ define(function() {
     }
 
     Level.prototype.addMovement = function(position) {
-        if (this.indexOfMovement(position) == -1) {
+        if (this.indexOfMovement(position) === -1) {
             this.movements.push(position);
         }
     };
@@ -21,8 +21,6 @@ define(function() {
     Level.prototype.undoMovement = function() {
         if (this.hasMovements()) {
             return this.movements.pop();
-        } else {
-            return undefined;
         }
     };
 
