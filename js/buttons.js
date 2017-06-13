@@ -8,9 +8,9 @@ define(["js/properties", "js/sound", "js/info"], function(properties, sound, inf
 
     const undoMovement = function(event) {
         if (level.filledSquares() === level.squaresToFill) {
-          document.getElementById("undo").disabled = true;
-        } else if (level.movements.length > 0) {
-            var positionLastMovement = level.movements.pop();
+            document.getElementById("undo").disabled = true;
+        } else if (level.hasMovements()) {
+            var positionLastMovement = level.undoMovement();
             var squareLastMovement = level.board.squares[positionLastMovement[0]][positionLastMovement[1]];
             if (squareLastMovement.pinned) { squareLastMovement.unpin(); }
             squareLastMovement.changeImage(properties.EMPTY);
