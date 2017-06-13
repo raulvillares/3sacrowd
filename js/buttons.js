@@ -7,7 +7,9 @@ define(["js/properties", "js/sound", "js/info"], function(properties, sound, inf
     let loadLevel;
 
     const undoMovement = function(event) {
-        if (level.movements.length > 0) {
+        if (level.filledSquares() === level.squaresToFill) {
+          document.getElementById("undo").disabled = true;
+        } else if (level.movements.length > 0) {
             var positionLastMovement = level.movements.pop();
             var squareLastMovement = level.board.squares[positionLastMovement[0]][positionLastMovement[1]];
             if (squareLastMovement.pinned) { squareLastMovement.unpin(); }
