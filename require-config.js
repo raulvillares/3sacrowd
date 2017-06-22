@@ -1,0 +1,3 @@
+requirejs.config({
+    nodeRequire: require
+});
