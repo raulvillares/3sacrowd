@@ -3,6 +3,15 @@ level
 */
 
 define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(properties, sound, squareImages, info) {
+    function awardMedal(medal){
+        var newDiv = document.createElement('div');
+        var imageNode = document.createElement('img');
+        imageNode.src = medal;
+        newDiv.appendChild(imageNode);
+        newDiv.setAttribute('align', 'center');
+        var header = document.getElementById('level');
+        header.insertBefore(newDiv, header.childNodes[0]);
+    }
 
     function Board() {
         this.squares = [];
@@ -181,6 +190,12 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
                         document.getElementById("headerImage").src = properties.COMPLETED_FULL_PATH;
                         info.stop();
                         sound.play(sound.COMPLETED);
+                        const medal = info.medalTime();
+                        if(medal <= 90){
+                            awardMedal(properties.GOLD_MEDAL);
+                        } else if(medal < 150){
+                            awardMedal(properties.SILVER_MEDAL);
+                        }
                     }
                 } else {
                     imageBeingChecked = squareImages.nextImage(imageBeingChecked);
@@ -196,4 +211,5 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
             return new Board();
         }
     };
+
 });
