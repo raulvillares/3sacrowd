@@ -50,6 +50,9 @@ define([], function() {
         },
         stop: function stop() {
             window.clearInterval(intervalId);
+        },
+        medalTime: function medalTime(){
+            return totalSeconds;
         }
     };
 });
