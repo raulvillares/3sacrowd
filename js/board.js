@@ -3,6 +3,36 @@ level
 */
 
 define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(properties, sound, squareImages, info) {
+    function awardMedal(medal){
+        var newDiv = document.createElement('div');
+        var imageNode = document.createElement('img');
+        imageNode.src = medal;
+        newDiv.appendChild(imageNode);
+        newDiv.setAttribute('align', 'center');
+        var header = document.getElementById('level');
+        header.insertBefore(newDiv, header.childNodes[0]);
+    }
+
+    function createMedalDiv(){
+        var medalDiv = document.createElement("div");
+        medalDiv.id = "medalDiv";
+        var header = document.getElementById("level");
+        header.insertBefore(medalDiv, header.childNodes[0]);
+    }
+
+    function populateMedals(){
+        var medals = [];
+        var timeMedal = document.createElement("img");
+        var moveMedal = document.createElement("img");
+        var perfectMoves = document.createElement("img");
+        medals.push(timeMedal, moveMedal, perfectMoves);
+        return medals;
+    }
+
+    function imageMedals(medal){
+        medal.src = properties.MEDAL_OFF;
+        medal.className = "medals";
+    }
 
     function createMedalDiv(){
         var medalDiv = document.createElement("div");
