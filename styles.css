@@ -120,3 +120,14 @@ img.squareImage.pinned {
 .hide {
     display: none;
 }
+
+.medals {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    display: inline-block;
+}
+
+#medalDiv{
+    text-align: center;
+}

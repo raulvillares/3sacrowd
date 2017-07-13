@@ -3,6 +3,36 @@ level
 */
 
 define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(properties, sound, squareImages, info) {
+    function awardMedal(medal){
+        var newDiv = document.createElement('div');
+        var imageNode = document.createElement('img');
+        imageNode.src = medal;
+        newDiv.appendChild(imageNode);
+        newDiv.setAttribute('align', 'center');
+        var header = document.getElementById('level');
+        header.insertBefore(newDiv, header.childNodes[0]);
+    }
+
+    function createMedalDiv(){
+        var medalDiv = document.createElement("div");
+        medalDiv.id = "medalDiv";
+        var header = document.getElementById("level");
+        header.insertBefore(medalDiv, header.childNodes[0]);
+    }
+
+    function populateMedals(){
+        var medals = [];
+        var timeMedal = document.createElement("img");
+        var moveMedal = document.createElement("img");
+        var perfectMoves = document.createElement("img");
+        medals.push(timeMedal, moveMedal, perfectMoves);
+        return medals;
+    }
+
+    function imageMedals(medal){
+        medal.src = properties.MEDAL_OFF;
+        medal.className = "medals";
+    }
 
     function Board() {
         this.squares = [];
@@ -181,6 +211,36 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
                         document.getElementById("headerImage").src = properties.COMPLETED_FULL_PATH;
                         info.stop();
                         sound.play(sound.COMPLETED);
+                        const timeMedal = info.medalTime(); //final time
+                        const movementMedal = info.movementTotal(); //final movement count
+                        createMedalDiv(); //creates div between board and title
+                        var medals = populateMedals(); //create array of medal images
+                        medals.forEach(imageMedals); //sets default images to MEDAL_OFF;
+                        /*
+                        I set a generic time and movement count to intialize
+                        the medals. These need to be replaced with variables.
+                        Variables should be put into levels.js. 
+                        */
+                        if(timeMedal <= 60){
+                            medals[0].src = properties.MEDAL_ON;
+                        }
+                        if(movementMedal < 30){
+                            medals[1].src = properties.MEDAL_ON;
+                        }
+                        /* I set this up so that if a player hits 'undo'
+                        or resets a block in anyway, PERFECTMOVES should 
+                        be changed to false. PeRFECTMOVES is in properties.js
+                        --------------------------------
+                        if(properties.PERFECTMOVES){
+                            medals[2].src = properties.MEDAL_ON;
+                        }
+                        ---------------------------------
+                        */
+                        //appends medal array to div
+                        medals.forEach(function(medal){
+                            var winningDiv = document.getElementById("medalDiv");
+                            winningDiv.appendChild(medal);
+                        });
                     }
                 } else {
                     imageBeingChecked = squareImages.nextImage(imageBeingChecked);
@@ -196,4 +256,5 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
             return new Board();
         }
     };
+
 });
