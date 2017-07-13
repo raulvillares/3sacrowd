@@ -53,6 +53,9 @@ define([], function() {
         },
         medalTime: function medalTime(){
             return totalSeconds;
+        },
+        movementTotal: function movementTotal(){
+            return movements;
         }
     };
 });

@@ -8,8 +8,8 @@ define(function() {
     const BACKGROUND_IMAGES_EXTENSION = ".png";
     const LOGO_FULL_PATH = "./img/logos/logo2.png";
     const COMPLETED_FULL_PATH = "./img/logos/completed.png";
-    const SILVER_MEDAL = "./img/medals/medal_off.png";
-    const GOLD_MEDAL = "./img/medals/medal_on.png";
+    const MEDAL_OFF = "./img/medals/medal_off.png";
+    const MEDAL_ON = "./img/medals/medal_on.png";
     const BUTTONS_IMAGES_FOLDER = "./img/buttons/";
     const BUTTONS_IMAGES_EXTENSION = ".png";
     const SOUNDS_FOLDER = "sound/";
@@ -21,6 +21,7 @@ define(function() {
     const FIXED_EMPTY = 3;
     const FIXED_TIC = 4;
     const FIXED_TAC = 5;
+    var PERFECTMOVES = true;
 
 
     return {
@@ -32,8 +33,8 @@ define(function() {
         BACKGROUND_IMAGES_EXTENSION,
         LOGO_FULL_PATH,
         COMPLETED_FULL_PATH,
-        SILVER_MEDAL,
-        GOLD_MEDAL,
+        MEDAL_OFF,
+        MEDAL_ON,
         BUTTONS_IMAGES_FOLDER,
         BUTTONS_IMAGES_EXTENSION,
         SOUNDS_FOLDER,
@@ -44,7 +45,8 @@ define(function() {
         TAC,
         FIXED_EMPTY,
         FIXED_TIC,
-        FIXED_TAC
+        FIXED_TAC,
+        PERFECTMOVES
     };
 
 });
