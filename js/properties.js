@@ -24,6 +24,7 @@ define(function() {
     var PERFECTMOVES = true;
 
 
+
     return {
         NUMBER_OF_LEVELS,
         NUMBER_CHANGEABLE_IMAGES,
