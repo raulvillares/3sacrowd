@@ -21,7 +21,7 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
     }
 
     function imageMedals(medal){
-        medal.src = properties.MEDAL_OFF;
+        medal.setAttribute('src', properties.MEDAL_OFF);
         medal.className = "medals";
     }
 
@@ -82,7 +82,7 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
         }
 
         var boardElement = createBoardElement();
-        boardElement.addEventListener("click", this.clicked);
+        boardElement.onclick = this.clicked; // on click call Board.clicked.
 
         this.squares.forEach(function(row) {
             var rowElement = createRowElement();
@@ -213,10 +213,10 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
                         Variables should be put into levels.js. 
                         */
                         if(timeMedal <= 60){
-                            medals[0].src = properties.MEDAL_ON;
+                            medals[0].setAttribute("src",properties.MEDAL_ON);
                         }
                         if(movementMedal < 30){
-                            medals[1].src = properties.MEDAL_ON;
+                            medals[1].setAttribute("src", properties.MEDAL_ON);
                         }
                         /* I set this up so that if a player hits 'undo'
                         or resets a block in anyway, PERFECTMOVES should 

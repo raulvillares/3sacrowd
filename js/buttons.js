@@ -24,14 +24,14 @@ define(["js/properties", "js/sound", "js/info"], function(properties, sound, inf
             squares.forEach(function(squareElement) {
                 squareElement.className = "square";
             });
-            document.getElementById("pin").src = properties.BUTTONS_IMAGES_FOLDER + "pin" + properties.BUTTONS_IMAGES_EXTENSION;
+            document.getElementById("pin").setAttribute("src", properties.BUTTONS_IMAGES_FOLDER + "pin" + properties.BUTTONS_IMAGES_EXTENSION);
             level.pinSelected = false;
         } else {
             let squares = Array.prototype.slice.call(document.getElementsByClassName("square"));
             squares.forEach(function(squareElement) {
                 squareElement.className = "square pin";
             });
-            document.getElementById("pin").src = properties.BUTTONS_IMAGES_FOLDER + "pin_selected" + properties.BUTTONS_IMAGES_EXTENSION;
+            document.getElementById("pin").setAttribute("src", properties.BUTTONS_IMAGES_FOLDER + "pin_selected" + properties.BUTTONS_IMAGES_EXTENSION); 
             level.pinSelected = true;
         }
     };
@@ -72,7 +72,7 @@ define(["js/properties", "js/sound", "js/info"], function(properties, sound, inf
                 button.id = id;
                 button.width = 53;
                 button.height = 53;
-                button.src = properties.BUTTONS_IMAGES_FOLDER + id + properties.BUTTONS_IMAGES_EXTENSION;
+                button.setAttribute("src", properties.BUTTONS_IMAGES_FOLDER + id + properties.BUTTONS_IMAGES_EXTENSION);
                 button.title = description;
                 return button;
             };
@@ -82,13 +82,13 @@ define(["js/properties", "js/sound", "js/info"], function(properties, sound, inf
             var imageButtonsElement = document.createElement("div");
             imageButtonsElement.className = "imageButtons";
             var undoButton = createButton("undo", "Undo movement");
-            undoButton.addEventListener("click", undoMovement);
+            undoButton.onclick = undoMovement;
             var restartButton = createButton("restart", "Restart level");
             restartButton.addEventListener("click", restartLevel);
             var pinButton = createButton("pin", "Pin Square");
             pinButton.addEventListener("click", pinSquare);
             var previousButton = createButton("previous", "Previous level");
-            previousButton.addEventListener("click", previousLevel);
+            previousButton.onclick = previousLevel;
             var nextButton = createButton("next", "Next level");
             nextButton.addEventListener("click", nextLevel);
             imageButtonsElement.appendChild(previousButton);
