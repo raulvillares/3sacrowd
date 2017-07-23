@@ -199,7 +199,7 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
                         level.removeMovement(squarePosition);
                     }
                     if (level.filledSquares() === level.squaresToFill) {
-                        document.getElementById("headerImage").src = properties.COMPLETED_FULL_PATH;
+                        document.getElementById("headerImage").setAttribute("src", properties.COMPLETED_FULL_PATH );
                         info.stop();
                         sound.play(sound.COMPLETED);
                         const timeMedal = info.medalTime(); //final time
