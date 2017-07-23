@@ -84,13 +84,13 @@ define(["js/properties", "js/sound", "js/info"], function(properties, sound, inf
             var undoButton = createButton("undo", "Undo movement");
             undoButton.onclick = undoMovement;
             var restartButton = createButton("restart", "Restart level");
-            restartButton.addEventListener("click", restartLevel);
+            restartButton.onclick = restartLevel;
             var pinButton = createButton("pin", "Pin Square");
-            pinButton.addEventListener("click", pinSquare);
+            pinButton.onclick = pinSquare;
             var previousButton = createButton("previous", "Previous level");
             previousButton.onclick = previousLevel;
             var nextButton = createButton("next", "Next level");
-            nextButton.addEventListener("click", nextLevel);
+            nextButton.onclick = nextLevel;
             imageButtonsElement.appendChild(previousButton);
             imageButtonsElement.appendChild(undoButton);
             imageButtonsElement.appendChild(pinButton);
