@@ -21,7 +21,7 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
     }
 
     function imageMedals(medal){
-        medal.setAttribute('src', properties.MEDAL_OFF);
+        medal.setAttribute("src", properties.MEDAL_OFF);
         medal.className = "medals";
     }
 
