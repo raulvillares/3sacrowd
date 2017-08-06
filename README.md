@@ -10,7 +10,7 @@ Some squares are fixed and you are not allowed to put an alien tile at that loca
 
 ![Sample board](https://raw.githubusercontent.com/raulvillares/3sacrowd/master/img/landing_page/demo.png)
 
-The game is entirely developed with [Vanilla JS](http://vanilla-js.com/). [RequireJs](http://requirejs.org/) is used for modularization. The purpose of this project is to **learn** so **anybody is welcome**. Are you looking for some easy javascript project to make your first [contribution](https://akrabat.com/the-beginners-guide-to-contributing-to-a-github-project/) at Github? **This may be the one!**
+The game is entirely developed with [Vanilla JS](http://vanilla-js.com/). [RequireJs](http://requirejs.org/) is used for modularization. The purpose of this project is to **learn** so **anybody is welcome**. Are you looking for an easy javascript project to make your first [contribution](https://akrabat.com/the-beginners-guide-to-contributing-to-a-github-project/) on Github? **This may be the one!**
 
 [Original idea](http://www2.stetson.edu/~efriedma/puzzle/tic/) by Erich Friedman. Each puzzle has a unique solution. All puzzles © Erich Friedman, 2010.
 
