@@ -131,3 +131,7 @@ img.squareImage.pinned {
 #medalDiv{
     text-align: center;
 }
+
+.bold {
+    font-weight: bold;
+}
