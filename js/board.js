@@ -207,26 +207,22 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
                         createMedalDiv(); //creates div between board and title
                         var medals = populateMedals(); //create array of medal images
                         medals.forEach(imageMedals); //sets default images to MEDAL_OFF;
-                        /*
-                        I set a generic time and movement count to intialize
-                        the medals. These need to be replaced with variables.
-                        Variables should be put into levels.js. 
-                        */
-                        if(timeMedal <= 60){
+
+                        //Allow variable in levels.js to override for gameplay ease
+                        let maxMovementsAchieved = level.squaresToFill;
+                        if(level.maxMovementsAchieved) {
+                            maxMovementsAchieved = level.maxMovementsAchieved;
+                        }
+
+                        if(timeMedal <= level.maxTimeAchieved){
                             medals[0].setAttribute("src",properties.MEDAL_ON);
                         }
-                        if(movementMedal < 30){
+                        if(movementMedal <= maxMovementsAchieved){
                             medals[1].setAttribute("src", properties.MEDAL_ON);
                         }
-                        /* I set this up so that if a player hits 'undo'
-                        or resets a block in anyway, PERFECTMOVES should 
-                        be changed to false. PeRFECTMOVES is in properties.js
-                        --------------------------------
-                        if(properties.PERFECTMOVES){
+                        if(properties.PERFECT_MOVES){
                             medals[2].src = properties.MEDAL_ON;
                         }
-                        ---------------------------------
-                        */
                         //appends medal array to div
                         medals.forEach(function(medal){
                             var winningDiv = document.getElementById("medalDiv");
