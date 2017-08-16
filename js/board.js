@@ -208,16 +208,10 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
                         var medals = populateMedals(); //create array of medal images
                         medals.forEach(imageMedals); //sets default images to MEDAL_OFF;
 
-                        //Allow variable in levels.js to override for gameplay ease
-                        let maxMovementsAchieved = level.squaresToFill;
-                        if(level.maxMovementsAchieved) {
-                            maxMovementsAchieved = level.maxMovementsAchieved;
-                        }
-
                         if(timeMedal <= level.maxTimeAchieved){
                             medals[0].setAttribute("src",properties.MEDAL_ON);
                         }
-                        if(movementMedal <= maxMovementsAchieved){
+                        if(movementMedal <= level.maxMovementsAchieved){
                             medals[1].setAttribute("src", properties.MEDAL_ON);
                         }
                         if(level.perfectMoves){
