@@ -15,6 +15,7 @@ define(["js/properties", "js/sound", "js/info"], function(properties, sound, inf
             if (squareLastMovement.pinned) { squareLastMovement.unpin(); }
             squareLastMovement.changeImage(properties.EMPTY);
             sound.play(sound.UNDO);
+            properties.PERFECT_MOVES = false;
         }
     };
 
@@ -39,6 +40,7 @@ define(["js/properties", "js/sound", "js/info"], function(properties, sound, inf
     const restartLevel = function(event) {
         info.stop();
         level = loadLevel(level.number);
+        properties.PERFECT_MOVES = true;
     };
 
     const previousLevel = function(event) {

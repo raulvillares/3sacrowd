@@ -21,7 +21,7 @@ define(function() {
     const FIXED_EMPTY = 3;
     const FIXED_TIC = 4;
     const FIXED_TAC = 5;
-    var PERFECTMOVES = true;
+    var PERFECT_MOVES = true;
 
 
 
@@ -47,7 +47,7 @@ define(function() {
         FIXED_EMPTY,
         FIXED_TIC,
         FIXED_TAC,
-        PERFECTMOVES
+        PERFECT_MOVES
     };
 
 });
