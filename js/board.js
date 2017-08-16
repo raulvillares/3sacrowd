@@ -202,22 +202,22 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
                         document.getElementById("headerImage").setAttribute("src", properties.COMPLETED_FULL_PATH );
                         info.stop();
                         sound.play(sound.COMPLETED);
-                        const timeMedal = info.medalTime(); //final time
-                        const movementMedal = info.movementTotal(); //final movement count
-                        createMedalDiv(); //creates div between board and title
-                        var medals = populateMedals(); //create array of medal images
-                        medals.forEach(imageMedals); //sets default images to MEDAL_OFF;
+                        const timeMedal = info.medalTime();
+                        const movementMedal = info.movementTotal();
+                        createMedalDiv();
+                        var medals = populateMedals();
+                        medals.forEach(imageMedals);
 
-                        if(timeMedal <= level.maxTimeAchieved){
+                        if(timeMedal <= level.maxTimeAchievement){
                             medals[0].setAttribute("src",properties.MEDAL_ON);
                         }
-                        if(movementMedal <= level.maxMovementsAchieved){
+                        if(movementMedal <= level.maxMovementsAchievement){
                             medals[1].setAttribute("src", properties.MEDAL_ON);
                         }
                         if(level.perfectMoves){
-                            medals[2].src = properties.MEDAL_ON;
+                            medals[2].setAttribute("src", properties.MEDAL_ON);
                         }
-                        //appends medal array to div
+
                         medals.forEach(function(medal){
                             var winningDiv = document.getElementById("medalDiv");
                             winningDiv.appendChild(medal);

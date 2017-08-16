@@ -18,8 +18,8 @@ define(["js/properties"], function(properties) {
             [properties.EMPTY, properties.FIXED_TAC, properties.FIXED_EMPTY, properties.EMPTY, properties.FIXED_TIC],
             [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_TIC]
         ],
-        "maxTimeAchieved": 60,
-        "maxMovementsAchieved": 30
+        "maxTimeAchievement": 60,
+        "maxMovementsAchievement": 30
     };
 
     const level2 = {
@@ -40,8 +40,8 @@ define(["js/properties"], function(properties) {
             [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY],
             [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_TAC, properties.EMPTY]
         ],
-        "maxTimeAchieved": 120,
-        "maxMovementsAchieved": 40
+        "maxTimeAchievement": 120,
+        "maxMovementsAchievement": 40
     };
 
     const level3 = {
@@ -62,8 +62,8 @@ define(["js/properties"], function(properties) {
             [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_EMPTY],
             [properties.FIXED_TAC, properties.EMPTY, properties.FIXED_TAC, properties.EMPTY, properties.EMPTY]
         ],
-        "maxTimeAchieved": 120,
-        "maxMovementsAchieved": 40
+        "maxTimeAchievement": 120,
+        "maxMovementsAchievement": 40
     };
 
     const level4 = {
@@ -84,8 +84,8 @@ define(["js/properties"], function(properties) {
             [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_EMPTY],
             [properties.FIXED_TIC, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY]
         ],
-        "maxTimeAchieved": 120,
-        "maxMovementsAchieved": 40
+        "maxTimeAchievement": 120,
+        "maxMovementsAchievement": 40
     };
 
     const level5 = {
@@ -106,8 +106,8 @@ define(["js/properties"], function(properties) {
             [properties.FIXED_TAC, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY],
             [properties.FIXED_EMPTY, properties.FIXED_TIC, properties.FIXED_TIC, properties.EMPTY, properties.FIXED_TAC]
         ],
-        "maxTimeAchieved": 120,
-        "maxMovementsAchieved": 40
+        "maxTimeAchievement": 120,
+        "maxMovementsAchievement": 40
     };
 
     const level6 = {
@@ -128,8 +128,8 @@ define(["js/properties"], function(properties) {
             [properties.FIXED_TAC, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_TIC],
             [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY]
         ],
-        "maxTimeAchieved": 120,
-        "maxMovementsAchieved": 40
+        "maxTimeAchievement": 120,
+        "maxMovementsAchievement": 40
     };
 
     const level7 = {
@@ -151,8 +151,8 @@ define(["js/properties"], function(properties) {
             [properties.FIXED_TIC, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_EMPTY, properties.EMPTY],
             [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY]
         ],
-        "maxTimeAchieved": 300,
-        "maxMovementsAchieved": 50
+        "maxTimeAchievement": 300,
+        "maxMovementsAchievement": 50
     };
 
     const level8 = {
@@ -174,8 +174,8 @@ define(["js/properties"], function(properties) {
             [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_EMPTY, properties.EMPTY, properties.EMPTY],
             [properties.EMPTY, properties.EMPTY, properties.FIXED_TAC, properties.FIXED_TAC, properties.EMPTY, properties.FIXED_TAC]
         ],
-        "maxTimeAchieved": 300,
-        "maxMovementsAchieved": 50
+        "maxTimeAchievement": 300,
+        "maxMovementsAchievement": 50
     };
 
     const level9 = {
@@ -197,8 +197,8 @@ define(["js/properties"], function(properties) {
             [properties.FIXED_TIC, properties.EMPTY, properties.EMPTY, properties.FIXED_EMPTY, properties.EMPTY, properties.EMPTY],
             [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_TIC, properties.EMPTY, properties.FIXED_TAC]
         ],
-        "maxTimeAchieved": 300,
-        "maxMovementsAchieved": 50
+        "maxTimeAchievement": 300,
+        "maxMovementsAchievement": 50
     };
 
     const level10 = {
@@ -220,8 +220,8 @@ define(["js/properties"], function(properties) {
             [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_TAC, properties.EMPTY, properties.EMPTY],
             [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_TAC]
         ],
-        "maxTimeAchieved": 300,
-        "maxMovementsAchieved": 50
+        "maxTimeAchievement": 300,
+        "maxMovementsAchievement": 50
     };
 
     const level11 = {
@@ -243,8 +243,8 @@ define(["js/properties"], function(properties) {
             [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_TAC, properties.EMPTY],
             [properties.FIXED_TIC, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY]
         ],
-        "maxTimeAchieved": 300,
-        "maxMovementsAchieved": 50
+        "maxTimeAchievement": 300,
+        "maxMovementsAchievement": 50
     };
 
     const level12 = {
@@ -267,8 +267,8 @@ define(["js/properties"], function(properties) {
             [properties.FIXED_TIC, properties.EMPTY, properties.FIXED_EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_TIC, properties.EMPTY],
             [properties.EMPTY, properties.FIXED_TAC, properties.EMPTY, properties.EMPTY, properties.FIXED_TIC, properties.FIXED_EMPTY, properties.EMPTY]
         ],
-        "maxTimeAchieved": 300,
-        "maxMovementsAchieved": 50
+        "maxTimeAchievement": 300,
+        "maxMovementsAchievement": 50
     };
 
     const level13 = {
@@ -291,8 +291,8 @@ define(["js/properties"], function(properties) {
             [properties.EMPTY, properties.EMPTY, properties.FIXED_TAC, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_TIC],
             [properties.FIXED_TAC, properties.EMPTY, properties.EMPTY, properties.FIXED_TAC, properties.FIXED_EMPTY, properties.EMPTY, properties.EMPTY]
         ],
-        "maxTimeAchieved": 300,
-        "maxMovementsAchieved": 50
+        "maxTimeAchievement": 300,
+        "maxMovementsAchievement": 50
     };
 
     const level14 = {
@@ -315,8 +315,8 @@ define(["js/properties"], function(properties) {
             [properties.FIXED_TIC, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY],
             [properties.FIXED_TIC, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY]
         ],
-        "maxTimeAchieved": 300,
-        "maxMovementsAchieved": 50
+        "maxTimeAchievement": 300,
+        "maxMovementsAchievement": 50
     };
 
     const level15 = {
@@ -339,8 +339,8 @@ define(["js/properties"], function(properties) {
             [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY],
             [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_TAC, properties.EMPTY, properties.EMPTY, properties.FIXED_TAC]
         ],
-        "maxTimeAchieved": 600,
-        "maxMovementsAchieved": 60
+        "maxTimeAchievement": 600,
+        "maxMovementsAchievement": 60
     };
 
     const level16 = {
@@ -364,8 +364,8 @@ define(["js/properties"], function(properties) {
             [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_EMPTY, properties.FIXED_TAC, properties.FIXED_TIC],
             [properties.EMPTY, properties.FIXED_TIC, properties.FIXED_TIC, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY]
         ],
-        "maxTimeAchieved": 600,
-        "maxMovementsAchieved": 60
+        "maxTimeAchievement": 600,
+        "maxMovementsAchievement": 60
     };
     const level17 = {
         "levelNumber": 17,
@@ -388,8 +388,8 @@ define(["js/properties"], function(properties) {
             [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_TAC, properties.EMPTY],
             [properties.FIXED_TAC, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY]
         ],
-        "maxTimeAchieved": 600,
-        "maxMovementsAchieved": 60
+        "maxTimeAchievement": 600,
+        "maxMovementsAchievement": 60
     };
 
     const level18 = {
@@ -413,8 +413,8 @@ define(["js/properties"], function(properties) {
             [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_EMPTY, properties.FIXED_TIC],
             [properties.FIXED_TIC, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_TIC, properties.FIXED_TIC, properties.EMPTY]
         ],
-        "maxTimeAchieved": 600,
-        "maxMovementsAchieved": 60
+        "maxTimeAchievement": 600,
+        "maxMovementsAchievement": 60
     };
 
     const level19 = {
@@ -438,8 +438,8 @@ define(["js/properties"], function(properties) {
             [properties.EMPTY, properties.FIXED_TAC, properties.EMPTY, properties.FIXED_EMPTY, properties.EMPTY, properties.FIXED_EMPTY, properties.EMPTY, properties.EMPTY],
             [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_TIC, properties.FIXED_EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_TIC]
         ],
-        "maxTimeAchieved": 600,
-        "maxMovementsAchieved": 60
+        "maxTimeAchievement": 600,
+        "maxMovementsAchievement": 60
     };
 
     const levels = [level1, level2, level3, level4, level5, level6, level7, level8, level9, level10, level11, level12, level13, level14, level15, level16, level17, level18, level19];

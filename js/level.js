@@ -11,8 +11,8 @@ define(function() {
         this.filledSquares = function() {
             return this.board.numberFilledSquares();
         };
-        this.maxTimeAchieved = levelConfiguration.maxTimeAchieved;
-        this.maxMovementsAchieved = levelConfiguration.maxMovementsAchieved;
+        this.maxTimeAchievement = levelConfiguration.maxTimeAchievement;
+        this.maxMovementsAchievement = levelConfiguration.maxMovementsAchievement;
     }
 
     Level.prototype.addMovement = function(position) {
