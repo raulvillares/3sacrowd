@@ -5,6 +5,7 @@ define(function() {
         this.squaresToFill = board.numberChangeableSquares();
         this.movements = [];
         this.pinSelected = false;
+        this.perfectMoves = true;
         this.images = levelConfiguration.imagesFilesNames;
         this.board = board;
         this.filledSquares = function() {

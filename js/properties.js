@@ -21,9 +21,6 @@ define(function() {
     const FIXED_EMPTY = 3;
     const FIXED_TIC = 4;
     const FIXED_TAC = 5;
-    var PERFECT_MOVES = true;
-
-
 
     return {
         NUMBER_OF_LEVELS,
@@ -46,8 +43,7 @@ define(function() {
         TAC,
         FIXED_EMPTY,
         FIXED_TIC,
-        FIXED_TAC,
-        PERFECT_MOVES
+        FIXED_TAC
     };
 
 });

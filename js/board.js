@@ -220,7 +220,7 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
                         if(movementMedal <= maxMovementsAchieved){
                             medals[1].setAttribute("src", properties.MEDAL_ON);
                         }
-                        if(properties.PERFECT_MOVES){
+                        if(level.perfectMoves){
                             medals[2].src = properties.MEDAL_ON;
                         }
                         //appends medal array to div
