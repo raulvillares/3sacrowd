@@ -11,22 +11,36 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
         header.insertBefore(medalDiv, header.childNodes[0]);
     }
 
+    function createMedal(title){
+        var medal = document.createElement("div");
+        var img = document.createElement("img");
+        var titleSpan = document.createElement("span");
+
+        medal.className = "medals";
+        img.className = "medal-img";
+        titleSpan.innerText = title;
+
+        medal.appendChild(img);
+        medal.appendChild(titleSpan);
+        return medal;
+    }
+
     function setMedalState(medal, state){
-        medal.setAttribute("src", state);
+        var img = medal.getElementsByClassName("medal-img")[0];
+        img.setAttribute("src", state);
     }
 
     function populateMedals(){
         var medals = [];
-        var timeMedal = document.createElement("img");
-        var moveMedal = document.createElement("img");
-        var perfectMoves = document.createElement("img");
+        var timeMedal = createMedal("Speed Demon!");
+        var moveMedal = createMedal("Efficient!");
+        var perfectMoves = createMedal("No Looking Back!");;
         medals.push(timeMedal, moveMedal, perfectMoves);
         return medals;
     }
 
     function imageMedals(medal){
-        medal.setAttribute("src", properties.MEDAL_OFF);
-        medal.className = "medals";
+        setMedalState(medal, properties.MEDAL_OFF);
     }
 
     function Board() {
