@@ -12,7 +12,6 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
     }
 
     function setMedalState(medal, state){
-        "use strict";
         medal.setAttribute("src", state);
     }
 
