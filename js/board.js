@@ -11,6 +11,11 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
         header.insertBefore(medalDiv, header.childNodes[0]);
     }
 
+    function setMedalState(medal, state){
+        "use strict";
+        medal.setAttribute("src", state);
+    }
+
     function populateMedals(){
         var medals = [];
         var timeMedal = document.createElement("img");
@@ -209,13 +214,14 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
                         medals.forEach(imageMedals);
 
                         if(timeMedal <= level.maxTimeAchievement){
-                            medals[0].setAttribute("src",properties.MEDAL_ON);
+                            setMedalState(medals[0], properties.MEDAL_ON);
                         }
                         if(movementMedal <= level.maxMovementsAchievement){
-                            medals[1].setAttribute("src", properties.MEDAL_ON);
+                          setMedalState(medals[1], properties.MEDAL_ON);
+
                         }
                         if(level.perfectMoves){
-                            medals[2].setAttribute("src", properties.MEDAL_ON);
+                          setMedalState(medals[2], properties.MEDAL_ON);
                         }
 
                         medals.forEach(function(medal){
