@@ -34,7 +34,7 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
         var medals = [];
         var timeMedal = createMedal("Speed Demon!");
         var moveMedal = createMedal("Efficient!");
-        var perfectMoves = createMedal("No Looking Back!");;
+        var perfectMoves = createMedal("No Looking Back!");
         medals.push(timeMedal, moveMedal, perfectMoves);
         return medals;
     }
