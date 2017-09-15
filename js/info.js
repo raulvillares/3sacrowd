@@ -7,6 +7,8 @@ define([], function() {
     let totalSeconds = 0;
     let minutes = 0;
     let seconds = 0;
+    let maxSeconds = 60;
+    let maxMoves = 30;
 
     const getInfo = function() {
         const getTime = function() {
@@ -19,11 +21,19 @@ define([], function() {
                 }
             };
 
-            return pad(parseInt(totalSeconds / 60)) + ":" + pad(totalSeconds % 60);
+            const getMaxTimeString = function() {
+                return " (max " + pad(parseInt(maxSeconds / 60)) + ":" + pad(maxSeconds % 60) + ") ";
+            }
+
+            return pad(parseInt(totalSeconds / 60)) + ":" + pad(totalSeconds % 60) + getMaxTimeString();
         };
 
+        const getMaxMovements = function() {
+            return " (max " + maxMoves + ")";
+        }
+
         const getMovements = function() {
-            return movements === 1 ? "1 move" : movements + " moves";
+            return movements === 1 ? "1 move" : movements + " moves" + getMaxMovements();
         };
 
         return levelNumber + separator + getTime() + separator + getMovements();
@@ -51,10 +61,10 @@ define([], function() {
         stop: function stop() {
             window.clearInterval(intervalId);
         },
-        medalTime: function medalTime(){
+        medalTime: function medalTime() {
             return totalSeconds;
         },
-        movementTotal: function movementTotal(){
+        movementTotal: function movementTotal() {
             return movements;
         }
     };
