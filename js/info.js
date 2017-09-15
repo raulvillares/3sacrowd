@@ -23,7 +23,7 @@ define([], function() {
 
             const getMaxTimeString = function() {
                 return " (max " + pad(parseInt(maxSeconds / 60)) + ":" + pad(maxSeconds % 60) + ") ";
-            }
+            };
 
             return pad(parseInt(totalSeconds / 60)) + ":" + pad(totalSeconds % 60) + getMaxTimeString();
         };
