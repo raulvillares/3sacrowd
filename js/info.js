@@ -30,7 +30,7 @@ define([], function() {
 
         const getMaxMovements = function() {
             return " (max " + maxMoves + ")";
-        }
+        };
 
         const getMovements = function() {
             return movements === 1 ? "1 move" : movements + " moves" + getMaxMovements();
