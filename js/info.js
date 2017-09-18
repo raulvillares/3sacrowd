@@ -33,7 +33,7 @@ define([], function() {
         };
 
         const getMovements = function() {
-            return movements === 1 ? "1 move" : movements + " moves" + getMaxMovements();
+            return (movements === 1 ? "1 move" : movements + " moves") + getMaxMovements() ;
         };
 
         return levelNumber + separator + getTime() + separator + getMovements();
