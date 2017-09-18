@@ -7,10 +7,10 @@ define([], function() {
     let totalSeconds = 0;
     let minutes = 0;
     let seconds = 0;
-    let maxSeconds = 60;
-    let maxMoves = 30;
+    let level;
 
     const getInfo = function() {
+        level = this.level;
         const getTime = function() {
             const pad = function(val) {
                 var valString = val + "";
@@ -22,14 +22,14 @@ define([], function() {
             };
 
             const getMaxTimeString = function() {
-                return " (max " + pad(parseInt(maxSeconds / 60)) + ":" + pad(maxSeconds % 60) + ") ";
+                return " (max " + pad(parseInt(level.maxTimeAchievement / 60)) + ":" + pad(level.maxTimeAchievement % 60) + ") ";
             };
 
             return pad(parseInt(totalSeconds / 60)) + ":" + pad(totalSeconds % 60) + getMaxTimeString();
         };
 
         const getMaxMovements = function() {
-            return " (max " + maxMoves + ")";
+            return " (max " + level.maxMovementsAchievement + ")";
         };
 
         const getMovements = function() {
