@@ -9,9 +9,9 @@ define(["js/properties"], function(properties) {
         imageValuesEquivalent(imageValue1, imageValue2) {
             const imageEquivalent = function imageEquivalent(imageValue) {
                 if (imageValue === properties.FIXED_TIC) { return properties.TIC; }
-                else if (imageValue === properties.FIXED_TAC) { return properties.TAC; }
-                else if (imageValue === properties.TIC) { return properties.FIXED_TIC; }
-                else if (imageValue === properties.TAC) { return properties.FIXED_TAC; }
+                if (imageValue === properties.FIXED_TAC) { return properties.TAC; }
+                if (imageValue === properties.TIC) { return properties.FIXED_TIC; }
+                if (imageValue === properties.TAC) { return properties.FIXED_TAC; }
             };
             let equivalent =
                 (imageValue1 === imageValue2) ||
