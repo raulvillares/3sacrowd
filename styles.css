@@ -104,13 +104,23 @@ div.square.pin {
 img.squareImage.unpinned {
     border: solid transparent;
     border-radius: 0px;
-    border-width: 2px;
+    border-width: 2px;  
+    /* make user select unavailable */
+    -webkit-user-select: none;  
+    -moz-user-select: none;     
+    -ms-user-select: none;     
+    user-select: none;     
 }
 
 img.squareImage.pinned {
     border: groove #cc0000;
     border-radius: 13px;
     border-width: 2px;
+    -webkit-user-select: none; 
+    -moz-user-select: none;   
+    -ms-user-select: none;    
+    user-select: none;          
+
 }
 
 .game-description {
