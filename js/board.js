@@ -90,6 +90,7 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
                 squareImageElement.className = "squareImage unpinned";
                 squareImageElement.id = square.generateImageId();
                 squareImageElement.src = squareImages.generateImagePath(square.currentImage);
+                squareImageElement.draggable = false;
                 return squareImageElement;
             }
 
