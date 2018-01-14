@@ -136,7 +136,7 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
                     return;
                     
                 } else {
-                    event.target.style.transform = "scale(1.1)";
+                    event.target.style.transform = "scale(1.16)";
                     }
 
                 }
@@ -145,7 +145,7 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
                     return;
                     
                 } else {
-                    event.target.style.transform = "scale(1.1)";
+                    event.target.style.transform = "scale(1.16)";
                     }
                 }
             }
