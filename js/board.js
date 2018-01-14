@@ -102,7 +102,8 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
 
         var boardElement = createBoardElement();
         boardElement.onclick = this.clicked; // on click call Board.clicked.
-
+        boardElement.onmouseover = this.mouseover;
+        boardElement.onmouseout = this.mouseout;
         this.squares.forEach(function(row) {
             var rowElement = createRowElement();
             boardElement.appendChild(rowElement);
@@ -122,6 +123,40 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
                 } else {
                     level.board.turnImage(event.target.id);
                 }
+            }
+        }
+    };
+    Board.prototype.mouseover = function(event){
+        if (level.filledSquares() < level.squaresToFill) {
+            if (event.target.className.startsWith("squareImage")) {
+                var squarePosition = squareImages.getPosition(event.target.id);
+                let mouseOveredSquare = level.board.squares[squarePosition[0]][squarePosition[1]];
+                if (level.pinSelected){
+                    if (!mouseOveredSquare.pinnable()) {
+                    return;
+                    
+                } else {
+                    event.target.style.transform = "scale(1.1)";
+                    }
+
+                }
+                else{
+                if (mouseOveredSquare.pinned ||!mouseOveredSquare.changeable) {
+                    return;
+                    
+                } else {
+                    event.target.style.transform = "scale(1.1)";
+                    }
+                }
+            }
+        }
+    };
+    Board.prototype.mouseout = function(event){
+        if (level.filledSquares() < level.squaresToFill) {
+            if (event.target.className.startsWith("squareImage")) {
+                var squarePosition = squareImages.getPosition(event.target.id);
+                let mouseOveredSquare = level.board.squares[squarePosition[0]][squarePosition[1]];
+                event.target.style.transform = "scale(1)";
             }
         }
     };
