@@ -131,13 +131,19 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
             if (event.target.className.startsWith("squareImage")) {
                 var squarePosition = squareImages.getPosition(event.target.id);
                 let mouseOveredSquare = level.board.squares[squarePosition[0]][squarePosition[1]];
-                if((level.pinSelected && !mouseOveredSquare.pinnable())||(mouseOveredSquare.pinned ||!mouseOveredSquare.changeable)){
+                if((isInteractiveSquare(mouseOveredSquare)){
                     return;
                 }
                 event.target.style.transform = "scale(1.16)";
             }
         }
     };
+    function isInteractiveSquare(mouseOveredSquare){
+        if((level.pinSelected && !mouseOveredSquare.pinnable())||(mouseOveredSquare.pinned ||!mouseOveredSquare.changeable)){
+                    return false;
+                }
+        return true;
+    }
     Board.prototype.mouseout = function(event){
         if (level.filledSquares() < level.squaresToFill) {
             if (event.target.className.startsWith("squareImage")) {
