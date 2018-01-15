@@ -102,8 +102,7 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
 
         var boardElement = createBoardElement();
         boardElement.onclick = this.clicked; // on click call Board.clicked.
-        boardElement.onmouseover = this.mouseover;
-        boardElement.onmouseout = this.mouseout;
+
         this.squares.forEach(function(row) {
             var rowElement = createRowElement();
             boardElement.appendChild(rowElement);
@@ -123,33 +122,6 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
                 } else {
                     level.board.turnImage(event.target.id);
                 }
-            }
-        }
-    };
-    Board.prototype.mouseover = function(event){
-        if (level.filledSquares() < level.squaresToFill) {
-            if (event.target.className.startsWith("squareImage")) {
-                var squarePosition = squareImages.getPosition(event.target.id);
-                let mouseOveredSquare = level.board.squares[squarePosition[0]][squarePosition[1]];
-                if((isInteractiveSquare(mouseOveredSquare)){
-                    return;
-                }
-                event.target.style.transform = "scale(1.16)";
-            }
-        }
-    };
-    function isInteractiveSquare(mouseOveredSquare){
-        if((level.pinSelected && !mouseOveredSquare.pinnable())||(mouseOveredSquare.pinned ||!mouseOveredSquare.changeable)){
-                    return false;
-                }
-        return true;
-    }
-    Board.prototype.mouseout = function(event){
-        if (level.filledSquares() < level.squaresToFill) {
-            if (event.target.className.startsWith("squareImage")) {
-                var squarePosition = squareImages.getPosition(event.target.id);
-                let mouseOveredSquare = level.board.squares[squarePosition[0]][squarePosition[1]];
-                event.target.style.transform = "scale(1)";
             }
         }
     };
