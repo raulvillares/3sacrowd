@@ -131,23 +131,10 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
             if (event.target.className.startsWith("squareImage")) {
                 var squarePosition = squareImages.getPosition(event.target.id);
                 let mouseOveredSquare = level.board.squares[squarePosition[0]][squarePosition[1]];
-                if (level.pinSelected){
-                    if (!mouseOveredSquare.pinnable()) {
+                if((level.pinSelected && !mouseOveredSquare.pinnable())||(mouseOveredSquare.pinned ||!mouseOveredSquare.changeable)){
                     return;
-                    
-                } else {
-                    event.target.style.transform = "scale(1.16)";
-                    }
-
                 }
-                else{
-                if (mouseOveredSquare.pinned ||!mouseOveredSquare.changeable) {
-                    return;
-                    
-                } else {
-                    event.target.style.transform = "scale(1.16)";
-                    }
-                }
+                event.target.style.transform = "scale(1.16)";
             }
         }
     };
