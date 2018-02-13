@@ -17,6 +17,8 @@ define(["js/properties"], function(properties) {
         COMPLETED,
 
         play(id) {
+            // the id parameter is not user input
+            // eslint-disable-next-line security/detect-object-injection
             let audio = new Audio(properties.SOUNDS_FOLDER + SOUNDS[id] + properties.SOUNDS_EXTENSION);
             audio.play();
         }
