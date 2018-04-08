@@ -122,7 +122,7 @@ define(["js/properties"], function(properties) {
             "canvasPinkFixed"
         ],
         "initialSquares": [
-            [properties.FIXED_TIC, properties.EMPTY, properties.FIXED_TAC, properties.EMPTY, properties.FIXED_TAC],
+            [properties.FIXED_TIC, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY],
             [properties.EMPTY, properties.FIXED_EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY],
             [properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.EMPTY],
             [properties.FIXED_TAC, properties.EMPTY, properties.EMPTY, properties.EMPTY, properties.FIXED_TIC],
