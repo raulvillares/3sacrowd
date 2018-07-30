@@ -127,8 +127,12 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
             }
         }
     };
+    function pinSelectedAndPinnable(mouseoveredSquare){
+        if(level.pinSelected && !mouseOveredSquare.pinnable())return true;
+        return false;
+    }
     function isInteractiveSquare(mouseOveredSquare){    
-        if((level.pinSelected && !mouseOveredSquare.pinnable())||(mouseOveredSquare.pinned ||!mouseOveredSquare.changeable)){   
+        if((pinSelectedAndPinnable(mouseOveredSquare))||(mouseOveredSquare.pinned ||!mouseOveredSquare.changeable)){   
                     return false;   
                 }   
         return true;    
