@@ -127,8 +127,10 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
             }
         }
     };
-    function pinSelectedAndPinnable(mouseoveredSquare){
-        if(level.pinSelected && !mouseOveredSquare.pinnable())return true;
+    function pinSelectedAndPinnable(mouseOveredSquare){
+        if(level.pinSelected && !mouseOveredSquare.pinnable()){
+            return true;
+        }
         return false;
     }
     function isInteractiveSquare(mouseOveredSquare){    
