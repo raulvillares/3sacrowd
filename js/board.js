@@ -127,6 +127,13 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
             }
         }
     };
+    function isInteractiveSquare(mouseOveredSquare){    
+        if((level.pinSelected && !mouseOveredSquare.pinnable())||(mouseOveredSquare.pinned ||!mouseOveredSquare.changeable)){   
+                    return false;   
+                }   
+        return true;    
+    }   
+
     Board.prototype.mouseover = function(event){    
         if (level.filledSquares() < level.squaresToFill) {  
             if (event.target.className.startsWith("squareImage")) { 
@@ -139,12 +146,7 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
             }   
         }   
     };  
-    function isInteractiveSquare(mouseOveredSquare){    
-        if((level.pinSelected && !mouseOveredSquare.pinnable())||(mouseOveredSquare.pinned ||!mouseOveredSquare.changeable)){   
-                    return false;   
-                }   
-        return true;    
-    }   
+    
     Board.prototype.mouseout = function(event){ 
         if (level.filledSquares() < level.squaresToFill) {  
             if (event.target.className.startsWith("squareImage")) { 
