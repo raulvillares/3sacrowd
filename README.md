@@ -18,7 +18,7 @@ The game is entirely developed with [Vanilla JS](http://vanilla-js.com/). [Requi
 2. npm install tape
 3. npm install --save babel-register
 4. npm install --save-dev babel-preset-es2015
-5. run a test example: /test/entryTest.js
+5. run a test example: node -r ./test/entryTest.js
 
 [Original idea](http://www2.stetson.edu/~efriedma/puzzle/tic/) by Erich Friedman. Each puzzle has a unique solution. All puzzles © Erich Friedman, 2010.
 
