@@ -1,5 +1,5 @@
-define(["js/properties"], function(properties) {
-
+define(["./properties.js"], function(properties) {
+   
     const level1 = {
         "levelNumber": 1,
         "backgroundImage": "colored_land",
