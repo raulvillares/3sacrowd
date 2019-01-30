@@ -12,6 +12,14 @@ Some squares are fixed and you are not allowed to put an alien tile at that loca
 
 The game is entirely developed with [Vanilla JS](http://vanilla-js.com/). [RequireJs](http://requirejs.org/) is used for modularization. The purpose of this project is to **learn** so **anybody is welcome**. Are you looking for an easy javascript project to make your first [contribution](https://akrabat.com/the-beginners-guide-to-contributing-to-a-github-project/) on GitHub? **This may be the one!**
 
+### To write and run the tests:
+
+1. npm install requirejs
+2. npm install tape
+3. npm install --save babel-register
+4. npm install --save-dev babel-preset-es2015
+5. run a test example: /test/entryTest.js
+
 [Original idea](http://www2.stetson.edu/~efriedma/puzzle/tic/) by Erich Friedman. Each puzzle has a unique solution. All puzzles © Erich Friedman, 2010.
 
 Art by [Kenney](https://kenney.nl/) and [Freepik](http://www.freepik.com/).
