@@ -1,6 +1,5 @@
 const test = require('tape');
 const requirejs = require("requirejs");
-var player = require('play-sound')(opts = {});
 
 test("sound.js Varaible tests", (assert) => {
     requirejs(["../require-config.js", "../js/sound.js"], function(config, sound) {
