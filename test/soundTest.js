@@ -3,7 +3,6 @@ const requirejs = require("requirejs");
 
 test("sound.js Varaible tests", (assert) => {
     requirejs(["../require-config.js", "../js/sound.js"], function(config, sound) {
-        //player.play(sound.play().audio, (err) => {if (err) throw err});
         assert.notEqual(null, sound);
         assert.true(sound.SOUNDS.map(element => typeof(element) === 'string'), 'Every element in the array should be a string');
         assert.is(3, sound.FORBIDDEN, 'Forbidden should be a value of 3');
