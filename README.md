@@ -1,4 +1,4 @@
-[![](http://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square)](http://www.firsttimersonly.com/) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c01d873f278c49dabb41b58949f59c6d)](https://www.codacy.com/app/raulvillares/vanilla_3sacrowd?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=raulvillares/vanilla_3sacrowd&amp;utm_campaign=Badge_Grade)
+[![](http://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square)](http://www.firsttimersonly.com/) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c01d873f278c49dabb41b58949f59c6d)](https://www.codacy.com/app/raulvillares/vanilla_3sacrowd?utm_source=github.com&utm_medium=referral&utm_content=raulvillares/vanilla_3sacrowd&utm_campaign=Badge_Grade)
 
 ![enter image description here](https://raw.githubusercontent.com/raulvillares/3sacrowd/master/img/logos/logo2.png)
 
@@ -18,7 +18,7 @@ The game is entirely developed with [Vanilla JS](http://vanilla-js.com/). [Requi
 2. npm install tape
 3. npm install --save babel-register
 4. npm install --save-dev babel-preset-es2015
-5. run a test example: node -r ./test/entryTest.js
+5. run a test example: node -r ./test/entryFileTest.js
 
 [Original idea](http://www2.stetson.edu/~efriedma/puzzle/tic/) by Erich Friedman. Each puzzle has a unique solution. All puzzles © Erich Friedman, 2010.
 
