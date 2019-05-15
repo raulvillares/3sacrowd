@@ -33,12 +33,12 @@ test("levels.js tests", (assert) => {
         // Check for regularity of board (all rows evenly sized)
       let isRegular = isBoardRegular(currentLevel.initialSquares);
       assert.ok(isRegular);
-        // If regular, check there's only one solution
+        // If board is regular, check there's only one solution
       if (isRegular) {
         let solutions = getAllSolutions(currentLevel.initialSquares);
+        assert.equal(solutions.length, 1);
         // Uncomment the following to sneak peek the solution
         // console.log(solutions);
-        assert.equal(solutions.length, 1);
       }
 
       // maxTimeAchievement
