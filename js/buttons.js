@@ -52,8 +52,33 @@ define(["js/properties", "js/sound", "js/info"], function(properties, sound, inf
     };
 
     const nextLevel = function(event) {
-        if (level.number === properties.NUMBER_OF_LEVELS) {
-            document.getElementById("next").disabled = true;
+     const timeMedal=info.medalTime();
+     const movementMedal=info.movementTotal();
+     
+    if((timeMedal>level.maxTimeAchievement) || (movementMedal> level.maxMovementsAchievement) ||
+     (level.number === properties.NUMBER_OF_LEVELS) || (level.filledSquares() !== level.squaresToFill) )
+        { 
+        document.getElementById("next").disabled=true;
+        //Only proceed to next level when current level is completed within given constraints
+         if(level.filledSquares() !== level.squaresToFill)
+         	{alert("All the squares are not filled");
+               
+		}   
+		      
+          if(movementMedal> level.maxMovementsAchievement && timeMedal>level.maxTimeAchievement)
+          	alert("Maximum time and movement exceeded");
+         else{
+         if (movementMedal> level.maxMovementsAchievement)
+    			{console.log("helllow");
+    			alert("maximum movement exceeded");
+    			}
+    		
+    	 if (timeMedal>level.maxTimeAchievement)
+    			{console.log("time exceeded");
+    			alert("maximum time exceeded");
+    			
+    			}
+         }     
         } else {
             info.stop();
             level = loadLevel(level.number + 1);
@@ -82,7 +107,7 @@ define(["js/properties", "js/sound", "js/info"], function(properties, sound, inf
             buttonsElement.className = "buttons";
             var imageButtonsElement = document.createElement("div");
             imageButtonsElement.className = "imageButtons";
-            var undoButton = createButton("undo", "Undo movement");
+           var undoButton = createButton("undo", "Undo movement");
             undoButton.onclick = undoMovement;
             var restartButton = createButton("restart", "Restart level");
             restartButton.onclick = restartLevel;
