@@ -9,5 +9,11 @@
 		<div class="headerDiv" id="headerDiv"></div>
 		<div class="level" id="level"></div>
 		<script data-main="gameplay" src="require.js"></script>
+		<script type="text/javascript">
+		window.addEventListener('beforeunload', function(e){
+		e.preventDefault();
+		e.returnValue=' ';
+		});
+		</script>
 	</body>
 </html>
