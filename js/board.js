@@ -9,6 +9,7 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
         medalDiv.id = "medalDiv";
         var header = document.getElementById("level");
         header.insertBefore(medalDiv, header.childNodes[0]);
+        medalDiv.setAttribute("style","margin-bottom:3rem;")
     }
 
     function createMedal(title){
