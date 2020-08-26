@@ -41,7 +41,7 @@ define([], function() {
 
     const regenerate = function() {
         ++totalSeconds;
-        document.getElementsByClassName("info")[0].innerHTML = getInfo();
+        document.getElementsByClassName("info")[0].innerText = getInfo();
     };
 
     return {
@@ -51,7 +51,7 @@ define([], function() {
             totalSeconds = 0;
             let Element = document.createElement("div");
             Element.className = "info";
-            Element.innerHTML = getInfo();
+            Element.innerText = getInfo();
             intervalId = setInterval(regenerate, 1000);
             return Element;
         },

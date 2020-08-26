@@ -1,0 +1,7 @@
+---
+  globals:
+    requirejs: false
+
+  env:
+    browser: true
+    node: false

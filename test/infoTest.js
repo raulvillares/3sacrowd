@@ -1,4 +1,4 @@
-import test from "tape";
+const test = require('tape');
 const requirejs = require("requirejs");
 
 test("info.js tests", (assert) => {
