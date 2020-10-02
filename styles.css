@@ -13,6 +13,13 @@ body {
     margin: 8px;
 }
 
+@media only screen and (min-height: 600px) {
+    body#gamePlayPage {
+        overflow: hidden;
+    }
+}
+
+
 p {
     font-family: "Lucida Console", Monaco, monospace;
     width: 90%;
@@ -33,7 +40,14 @@ div.logo {
 #start {
     margin: 0 auto;
     display: table;
+    transition: all 0.5s ease-in-out;
 }
+
+#start:hover {
+    transform:scale(1.2);
+}
+
+
 
 .demo img {
     margin-left: auto;
@@ -60,6 +74,13 @@ div.info {
     font-weight: bold;
     color: yellow;
     text-shadow: -1px 0 blue, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+div.info > #info-text {
+    padding: 20px;
+    background: #e7fdff;
+    border: 1px solid black;
+    border-radius: 10px;
 }
 
 div.buttons {

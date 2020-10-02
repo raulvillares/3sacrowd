@@ -41,7 +41,8 @@ define([], function() {
 
     const regenerate = function() {
         ++totalSeconds;
-        document.getElementsByClassName("info")[0].innerText = getInfo();
+        // document.getElementsByClassName("info")[0].innerText = getInfo();
+        document.getElementById("info-text").innerText = getInfo()
     };
 
     return {
@@ -49,11 +50,14 @@ define([], function() {
             levelNumber = "Level " + currentLevel + "/" + numberOfLevels;
             movements = 0;
             totalSeconds = 0;
-            let Element = document.createElement("div");
-            Element.className = "info";
-            Element.innerText = getInfo();
+            let infoWrapper = document.createElement("div");
+            infoWrapper.className = "info";
+            var infoChild = document.createElement("div")
+            infoChild.id = "info-text"
+            infoChild.innerText = getInfo();
+            infoWrapper.appendChild(infoChild)
             intervalId = setInterval(regenerate, 1000);
-            return Element;
+            return infoWrapper;
         },
         addMovement: function addMovement() {
             ++movements;
