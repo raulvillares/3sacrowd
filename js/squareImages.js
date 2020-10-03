@@ -2,7 +2,7 @@
 level
 */
 
-define(["js/properties"], function(properties) {
+define(["js/properties"], properties => {
 
     return {
 
@@ -27,7 +27,7 @@ define(["js/properties"], function(properties) {
         },
 
         getPosition(imageId) {
-            var position = [];
+            let position = [];
             let match = properties.IMAGE_ID.exec(imageId);
             while (match) {
                 position = [Number(match[1]), Number(match[2])];

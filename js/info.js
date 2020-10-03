@@ -1,4 +1,4 @@
-define([], function() {
+define([], () => {
 
     const separator = " · ";
     let intervalId;
@@ -9,37 +9,37 @@ define([], function() {
     let seconds = 0;
     let level;
 
-    const getInfo = function() {
+    const getInfo = () =>{
         level = this.level;
-        const getTime = function() {
-            const pad = function(val) {
-                var valString = val + "";
+        const getTime = () => {
+            const pad = val => {
+                const valString = `${val}`;
                 if (valString.length < 2) {
-                    return "0" + valString;
+                    return `0${valString}`;
                 } else {
                     return valString;
                 }
             };
 
-            const getMaxTimeString = function() {
-                return " (max " + pad(parseInt(level.maxTimeAchievement / 60)) + ":" + pad(level.maxTimeAchievement % 60) + ") ";
+            const getMaxTimeString = () => {
+                return ` (max ${pad(parseInt(level.maxTimeAchievement / 60))}:${pad(level.maxTimeAchievement % 60)}) `;
             };
 
-            return pad(parseInt(totalSeconds / 60)) + ":" + pad(totalSeconds % 60) + getMaxTimeString();
+            return `${pad(parseInt(totalSeconds / 60))}:${pad(totalSeconds % 60)}${getMaxTimeString()}`;
         };
 
-        const getMaxMovements = function() {
-            return " (max " + level.maxMovementsAchievement + ")";
+        const getMaxMovements = () => {
+            return ` (max ${level.maxMovementsAchievement})`;
         };
 
-        const getMovements = function() {
-            return (movements === 1 ? "1 move" : movements + " moves") + getMaxMovements() ;
+        const getMovements = () => {
+            return (movements === 1 ? "1 move" : `${movements} moves`) + getMaxMovements();
         };
 
         return levelNumber + separator + getTime() + separator + getMovements();
     };
 
-    const regenerate = function() {
+    const regenerate = () => {
         ++totalSeconds;
         // document.getElementsByClassName("info")[0].innerText = getInfo();
         document.getElementById("info-text").innerText = getInfo()
@@ -47,7 +47,7 @@ define([], function() {
 
     return {
         generateInfo: function generateInfo(currentLevel, numberOfLevels) {
-            levelNumber = "Level " + currentLevel + "/" + numberOfLevels;
+            levelNumber = `Level ${currentLevel}/${numberOfLevels}`;
             movements = 0;
             totalSeconds = 0;
             let infoWrapper = document.createElement("div");
