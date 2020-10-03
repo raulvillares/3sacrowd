@@ -1,4 +1,4 @@
-define(function() {
+define(() => {
 
     function Level(levelConfiguration, board) {
         this.number = levelConfiguration.levelNumber;
@@ -29,7 +29,7 @@ define(function() {
 
     Level.prototype.indexOfMovement = function(position) {
         let index = -1;
-        this.movements.forEach(function(p, i) {
+        this.movements.forEach((p, i) => {
             if ((p[0] === position[0]) && (p[1] === position[1])) {
                 index = i;
             }
