@@ -3,16 +3,8 @@ level
 */
 
 define(
-    [
-        "js/properties", 
-        "js/board", 
-        "js/level", 
-        "js/levels", 
-        "js/square", 
-        "js/buttons", 
-        "js/info"
-    ],
-    function(properties, boardModule, levelModule, levelsData, square, buttons, info) {
+    ["js/properties", "js/board", "js/level", "js/levels", "js/square", "js/buttons", "js/info"],
+    (properties, boardModule, levelModule, levelsData, square, buttons, info) => {
 
         const loadFunction = function(levelNumber) {
             function clear() {

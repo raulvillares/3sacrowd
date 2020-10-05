@@ -41,7 +41,6 @@ define([], function() {
 
     const regenerate = function() {
         ++totalSeconds;
-        // document.getElementsByClassName("info")[0].innerText = getInfo();
         document.getElementById("info-text").innerText = getInfo()
     };
 
