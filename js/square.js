@@ -1,5 +1,12 @@
 define(["js/properties", "js/squareImages", "js/sound"], function(properties, squareImages, sound) {
 
+    function animationCallBack()
+    {
+        this.classList.remove('bad-animation')
+        this.setAttribute("isAnimating", "no")
+        this.removeEventListener("animationend", animationCallBack)
+    }
+
     function Square(initialImage, row, column) {
         this.currentImage = initialImage;
         this.row = row;
@@ -20,6 +27,17 @@ define(["js/properties", "js/squareImages", "js/sound"], function(properties, sq
         }
     };
 
+    Square.prototype.animateBadClick = function() {
+        const element =  document.getElementById(this.generateImageId())
+        const isAnimatingState = element.getAttribute("isAnimating")
+
+        if(isAnimatingState === "no") {
+            element.setAttribute("isAnimating", "yes")
+            element.addEventListener("animationend", animationCallBack)
+            element.classList.add('bad-animation')
+        }
+    };
+
     Square.prototype.change = function(imageId) {
         this.changeImage(imageId);
         this.playSound(imageId);
@@ -28,7 +46,8 @@ define(["js/properties", "js/squareImages", "js/sound"], function(properties, sq
     Square.prototype.changeImage = function(imageId) {
         if (this.changeable) {
             this.currentImage = imageId;
-            document.getElementById(this.generateImageId()).src = squareImages.generateImagePath(this.currentImage);
+            const element =  document.getElementById(this.generateImageId())
+            element.src = squareImages.generateImagePath(this.currentImage);
         }
     };
 
@@ -43,7 +62,7 @@ define(["js/properties", "js/squareImages", "js/sound"], function(properties, sq
     Square.prototype.pin = function() {
         if (this.pinnable()) {
             this.pinned = true;
-            let element = document.getElementById(this.generateImageId());
+            const element =  document.getElementById(this.generateImageId())
             element.className = "squareImage pinned";
             sound.play(sound.PINNED);
         }
@@ -52,7 +71,7 @@ define(["js/properties", "js/squareImages", "js/sound"], function(properties, sq
     Square.prototype.unpin = function() {
         if (this.pinnable) {
             this.pinned = false;
-            let element = document.getElementById(this.generateImageId());
+            const element =  document.getElementById(this.generateImageId())
             element.className = "squareImage unpinned";
             sound.play(sound.UNPINNED);
         }
@@ -67,5 +86,5 @@ define(["js/properties", "js/squareImages", "js/sound"], function(properties, sq
             return new Square(initialImage, row, column);
         }
     };
-
+    
 });

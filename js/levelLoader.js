@@ -54,9 +54,10 @@ define(
             loadHeader();
             document.body.style.backgroundImage = "url('" + properties.BACKGROUND_IMAGES_FOLDER + levelConfiguration.backgroundImage + properties.BACKGROUND_IMAGES_EXTENSION + "')";
             level = levelModule.createLevel(levelConfiguration, generateBoard(levelConfiguration));
-            document.getElementById("level").appendChild(level.board.createElement());
-            document.getElementById("level").appendChild(info.generateInfo(levelNumber, properties.NUMBER_OF_LEVELS));
-            document.getElementById("level").appendChild(buttons.createButtons());
+            const levelElement = document.getElementById("level");
+            levelElement.appendChild(level.board.createElement(level.board.squareHTMLElements));
+            levelElement.appendChild(info.generateInfo(levelNumber, properties.NUMBER_OF_LEVELS));
+            levelElement.appendChild(buttons.createButtons());
             return level;
         };
 

@@ -45,7 +45,7 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
     }
 
     function Board() {
-        this.squares = [];
+        this.squares = []
     }
 
     Board.prototype.addRow = function(row) {
@@ -92,6 +92,7 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
                 squareImageElement.id = square.generateImageId();
                 squareImageElement.src = squareImages.generateImagePath(square.currentImage);
                 squareImageElement.draggable = false;
+                squareImageElement.setAttribute("isAnimating", "no")
                 return squareImageElement;
             }
 
@@ -248,6 +249,9 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
             while (!validImageFound) {
                 if ((imageBeingChecked === properties.EMPTY) || (this.validImage(imageBeingChecked, squarePosition))) {
                     info.addMovement();
+                    if(imageBeingChecked === initialImage && initialImage === properties.EMPTY) {
+                        clickedSquare.animateBadClick()
+                    }
                     clickedSquare.change(imageBeingChecked);
                     validImageFound = true;
                     if (imageBeingChecked !== properties.EMPTY) {
