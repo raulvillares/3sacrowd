@@ -5,7 +5,6 @@ level
 define(
     ["js/properties", "js/board", "js/level", "js/levels", "js/square", "js/buttons", "js/info"],
     (properties, boardModule, levelModule, levelsData, square, buttons, info) => {
-
         const loadFunction = levelNumber => {
             function clear() {
                 function clearElement(elementName) {
