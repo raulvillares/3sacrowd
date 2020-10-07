@@ -1,4 +1,4 @@
-define(["./properties.js"], function(properties) {
+define(["./properties.js"], properties => {
    
     const level1 = {
         "levelNumber": 1,

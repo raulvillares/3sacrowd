@@ -1,0 +1,23 @@
+{
+  "name": "3sacrowd-master",
+  "version": "1.0.0",
+  "description": "[![](http://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square)](http://www.firsttimersonly.com/) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c01d873f278c49dabb41b58949f59c6d)](https://www.codacy.com/app/raulvillares/vanilla_3sacrowd?utm_source=github.com&utm_medium=referral&utm_content=raulvillares/vanilla_3sacrowd&utm_campaign=Badge_Grade)",
+  "main": "gameplay.js",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "dependencies": {
+    "babel-register": "^6.26.0",
+    "requirejs": "^2.3.6",
+    "tape": "^5.0.1"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

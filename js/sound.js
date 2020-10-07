@@ -1,4 +1,4 @@
-define(["js/properties"], function(properties) {
+define(["js/properties"], properties => {
 
     const SOUNDS = ["empty", "tic", "tac", "forbidden", "pinned", "unpinned", "undo", "completed"];
     const FORBIDDEN = 3;
