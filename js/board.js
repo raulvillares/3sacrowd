@@ -2,20 +2,20 @@
 level
 */
 
-define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(properties, sound, squareImages, info) {
+define(["js/properties", "js/sound", "js/squareImages", "js/info"], (properties, sound, squareImages, info) => {
 
     function createMedalDiv(){
-        var medalDiv = document.createElement("div");
+        const medalDiv = document.createElement("div");
         medalDiv.id = "medalDiv";
-        var header = document.getElementById("level");
+        const header = document.getElementById("level");
         header.insertBefore(medalDiv, header.childNodes[0]);
         medalDiv.setAttribute("style","margin-bottom:3rem;")
     }
 
     function createMedal(title){
-        var medal = document.createElement("div");
-        var img = document.createElement("img");
-        var titleSpan = document.createElement("span");
+        const medal = document.createElement("div");
+        const img = document.createElement("img");
+        const titleSpan = document.createElement("span");
 
         medal.className = "medals";
         img.className = "medal-img";
@@ -27,15 +27,15 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
     }
 
     function setMedalState(medal, state){
-        var img = medal.getElementsByClassName("medal-img")[0];
+        const img = medal.getElementsByClassName("medal-img")[0];
         img.setAttribute("src", state);
     }
 
     function populateMedals(){
-        var medals = [];
-        var timeMedal = createMedal("Speed Demon!");
-        var moveMedal = createMedal("Efficient!");
-        var perfectMoves = createMedal("No Looking Back!");
+        const medals = [];
+        const timeMedal = createMedal("Speed Demon!");
+        const moveMedal = createMedal("Efficient!");
+        const perfectMoves = createMedal("No Looking Back!");
         medals.push(timeMedal, moveMedal, perfectMoves);
         return medals;
     }
@@ -53,9 +53,9 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
     };
 
     Board.prototype.numberChangeableSquares = function() {
-        var count = 0;
-        this.squares.forEach(function(row) {
-            row.forEach(function(square) {
+        let count = 0;
+        this.squares.forEach(row => {
+            row.forEach(square => {
                 if (square.changeable) {++count; }
             });
         });
@@ -63,9 +63,9 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
     };
 
     Board.prototype.numberFilledSquares = function() {
-        var count = 0;
-        this.squares.forEach(function(row) {
-            row.forEach(function(square) {
+        let count = 0;
+        this.squares.forEach(row => {
+            row.forEach(square => {
                 if ((square.changeable) && (square.currentImage !== properties.EMPTY)) {++count; }
             });
         });
@@ -74,20 +74,20 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
 
     Board.prototype.createElement = function() {
         function createBoardElement() {
-            var boardElement = document.createElement("div");
+            const boardElement = document.createElement("div");
             boardElement.className = "board";
             return boardElement;
         }
 
         function createRowElement() {
-            var rowElement = document.createElement("div");
+            const rowElement = document.createElement("div");
             rowElement.className = "row";
             return rowElement;
         }
 
         function createSquareElement(square) {
             function createSquareImageElement(square) {
-                var squareImageElement = document.createElement("img");
+                const squareImageElement = document.createElement("img");
                 squareImageElement.className = "squareImage unpinned";
                 squareImageElement.id = square.generateImageId();
                 squareImageElement.src = squareImages.generateImagePath(square.currentImage);
@@ -96,29 +96,29 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
                 return squareImageElement;
             }
 
-            var squareElement = document.createElement("div");
+            const squareElement = document.createElement("div");
             squareElement.className = "square";
             squareElement.appendChild(createSquareImageElement(square));
             return squareElement;
         }
 
-        var boardElement = createBoardElement();
+        const boardElement = createBoardElement();
         boardElement.onclick = this.clicked; // on click call Board.clicked.
         boardElement.onmouseover = this.mouseover;  
         boardElement.onmouseout = this.mouseout;
 
-        this.squares.forEach(function(row) {
-            var rowElement = createRowElement();
+        this.squares.forEach(row => {
+            const rowElement = createRowElement();
             boardElement.appendChild(rowElement);
-            row.forEach(function(square) {
-                var squareElement = createSquareElement(square);
+            row.forEach(square => {
+                const squareElement = createSquareElement(square);
                 rowElement.appendChild(squareElement);
             });
         });
         return boardElement;
     };
 
-    Board.prototype.clicked = function(event) {
+    Board.prototype.clicked = event => {
         if (level.filledSquares() < level.squaresToFill) {
             if (event.target.className.startsWith("squareImage")) {
                 if (level.pinSelected) {
@@ -142,10 +142,10 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
         return true;    
     }   
 
-    Board.prototype.mouseover = function(event){    
+    Board.prototype.mouseover = event => {    
         if (level.filledSquares() < level.squaresToFill) {  
             if (event.target.className.startsWith("squareImage")) { 
-                var squarePosition = squareImages.getPosition(event.target.id); 
+                const squarePosition = squareImages.getPosition(event.target.id); 
                 let mouseOveredSquare = level.board.squares[squarePosition[0]][squarePosition[1]];  
                 if(!isInteractiveSquare(mouseOveredSquare)){    
                     return; 
@@ -155,18 +155,18 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
         }   
     };  
     
-    Board.prototype.mouseout = function(event){ 
+    Board.prototype.mouseout = event => { 
         if (level.filledSquares() < level.squaresToFill) {  
             if (event.target.className.startsWith("squareImage")) { 
-                var squarePosition = squareImages.getPosition(event.target.id); 
+                const squarePosition = squareImages.getPosition(event.target.id); 
                 let mouseOveredSquare = level.board.squares[squarePosition[0]][squarePosition[1]];  
                 event.target.style.transform = "scale(1)";  
             }   
         }   
     };
 
-    Board.prototype.pinSquare = function(squareId) {
-        var squarePosition = squareImages.getPosition(squareId);
+    Board.prototype.pinSquare = squareId => {
+        const squarePosition = squareImages.getPosition(squareId);
         let clickedSquare = level.board.squares[squarePosition[0]][squarePosition[1]];
         if (clickedSquare.pinned) {
             clickedSquare.unpin();
@@ -175,7 +175,7 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
         }
     };
 
-    Board.prototype.validImage = function(imageValue, position) {
+    Board.prototype.validImage = (imageValue, position) => {
 
         function threeEquasValuesAdjacentAnywhere() {
 
@@ -240,9 +240,9 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
     };
 
     Board.prototype.turnImage = function(squareId) {
-        var squarePosition = squareImages.getPosition(squareId);
+        const squarePosition = squareImages.getPosition(squareId);
         let clickedSquare = this.squares[squarePosition[0]][squarePosition[1]];
-        var initialImage = clickedSquare.currentImage;
+        const initialImage = clickedSquare.currentImage;
         if ((!clickedSquare.pinned) && (clickedSquare.changeable)) {
             let imageBeingChecked = squareImages.nextImage(clickedSquare.currentImage);
             let validImageFound = false;
@@ -266,7 +266,7 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
                         const timeMedal = info.medalTime();
                         const movementMedal = info.movementTotal();
                         createMedalDiv();
-                        var medals = populateMedals();
+                        const medals = populateMedals();
                         medals.forEach(imageMedals);
 
                         if(timeMedal <= level.maxTimeAchievement){
@@ -280,8 +280,8 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], function(pro
                           setMedalState(medals[2], properties.MEDAL_ON);
                         }
 
-                        medals.forEach(function(medal){
-                            var winningDiv = document.getElementById("medalDiv");
+                        medals.forEach(medal => {
+                            const winningDiv = document.getElementById("medalDiv");
                             winningDiv.appendChild(medal);
                         });
                     }

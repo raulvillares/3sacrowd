@@ -1,4 +1,4 @@
-define(["js/properties", "js/squareImages", "js/sound"], function(properties, squareImages, sound) {
+define(["js/properties", "js/squareImages", "js/sound"], (properties, squareImages, sound) => {
 
     function animationCallBack()
     {
@@ -52,7 +52,7 @@ define(["js/properties", "js/squareImages", "js/sound"], function(properties, sq
     };
 
     Square.prototype.generateImageId = function() {
-        return "imageRow" + this.row + "Column" + this.column;
+        return `imageRow${this.row}Column${this.column}`;
     };
 
     Square.prototype.pinnable = function() {
@@ -77,7 +77,7 @@ define(["js/properties", "js/squareImages", "js/sound"], function(properties, sq
         }
     };
 
-    Square.prototype.playSound = function(imageId) {
+    Square.prototype.playSound = imageId => {
         sound.play(imageId);
     };
 
@@ -86,5 +86,5 @@ define(["js/properties", "js/squareImages", "js/sound"], function(properties, sq
             return new Square(initialImage, row, column);
         }
     };
-    
+
 });

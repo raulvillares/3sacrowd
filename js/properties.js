@@ -1,4 +1,4 @@
-define(function() {
+define(() => {
 
     const NUMBER_OF_LEVELS = 19;
     const NUMBER_CHANGEABLE_IMAGES = 3;

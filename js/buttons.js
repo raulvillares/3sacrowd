@@ -2,16 +2,16 @@
 level
 */
 
-define(["js/properties", "js/sound", "js/info"], function(properties, sound, info) {
+define(["js/properties", "js/sound", "js/info"], (properties, sound, info) => {
 
     let loadLevel;
 
-    const undoMovement = function(event) {
+    const undoMovement = event => {
         if (level.filledSquares() === level.squaresToFill) {
             document.getElementById("undo").disabled = true;
         } else if (level.hasMovements()) {
-            var positionLastMovement = level.undoMovement();
-            var squareLastMovement = level.board.squares[positionLastMovement[0]][positionLastMovement[1]];
+            const positionLastMovement = level.undoMovement();
+            const squareLastMovement = level.board.squares[positionLastMovement[0]][positionLastMovement[1]];
             if (squareLastMovement.pinned) { squareLastMovement.unpin(); }
             squareLastMovement.changeImage(properties.EMPTY);
             sound.play(sound.UNDO);
@@ -19,30 +19,30 @@ define(["js/properties", "js/sound", "js/info"], function(properties, sound, inf
         }
     };
 
-    const pinSquare = function(event) {
+    const pinSquare = event => {
         if (level.pinSelected) {
             let squares = Array.prototype.slice.call(document.getElementsByClassName("square"));
-            squares.forEach(function(squareElement) {
+            squares.forEach(squareElement => {
                 squareElement.className = "square";
             });
-            document.getElementById("pin").setAttribute("src", properties.BUTTONS_IMAGES_FOLDER + "pin" + properties.BUTTONS_IMAGES_EXTENSION);
+            document.getElementById("pin").setAttribute("src", `${properties.BUTTONS_IMAGES_FOLDER}pin${properties.BUTTONS_IMAGES_EXTENSION}`);
             level.pinSelected = false;
         } else {
             let squares = Array.prototype.slice.call(document.getElementsByClassName("square"));
-            squares.forEach(function(squareElement) {
+            squares.forEach(squareElement => {
                 squareElement.className = "square pin";
             });
-            document.getElementById("pin").setAttribute("src", properties.BUTTONS_IMAGES_FOLDER + "pin_selected" + properties.BUTTONS_IMAGES_EXTENSION); 
+            document.getElementById("pin").setAttribute("src", `${properties.BUTTONS_IMAGES_FOLDER}pin_selected${properties.BUTTONS_IMAGES_EXTENSION}`); 
             level.pinSelected = true;
         }
     };
 
-    const restartLevel = function(event) {
+    const restartLevel = event => {
         info.stop();
         level = loadLevel(level.number);
     };
 
-    const previousLevel = function(event) {
+    const previousLevel = event => {
         if (level.number === 1) {
             document.getElementById("previous").disabled = true;
         } else {
@@ -51,7 +51,7 @@ define(["js/properties", "js/sound", "js/info"], function(properties, sound, inf
         }
     };
 
-    const nextLevel = function(event) {
+    const nextLevel = event => {
         if (level.number === properties.NUMBER_OF_LEVELS) {
             document.getElementById("next").disabled = true;
         } else {
@@ -67,8 +67,8 @@ define(["js/properties", "js/sound", "js/info"], function(properties, sound, inf
         },
 
         createButtons() {
-            const createButton = function(id, description) {
-                var button = document.createElement("img");
+            const createButton = (id, description) => {
+                const button = document.createElement("img");
                 button.className = "button";
                 button.id = id;
                 button.width = 53;
@@ -78,19 +78,19 @@ define(["js/properties", "js/sound", "js/info"], function(properties, sound, inf
                 return button;
             };
 
-            var buttonsElement = document.createElement("div");
+            const buttonsElement = document.createElement("div");
             buttonsElement.className = "buttons";
-            var imageButtonsElement = document.createElement("div");
+            const imageButtonsElement = document.createElement("div");
             imageButtonsElement.className = "imageButtons";
-            var undoButton = createButton("undo", "Undo movement");
+            const undoButton = createButton("undo", "Undo movement");
             undoButton.onclick = undoMovement;
-            var restartButton = createButton("restart", "Restart level");
+            const restartButton = createButton("restart", "Restart level");
             restartButton.onclick = restartLevel;
-            var pinButton = createButton("pin", "Pin Square");
+            const pinButton = createButton("pin", "Pin Square");
             pinButton.onclick = pinSquare;
-            var previousButton = createButton("previous", "Previous level");
+            const previousButton = createButton("previous", "Previous level");
             previousButton.onclick = previousLevel;
-            var nextButton = createButton("next", "Next level");
+            const nextButton = createButton("next", "Next level");
             nextButton.onclick = nextLevel;
             imageButtonsElement.appendChild(previousButton);
             imageButtonsElement.appendChild(undoButton);
