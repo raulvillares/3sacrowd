@@ -1,10 +1,10 @@
 define(["js/properties", "js/squareImages", "js/sound"], (properties, squareImages, sound) => {
 
-    function animationCallBack()
+    const animationCallBack = (elementReference) =>
     {
-        this.classList.remove('bad-animation')
-        this.setAttribute("isAnimating", "no")
-        this.removeEventListener("animationend", animationCallBack)
+        elementReference.classList.remove('bad-animation')
+        elementReference.setAttribute("isAnimating", "no")
+        elementReference.removeEventListener("animationend", animationCallBack)
     }
 
     function Square(initialImage, row, column) {
@@ -33,7 +33,7 @@ define(["js/properties", "js/squareImages", "js/sound"], (properties, squareImag
 
         if(isAnimatingState === "no") {
             element.setAttribute("isAnimating", "yes")
-            element.addEventListener("animationend", animationCallBack)
+            element.addEventListener("animationend", () => animationCallBack(element))
             element.classList.add('bad-animation')
         }
     };
