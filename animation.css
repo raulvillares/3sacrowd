@@ -1,0 +1,19 @@
+.bad-animation {
+    animation: shake 0.5s;
+    animation-iteration-count: initial;
+}
+
+@keyframes shake {
+    0% { 
+        transform: rotate(var(--shakeDeg)); 
+    }
+    33% { 
+        transform: rotate(var(--shakeDegOut)); 
+    }
+    66% { 
+        transform: rotate(var(--shakeDeg)); 
+    }
+    100% { 
+        transform: rotate(var(--shakeDegOut)); 
+    }
+}

@@ -6,6 +6,11 @@
     background-size: cover;
 }
 
+:root {
+    --shakeDeg: 10deg;
+    --shakeDegOut: -10deg;
+}
+
 body {
     background-size: cover;
     background-position: center center;
