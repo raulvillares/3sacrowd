@@ -14,7 +14,7 @@ define(() => {
 	const hint = document.createElement("p");
 	hint.className = "help-dialog__hint";
 	hint.innerHTML =
-		"Whenever you click on a square, it will change to the first available color of alien. If you click it again it will change to a different color, but ONLY if it doesn't cause there to be three of the same color in a row, column, or diagonal.<br/><br/> When you click on a square, if that square would have caused three in a row, then a different color alien will appear, unless there is no valid color available. If there is no valid move, the square will shake.";
+		"The goal of the game is to fill all available squares with an alien, without having any three like aliens in a row, column, or diagonally. <br><br>To change the color of an existing alien, click it again and the alien's color will change unless no other color is valid.";
 
 	const elementArray = [heading, hint];
 	elementArray.forEach((element) => helpDialog.appendChild(element));
