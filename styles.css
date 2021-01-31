@@ -1,187 +1,200 @@
 #index {
-    background: url(./img/backgrounds/colored_land.png) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+	background: url(./img/backgrounds/colored_land.png) no-repeat center center
+		fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 :root {
-    --shakeDeg: 10deg;
-    --shakeDegOut: -10deg;
+	--shakeDeg: 10deg;
+	--shakeDegOut: -10deg;
 }
 
 body {
-    background-size: cover;
-    background-position: center center;
-    display: block;
-    margin: 8px;
+	background-size: cover;
+	background-position: center center;
+	display: block;
+	margin: 8px;
 }
 
 @media only screen and (min-height: 600px) {
-    body#gamePlayPage {
-        overflow: hidden;
-    }
+	body#gamePlayPage {
+		overflow: hidden;
+	}
 }
 
-
 p {
-    font-family: "Lucida Console", Monaco, monospace;
-    width: 90%;
-    margin: 0 auto;
-    text-align: justify;
+	font-family: "Lucida Console", Monaco, monospace;
+	width: 90%;
+	margin: 0 auto;
+	text-align: justify;
 }
 
 div.logo {
-    margin: auto;
+	margin: auto;
 }
 
 #headerDiv img {
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
 }
 
 #start {
-    margin: 0 auto;
-    display: table;
-    transition: all 0.5s ease-in-out;
+	margin: 0 auto;
+	display: table;
+	transition: all 0.5s ease-in-out;
 }
 
 #start:hover {
-    transform:scale(1.2);
+	transform: scale(1.2);
 }
 
-
-
 .demo img {
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
 }
 
 div.level {
-    width: 100vw;
-    height: 100vh;
+	width: 100vw;
+	height: 100vh;
 }
 
 div.board {
-    margin: 5px;
+	margin: 5px;
 }
 
 div.info {
-    justify-content: center;
-    display: flex;
-    width: 99%;
-    margin: 0 auto;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 21px;
-    font-weight: bold;
-    color: yellow;
-    text-shadow: -1px 0 blue, 0 1px black, 1px 0 black, 0 -1px black;
+	justify-content: center;
+	display: flex;
+	width: 99%;
+	margin: 0 auto;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 21px;
+	font-weight: bold;
+	color: yellow;
+	text-shadow: -1px 0 blue, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 div.info > #info-text {
-    padding: 20px;
-    background: #e7fdff;
-    border: 1px solid black;
-    border-radius: 10px;
+	padding: 20px;
+	background: #e7fdff;
+	border: 1px solid black;
+	border-radius: 10px;
 }
 
 div.buttons {
-    display: flex;
-    margin: 5px;
-    width: 100%;
-    cursor: pointer;
+	display: flex;
+	margin: 5px;
+	width: 100%;
+	cursor: pointer;
 }
 
 div.imageButtons {
-    justify-content: center;
-    display: flex;
-    width: 99%;
-    margin: 0 auto;
+	justify-content: center;
+	display: flex;
+	width: 99%;
+	margin: 0 auto;
 }
 
 img.button {
-    padding-top: 10px;
-    padding-right: 20px;
+	padding-top: 10px;
+	padding-right: 20px;
 }
 
 div.row {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    max-width: 50%;
-    margin: 0 auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	max-width: 50%;
+	margin: 0 auto;
 }
 
 div.square {
-    cursor: crosshair;
-    display: flex;
-    margin: 5px;
+	cursor: crosshair;
+	display: flex;
+	margin: 5px;
 }
 
 div.square.pin {
-    cursor: url(img/cursors/pin.png) 1 28, pointer;
-    display: flex;
-    margin: 5px;
+	cursor: url(img/cursors/pin.png) 1 28, pointer;
+	display: flex;
+	margin: 5px;
 }
 
 img.squareImage.unpinned {
-    border: solid transparent;
-    border-radius: 0px;
-    border-width: 2px;  
-    /* make user select unavailable */
-    -webkit-user-select: none;  
-    -moz-user-select: none;     
-    -ms-user-select: none;     
-    user-select: none;     
+	border: solid transparent;
+	border-radius: 0px;
+	border-width: 2px;
+	/* make user select unavailable */
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 img.squareImage.pinned {
-    border: groove #cc0000;
-    border-radius: 13px;
-    border-width: 2px;
-    -webkit-user-select: none; 
-    -moz-user-select: none;   
-    -ms-user-select: none;    
-    user-select: none;          
-
+	border: groove #cc0000;
+	border-radius: 13px;
+	border-width: 2px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 .game-description {
-    margin-top: 100px;
+	margin-top: 100px;
+}
+.help-dialog {
+	margin: 10px auto;
+	height: auto;
+	border-radius: 10px;
+	width: 1000px;
+	background-color: rgba(64, 229, 244, 0.3);
+	box-shadow: 1px 2px 3px black;
+}
+
+.help-dialog__heading {
+	margin: 10px auto 10px 50px;
+	padding-top: 10px;
+	font-size: 24px;
+	color: #000000;
+}
+.help-dialog__hint {
+	padding-bottom: 20px;
 }
 
 .hide {
-    display: none;
+	display: none;
 }
-
-
 
 .medals {
-    margin-left: auto;
-    margin-right: auto;
-    padding: 10px;
-    display: inline-block;
-    position: relative;
-    width: 120px;
-    height: 130px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+	display: inline-block;
+	position: relative;
+	width: 120px;
+	height: 130px;
 }
 
-.medals span{
-    position: absolute;
-    display: block;
-    color: white;
-    text-shadow: 1px 2px 3px black;
-    width: 115px;
-    font-size: 1.3em;
+.medals span {
+	position: absolute;
+	display: block;
+	color: white;
+	text-shadow: 1px 2px 3px black;
+	width: 115px;
+	font-size: 1.3em;
 }
 
-#medalDiv{
-    text-align: center;
+#medalDiv {
+	text-align: center;
 }
 
 .bold {
-    font-weight: bold;
+	font-weight: bold;
 }
