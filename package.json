@@ -16,7 +16,10 @@
     "babel-preset-es2015": "^6.24.1"
   },
   "scripts": {
-    "test": "tape test/**/*.js"
+    "allTests": "tape test/**/*.js",
+    "infoTest": "tape test/**/infoTest.js",
+    "levelsTest": "tape test/**/levelsTest.js",
+    "squareImagesTest": "tape test/**/squareImagesTest.js"
   },
   "author": "",
   "license": "ISC"
