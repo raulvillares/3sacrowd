@@ -1,4 +1,4 @@
-const test = require("test");
+const test = require("tape");
 const requirejs = require("requirejs");
 
 test("levels.js tests", (assert) => {

@@ -1,4 +1,4 @@
-const test = require("test");
+const test = require("tape");
 const requirejs = require("requirejs");
 
 test("squareImages.js tests", (assert) => {
