@@ -14,9 +14,9 @@ The game is entirely developed with [Vanilla JS](http://vanilla-js.com/). [Requi
 
 ### To write and run the tests:
 
-1. Install the pre-requisites:  
+1. Clone/Download the code.
+2. Install the pre-requisites:  
    Run `npm install` in your terminal.
-2. Clone/Download the code.
 3. Make any changes as you feel necessary.
 4. To run all tests, run `npm run allTests` in your terminal.
    To run a specific test, run `npm run [testName]` in your terminal.
