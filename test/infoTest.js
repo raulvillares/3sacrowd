@@ -1,5 +1,5 @@
-const test = require("tape");
-const requirejs = require("requirejs");
+import test from "tape";
+import requirejs from "requirejs";
 
 test("info.js tests", (assert) => {
 	requirejs(["./require-config.js", "./js/info.js"], function (config, info) {

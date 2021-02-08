@@ -1,5 +1,5 @@
-const test = require("tape");
-const requirejs = require("requirejs");
+import test from "tape";
+import requirejs from "requirejs";
 
 test("levels.js tests", (assert) => {
 	requirejs(

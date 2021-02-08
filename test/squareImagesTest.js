@@ -1,5 +1,5 @@
-const test = require("tape");
-const requirejs = require("requirejs");
+import test from "tape";
+import requirejs from "requirejs";
 
 test("squareImages.js tests", (assert) => {
 	requirejs(

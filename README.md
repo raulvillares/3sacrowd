@@ -21,7 +21,7 @@ The game is entirely developed with [Vanilla JS](http://vanilla-js.com/). [Requi
 4. To run all tests, run `npm run allTests` in your terminal.
    To run a specific test, run `npm run [testName]` in your terminal.
    For example to run the test located in test/infoTest.js run `npm run infoTest`
-5. Any test added, should have a test script added to the `package.json` file in the root directory, using the same naming conventions.
+5. Any test added, should have a test script added to the `package.json` file in the root directory, using the same naming conventions, `node run /test/[testName.js]`.
 
 [Original idea](http://www2.stetson.edu/~efriedma/puzzle/tic/) by Erich Friedman. Each puzzle has a unique solution. All puzzles © Erich Friedman, 2010.
 
