@@ -1,3 +1,3 @@
-require(["js/levelLoader"], loader => {
-    const level = loader.loadLevel(1);
+require(["js/levelLoader"], (loader) => {
+	const level = loader.loadLevel(1);
 });
