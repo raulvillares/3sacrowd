@@ -70,6 +70,20 @@ test("info.js tests", (assert) => {
 			"Asserts that 'movementTotal()' function returns a value with number type"
 		);
 
+		assert.equal(
+			info.movementTotal(), 
+			0, 
+			'Should start with 0 movements'
+		);
+
+		info.addMovement();
+		
+		assert.equal(
+			info.movementTotal(), 
+			1, 
+			'Should have 1 movement'
+		);
+
 		assert.end();
 	});
 });
