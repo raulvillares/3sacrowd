@@ -1,12 +1,18 @@
 [![](http://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square)](http://www.firsttimersonly.com/) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c01d873f278c49dabb41b58949f59c6d)](https://www.codacy.com/app/raulvillares/vanilla_3sacrowd?utm_source=github.com&utm_medium=referral&utm_content=raulvillares/vanilla_3sacrowd&utm_campaign=Badge_Grade)
 
-![enter image description here](https://raw.githubusercontent.com/raulvillares/3sacrowd/master/img/logos/logo2.png)
+![3sacrowd title logo](https://raw.githubusercontent.com/raulvillares/3sacrowd/master/img/logos/logo2.png)
 
-Directions: Put an alien tile in every empty square until you **fill the whole board**. But be careful! You must **<font size="3" color="red">avoid 3 adjacent same colored tiles</font>** (horizontally, vertically, or diagonally).
+# How to Play
+
+**Directions**: The objective of 3sacrowd is to place an alien tile in every empty square in order to 
+**fill the entire board**. But be careful! You must **<font size="3" color="FF0000">avoid having three adjacent tiles of the same color in any direction</font>**--
+horizontally, vertically, or diagonally. Aliens need their space! 
+
+When all the empty tiles have been occupied, <font size="3" color="#00FF00">you win</font>!
+
+Some tiles will be fixed and you will not be allowed to place an alien at that location. However, you may use these to your advantage. Because sometimes **creativity needs constraints**. ;-)
 
 [Play a demo here!](https://raulvillares.github.io/3sacrowd/index.html)
-
-Some squares are fixed and you are not allowed to put an alien tile at that location. However, you may use those squares to your advantage. Because sometimes **creativity needs constraints**. ;-)
 
 ![Sample board](https://raw.githubusercontent.com/raulvillares/3sacrowd/master/img/landing_page/demo.png)
 
@@ -14,7 +20,8 @@ The game is entirely developed with [Vanilla JS](http://vanilla-js.com/). [Requi
 
 ### To write and run the tests:
 
-1. Clone/Download the code.
+1. Clone/Download the code from this repository.
+![Clone/Download example](https://i.imgur.com/2ikwsFE.png)
 2. Install the pre-requisites:  
    Run `npm install` in your terminal.
 3. Make any changes as you feel necessary.
