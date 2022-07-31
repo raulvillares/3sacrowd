@@ -1,0 +1,34 @@
+body {
+  background-size: cover;
+  background-position: center center;
+  display: block;
+  margin: 8px;
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
+}
+
+#section {
+  text-align: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+#difficulty {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 0.2rem;
+}
+
+#difficulty > div {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  cursor: pointer;
+  padding: 0.7rem;
+  border-radius: 5px;
+  display: inline-block;
+  text-transform: uppercase;
+  transition: background-color 0.5s ease-out;
+}
+
+#difficulty > div:hover {
+  background-color: rgba(132, 57, 57, 0.1);
+}

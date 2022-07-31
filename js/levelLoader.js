@@ -1,6 +1,6 @@
-/*global
-level
-*/
+// /*global
+// level
+// */
 
 define(
     ["js/properties", "js/board", "js/level", "js/levels", "js/square", "js/buttons", "js/info"],
@@ -45,7 +45,7 @@ define(
                     levelBoard.addRow(rowSquares);
                 });
 
-                return levelBoard;
+              return levelBoard;
             }
 
             let levelConfiguration = levelsData.getLevelData(levelNumber);
@@ -61,8 +61,9 @@ define(
         };
 
         return {
-            loadLevel(levelNumber) {
+            loadLevel(levelNumber, difficultyLevel) {
                 buttons.setLoadLevel(loadFunction);
+                buttons.setDifficultyLevel(difficultyLevel)
                 loadFunction(levelNumber);
             }
         };
