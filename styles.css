@@ -198,3 +198,14 @@ img.squareImage.pinned {
 .bold {
 	font-weight: bold;
 }
+
+/* adding styles for settings */
+#settings {
+  	float: right;
+  	padding: 0.2rem;
+  	transition: all 0.5s ease-in-out;
+}
+
+#settings:hover {
+  	transform: scale(1.2);
+}
