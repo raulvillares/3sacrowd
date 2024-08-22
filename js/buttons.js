@@ -2,13 +2,15 @@
 level
 */
 
-define(["js/properties", "js/sound", "js/info", "js/helpDialog"], (
+define(["js/properties", "js/sound", "js/info", "js/helpDialog", "js/alertBox"], (
 	properties,
 	sound,
 	info,
-	helpDialog
+	helpDialog,
+  	alert
 ) => {
 	let loadLevel;
+  	let levelOfDifficulty;
 
 	const undoMovement = (event) => {
 		if (level.filledSquares() === level.squaresToFill) {
@@ -73,8 +75,21 @@ define(["js/properties", "js/sound", "js/info", "js/helpDialog"], (
 	};
 
 	const nextLevel = (event) => {
-		if (level.number === properties.NUMBER_OF_LEVELS) {
-			document.getElementById("next").disabled = true;
+    	const timeMedal = info.medalTime();
+    	const movementMedal = info.movementTotal();
+    	const isHard = levelOfDifficulty === "hard";
+
+    	if (
+      	(isHard && timeMedal > level.maxTimeAchievement) ||
+      	(isHard && movementMedal > level.maxMovementsAchievement) ||
+      	(isHard && level.filledSquares() !== level.squaresToFill) ||
+      	level.number === properties.NUMBER_OF_LEVELS
+    	) {
+      		if (isHard && level.number !== properties.NUMBER_OF_LEVELS) {
+        		alert.alertDisplay("You must have 3 stars to go the next level", "OK");
+        		info.stop();
+      		}
+	 		document.getElementById("next").disabled = true;
 		} else {
 			info.stop();
 			level = loadLevel(level.number + 1);
@@ -99,6 +114,9 @@ define(["js/properties", "js/sound", "js/info", "js/helpDialog"], (
 		setLoadLevel(loadFunction) {
 			loadLevel = loadFunction;
 		},
+    	setDifficultyLevel(difficultyLevel) {
+      		levelOfDifficulty = difficultyLevel;
+   		},
 
 		createButtons() {
 			const createButton = (id, description) => {
