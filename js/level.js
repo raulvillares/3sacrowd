@@ -1,4 +1,4 @@
-define(() => {
+define(["js/buttons", "js/info"],(buttons, info) => {
 
     function Level(levelConfiguration, board) {
         this.number = levelConfiguration.levelNumber;
@@ -17,7 +17,15 @@ define(() => {
 
     Level.prototype.addMovement = function(position) {
         if (this.indexOfMovement(position) === -1) {
-            this.movements.push(position);
+            if (info.movementTotal() < this.maxMovementsAchievement) {
+                if (info.medalTime() < this.maxTimeAchievement) {
+                    this.movements.push(position);
+                } else {
+                    buttons.showLimitTimeDialog();
+                }
+            } else {                
+                buttons.showLimitDialog();
+            }
         }
     };
 

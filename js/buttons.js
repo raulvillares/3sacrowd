@@ -95,10 +95,32 @@ define(["js/properties", "js/sound", "js/info", "js/helpDialog"], (
 		}
 	};
 
+	const showLimitDialog = () => {
+		const levelElement = document.getElementById("level");
+		const existingLimitDialog = levelElement.querySelector("#limit-dialog");
+	
+		if (!existingLimitDialog) {
+			levelElement.append(limitDialog);
+		}
+	};
+
+	const showLimitTimeDialog = () => {
+		const levelElement = document.getElementById("level");
+		const existingLimitTimeDialog = levelElement.querySelector("#limit-time-dialog");
+	
+		if (!existingLimitTimeDialog) {
+			levelElement.append(limitTimeDialog);
+		}
+	};
+
 	return {
 		setLoadLevel(loadFunction) {
 			loadLevel = loadFunction;
 		},
+
+		showLimitDialog,
+		
+		showLimitTimeDialog,
 
 		createButtons() {
 			const createButton = (id, description) => {

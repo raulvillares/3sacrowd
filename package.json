@@ -14,6 +14,7 @@
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.24.1",
+    "jsdom": "^26.0.0",
     "tape": "^5.8.1"
   },
   "scripts": {
@@ -21,7 +22,8 @@
     "infoTest": "node test/infoTest.js",
     "levelsTest": "node test/levelsTest.js",
     "squareImagesTest": "node test/squareImagesTest.js",
-     "test": "tape test/test.js"
+    "test": "tape test/test.js",
+    "limitTest": "node test/limitTest.js"
   },
   "author": "",
   "license": "ISC"

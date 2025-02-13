@@ -198,3 +198,53 @@ img.squareImage.pinned {
 .bold {
 	font-weight: bold;
 }
+
+.limit-dialog {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(255, 255, 255, 0.70);
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+	border-radius: 12px;
+	padding: 20px;
+	text-align: center;
+	z-index: 1000;
+	overflow: hidden;
+}
+
+.limit-dialog__heading {
+	font-size: 22px;
+	font-weight: bold;
+	color: #d9534f;
+	margin-bottom: 15px;
+}
+
+.limit-dialog__message {
+	font-size: 16px;
+	font-weight: bold;
+	width: 400px;
+	color: #d9534f;
+	margin-bottom: 20px;
+}
+
+.limit-dialog__button {
+	background-color: #5cb85c;
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+	border: none;
+	border-radius: 8px;
+	padding: 10px 20px;
+	cursor: pointer;
+}
+
+.limit-dialog__button:hover {
+	background-color: #4cae4c;
+}
