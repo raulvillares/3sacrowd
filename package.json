@@ -21,6 +21,7 @@
     "infoTest": "node test/infoTest.js",
     "levelsTest": "node test/levelsTest.js",
     "squareImagesTest": "node test/squareImagesTest.js",
+    "squareTest": "node test/squareTest.js",
      "test": "tape test/test.js"
   },
   "author": "",
