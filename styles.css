@@ -1,6 +1,5 @@
 #index {
-	background: url(./img/backgrounds/colored_land.png) no-repeat center center
-		fixed;
+	background: url(./img/backgrounds/colored_land.png) no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -28,8 +27,9 @@ body {
 p {
 	font-family: "Lucida Console", Monaco, monospace;
 	width: 90%;
-	margin: 0 auto;
+	margin: 15px auto;
 	text-align: justify;
+	line-height: 1.6;
 }
 
 div.logo {
@@ -37,9 +37,11 @@ div.logo {
 }
 
 #headerDiv img {
+	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	display: block;
+	max-width: 200px;
+	height: auto;
 }
 
 #start {
@@ -53,9 +55,18 @@ div.logo {
 }
 
 .demo img {
+	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	display: block;
+	max-width: 300px;
+	height: auto;
+}
+
+.center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 15px 0;
 }
 
 div.level {
@@ -129,7 +140,6 @@ img.squareImage.unpinned {
 	border: solid transparent;
 	border-radius: 0px;
 	border-width: 2px;
-	/* make user select unavailable */
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -147,8 +157,12 @@ img.squareImage.pinned {
 }
 
 .game-description {
-	margin-top: 100px;
+	margin-top: 50px;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
 }
+
 .help-dialog {
 	margin: 10px auto;
 	height: auto;
@@ -164,6 +178,7 @@ img.squareImage.pinned {
 	font-size: 24px;
 	color: #000000;
 }
+
 .help-dialog__hint {
 	padding-bottom: 20px;
 }
@@ -198,3 +213,9 @@ img.squareImage.pinned {
 .bold {
 	font-weight: bold;
 }
+
+.highlight {
+	color: red;
+	font-size: 1.1em;
+}
+	
