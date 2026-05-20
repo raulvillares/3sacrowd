@@ -40,8 +40,12 @@ define([], () => {
     };
 
     const regenerate = () => {
-        ++totalSeconds;
-        document.getElementById("info-text").innerText = getInfo()
+        if (totalSeconds < level.maxTimeAchievement) {
+            ++totalSeconds;
+            document.getElementById("info-text").innerText = getInfo();
+        } else {
+            window.clearInterval(intervalId);
+        }
     };
 
     return {
@@ -69,6 +73,9 @@ define([], () => {
         },
         movementTotal: function movementTotal() {
             return movements;
-        }
+        },
+        timeTotal: function timeTotal() {
+            return totalSeconds;
+        },
     };
 });

@@ -121,10 +121,14 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], (properties,
     Board.prototype.clicked = event => {
         if (level.filledSquares() < level.squaresToFill) {
             if (event.target.className.startsWith("squareImage")) {
-                if (level.pinSelected) {
-                    level.board.pinSquare(event.target.id);
+                if (info.movementTotal() < level.maxMovementsAchievement && info.timeTotal() < level.maxTimeAchievement) {
+                    if (level.pinSelected) {
+                        level.board.pinSquare(event.target.id);
+                    } else {
+                        level.board.turnImage(event.target.id);
+                    }
                 } else {
-                    level.board.turnImage(event.target.id);
+                    sound.play(sound.FORBIDDEN);
                 }
             }
         }
@@ -143,7 +147,7 @@ define(["js/properties", "js/sound", "js/squareImages", "js/info"], (properties,
     }   
 
     Board.prototype.mouseover = event => {    
-        if (level.filledSquares() < level.squaresToFill) {  
+        if (level.filledSquares() < level.squaresToFill && info.movementTotal() < level.maxMovementsAchievement && info.timeTotal() < level.maxTimeAchievement) {  
             if (event.target.className.startsWith("squareImage")) { 
                 const squarePosition = squareImages.getPosition(event.target.id); 
                 let mouseOveredSquare = level.board.squares[squarePosition[0]][squarePosition[1]];  

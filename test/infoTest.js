@@ -84,6 +84,62 @@ test("info.js tests", (assert) => {
 			'Should have 1 movement'
 		);
 
-		assert.end();
+		// timeTotal
+		assert.ok(
+			info.hasOwnProperty("timeTotal"),
+			"Asserts that info.js has a property called timeTotal"
+		);
+		assert.equal(
+			typeof info.timeTotal,
+			"function",
+			"Asserts that the value type of 'timeTotal' property is a function"
+		);
+		assert.equal(
+			typeof info.timeTotal(),
+			"number",
+			"Asserts that 'timeTotal()' function returns a value with number type"
+		);
+
+		// Time limit assertion
+		assert.equal(
+			info.timeTotal(),
+			0,
+			'Should start with 0 seconds for time limit tracking'
+		);
+
+		const oldDocument = global.document;
+		const oldWindow = global.window;
+		const oldInterval = global.setInterval;
+		const oldClearInterval = global.clearInterval;
+
+		global.document = {
+			createElement: () => ({ appendChild: () => {}, className: "", id: "" }),
+			getElementById: () => ({ innerText: "" })
+		};
+		global.window = {
+			setInterval: setInterval,
+			clearInterval: clearInterval
+		};
+		global.setInterval = setInterval;
+		global.clearInterval = clearInterval;
+
+		global.level = { maxTimeAchievement: 1 };
+		info.generateInfo(1, 19); 
+		
+		assert.equal(info.timeTotal(), 0, "Time should start at 0");
+		
+		setTimeout(() => {
+			assert.ok(info.timeTotal() <= 1, "Time should NOT exceed maxTimeAchievement (1)");
+
+			info.stop();
+
+			// Restore globals
+			global.document = oldDocument;
+			global.window = oldWindow;
+			global.setInterval = oldInterval;
+			global.clearInterval = oldClearInterval;
+
+			assert.end();
+		}, 2000);
 	});
 });
