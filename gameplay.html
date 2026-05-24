@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>3sacrowd!</title>
-		<link rel="stylesheet" type="text/css" href="styles.css" />
-		<link rel="stylesheet" href="./animation.css" />
-		<link rel="icon" type="image/png" href="./img/squares/pink.png" />
-	</head>
-	<body id="gamePlayPage">
-		<a href="index.html"><div class="headerDiv" id="headerDiv"></div></a>
-		<div class="level" id="level"></div>
-		<script data-main="gameplay" src="require.js"></script>
-	</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3sacrowd!</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" href="./animation.css" />
+    <link rel="icon" type="image/png" href="./img/squares/pink.png" />
+</head>
+<body id="gamePlayPage">
+
+    <!-- Clickable header -->
+    <a href="index.html">
+        <header class="headerDiv" id="headerDiv">
+            <img id="headerImage" src="./img/logos/logo2.png" alt="Logo 3sacrowd!">
+        </header>
+    </a>
+
+    <!-- Level / game board container -->
+    <main class="level" id="level">
+        <!-- Game board will be injected by gameplay.js -->
+    </main>
+
+    <!-- RequireJS main script -->
+    <script data-main="gameplay" src="require.js"></script>
+
+</body>
 </html>
