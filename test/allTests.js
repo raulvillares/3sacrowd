@@ -4,3 +4,4 @@ import "./infoTest.js";
 import "./boardTest.js";
 import "./squareImagesTest.js";
 import "./test.js";
+import "./limitTest.js";
