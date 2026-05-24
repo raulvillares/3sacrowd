@@ -3,11 +3,19 @@
 	<head>
 		<title>3sacrowd!</title>
 		<link rel="stylesheet" type="text/css" href="styles.css" />
+		<link rel="stylesheet" type="text/css" href="gameplay.css" />
 		<link rel="stylesheet" href="./animation.css" />
 		<link rel="icon" type="image/png" href="./img/squares/pink.png" />
 	</head>
 	<body id="gamePlayPage">
-		<a href="index.html"><div class="headerDiv" id="headerDiv"></div></a>
+  <a href="index.html">
+		<div class="background">&nbsp;</div>
+    	<div class="alertBox">
+	 		<p class="alertText"></p>
+      		<button class="alertButton"></button>
+   		</div>
+		<div class="headerDiv" id="headerDiv"></div>
+   </a>
 		<div class="level" id="level"></div>
 		<script data-main="gameplay" src="require.js"></script>
 	</body>
